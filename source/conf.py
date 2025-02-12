@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = '1shot-documentation'
+project = '1Shot API Docs'
 copyright = '2025, UXly Software'
 author = 'UXly Software'
 release = '0.1.0'
