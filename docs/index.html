@@ -15,6 +15,7 @@
     <link rel="canonical" href="https://docs.1shotapi.com/index.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Escrow Wallets" href="escrow-wallets.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -32,18 +33,33 @@
 
           <div class="body" role="main">
             
-  <section id="welcome-to-1shot">
+  <a class="reference internal image-reference" href="_images/test-image.png"><img alt="1Shot Logo" class="align-center" src="_images/test-image.png" style="width: 400px;" />
+</a>
+<section id="welcome-to-1shot">
 <h1>Welcome to 1Shot!<a class="headerlink" href="#welcome-to-1shot" title="Link to this heading">¶</a></h1>
-<p>The 1Shot API is the first fully managed transaction service for the Etherum mainnet and L2 ecosystem. It provides a simple REST interface
+<section id="the-first-managed-transaction-service-for-the-ethereum-ecosystem">
+<h2>The first managed transaction service for the Ethereum ecosystem.<a class="headerlink" href="#the-first-managed-transaction-service-for-the-ethereum-ecosystem" title="Link to this heading">¶</a></h2>
+<p>The <a class="reference external" href="https://1shotapi.com">1Shot API</a> is the first fully managed transaction service for the Etherum mainnet and L2 ecosystem. It provides a simple REST interface
 to trigger state-changing transactions on your target network with a single API call. This greatly simplifies adding digital assets or on-chain
 logic to any application, regardless of the blockchain network, or the language your application is developed in.</p>
-<p>1Shot provides helpful client sdks for popular languages like Python, Typescript, C#, and PHP, so you can get one-shot your next app in no time,
+<p>1Shot provides helpful client sdks for popular languages like Python, Typescript, C#, and PHP, so you can one shot your next app in no time,
 leaving the complexities of transaction submission and monitoring to us.</p>
+</section>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">¶</a></h2>
+<p>You can start using 1Shot by making an account at <a class="reference external" href="https://1shotapi.com">1shotapi.com</a>. You’ll need to:</p>
+<ol class="arabic simple">
+<li><p>Select the target blochchain network where you wish to trigger transactions.</p></li>
+<li><p>Generate an escrow wallet and fund with gas tokens for that network.</p></li>
+<li><p>Configure a transaction endpoint by supplying a contract address and configuring the function on the contract the endpoint will call. You can also optionally set a webhook callback which will trigger when you transaction is confirmed.</p></li>
+<li><p>Call your newly configured API endpoint from your application.</p></li>
+</ol>
 <p>Add your content using <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> syntax. See the
 <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html">reStructuredText</a>
 documentation for details.</p>
 <div class="toctree-wrapper compound">
 </div>
+</section>
 </section>
 
 
@@ -72,11 +88,17 @@ documentation for details.</p>
     </div>
 </search>
 <script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="escrow-wallets.html">Escrow Wallets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transactions.html">Transaction Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teams.html">Team Management</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="escrow-wallets.html" title="next chapter">Escrow Wallets</a></li>
   </ul></li>
 </ul>
 </div>
