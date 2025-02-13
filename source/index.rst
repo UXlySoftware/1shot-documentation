@@ -11,9 +11,6 @@
 Welcome to 1Shot!
 =================================
 
-The first managed transaction service for the Ethereum ecosystem.
-----------------------------------
-
 The `1Shot API <https://1shotapi.com>`_ is the first fully managed transaction service for the Etherum mainnet and L2 ecosystem. It provides a simple REST interface
 to trigger state-changing transactions on your target network with a single API call. This greatly simplifies adding digital assets or on-chain 
 logic to any application, regardless of the blockchain network, or the language your application is developed in. 
@@ -30,10 +27,6 @@ You can start using 1Shot by making an account at `1shotapi.com <https://1shotap
 2. Generate an escrow wallet and fund with gas tokens for that network.
 3. Configure a transaction endpoint by supplying a contract address and configuring the function on the contract the endpoint will call. You can also optionally set a webhook callback which will trigger when you transaction is confirmed.
 4. Call your newly configured API endpoint from your application.
-
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
 
 .. toctree::
    :hidden:
