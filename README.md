@@ -1,4 +1,6 @@
-![1Shot](source/_static/1shot-logo.svg)
+<div align="center">
+  <img src="source/_static/1shot-logo.svg" alt="1Shot" />
+</div>
 # 1Shot Docs
 Sphinx docs repo which build the user docs for [1shotapi.com](https://1shotapi.com). 
 
