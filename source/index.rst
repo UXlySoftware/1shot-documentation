@@ -3,11 +3,6 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. image:: _static/test-image.png
-   :alt: 1Shot Logo
-   :align: center
-   :width: 400px
-
 Welcome to 1Shot!
 =================================
 

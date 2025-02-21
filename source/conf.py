@@ -28,8 +28,8 @@ exclude_patterns = []
 
 #html_theme = 'alabaster'
 html_title = '1Shot Docs'
-#html_logo = '' # https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_logo
-#html_favicon = '' # https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_favicon
+html_logo = '_static/1shot-logo.svg' # https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_logo
+html_favicon = '_static/favicon.ico' # https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_favicon
 html_show_sphinx = False
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ['_static']
