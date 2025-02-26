@@ -7,4 +7,5 @@ Webhooks
 ---------
 
 Webhooks are an optional configuration for you transaction endpoint but are highly recommended as they provide immediate feedback to your application once your transaction
-has been confirmed on the blochchain network.  
+has been confirmed on the blochchain network. 
+

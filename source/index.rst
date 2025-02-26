@@ -6,21 +6,24 @@
 Welcome to 1Shot!
 =================================
 
-The `1Shot API <https://1shotapi.com>`_ is the first fully managed transaction service for the Etherum mainnet and L2 ecosystem. It provides a simple REST interface
-to trigger state-changing transactions on your target network with a single API call. This greatly simplifies adding digital assets or on-chain 
-logic to any application, regardless of the blockchain network, or the language your application is developed in. 
+The `1Shot API <https://1shotapi.com>`_ is the first fully managed transaction service for the Ethereum mainnet and L2 ecosystem. It provides a simple REST API
+to trigger state-changing transactions on a target blockchain network with a single POST call. 
 
-1Shot provides helpful client sdks for popular languages like Python, Typescript, C#, and PHP, so you can one shot your next app in no time,
+1Shot is designed to handle heavy user traffic. If your product has many users triggering on-chain mechanics all at once, 1Shot ensures all of your transactions will 
+make it to the chain. 1Shot greatly simplifies the technical overhead of adding digital assets or on-chain logic to any application, and unlocks new possibilities 
+for streamlined end-user experience, regardless of the language you application is written in.
+
+Several helpful client sdks for popular languages like Python, Typescript, C#, and PHP are available so you can one shot your next app in no time,
 leaving the complexities of transaction submission and monitoring to us.
 
 Getting Started
 ----------------------------------
 
-You can start using 1Shot by making an account at `1shotapi.com <https://1shotapi.com>`_. You'll need to:
+You can start using 1Shot by making an account at `app.1shotapi.com <https://app.1shotapi.com>`_. You'll need to:
 
-1. Select the target blochchain network where you wish to trigger transactions.
-2. Generate an escrow wallet and fund with gas tokens for that network.
-3. Configure a transaction endpoint by supplying a contract address and configuring the function on the contract the endpoint will call. You can also optionally set a webhook callback which will trigger when you transaction is confirmed.
+1. Create an organization and add team members.
+2. Select the target blockchain network where you wish to trigger transactions, generate an escrow wallet and fund with gas tokens for that network.
+3. Configure a transaction endpoint by supplying a contract address and configuring the function on the contract the endpoint will call. You can also optionally set a webhook callback which will trigger when a transaction from this endpoint is confirmed.
 4. Call your newly configured API endpoint from your application.
 
 .. toctree::
@@ -28,6 +31,6 @@ You can start using 1Shot by making an account at `1shotapi.com <https://1shotap
    :maxdepth: 2
 
    index
+   org-creation
    escrow-wallets
    transactions
-   teams
