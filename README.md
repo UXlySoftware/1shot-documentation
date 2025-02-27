@@ -25,7 +25,7 @@ docker run -d --rm -p 8080:8080 --name sphinx -v ~/code/1shot-documentation/docs
 Use ffmpeg to convert screen recordings into embeddable gif formats:
 
 ```
-docker run --rm -v ~/code/1shot-documentation/source/_static/:/root linuxserver/ffmpeg -i /root/org-creation/create-org-recording.mov -vf "fps=10,scale=640:-1:flags=lanczos" /root/org-creation/create-org-recording.gif
+docker run --rm -v ~/code/1shot-documentation/source/_static/:/root linuxserver/ffmpeg -i /root/org-creation/create-org-recording.mov -vf "fps=10,scale=1080:-1:flags=lanczos" /root/org-creation/create-org-recording.gif
 ```
 
 ## Themes
