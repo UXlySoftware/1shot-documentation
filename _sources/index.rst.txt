@@ -2,9 +2,15 @@
    sphinx-quickstart on Wed Feb 12 19:54:45 2025.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
-.. image:: ./_static/banner.png
+.. image:: ./_static/light-banner.png
    :alt: 1Shot
    :align: center
+   :class: only-light
+
+.. image:: ./_static/dark-banner.png
+   :alt: 1Shot
+   :align: center
+   :class: only-dark
 
 Welcome to 1Shot!
 =================================
