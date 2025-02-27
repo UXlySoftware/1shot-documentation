@@ -1,0 +1,43 @@
+name: Build and Publish Sphinx Docs
+
+on:
+  push:
+    branches:
+      - main  # Trigger the workflow when pushing to the 'main' branch
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.13  # Use the appropriate Python version
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install sphinx pydata-sphinx-theme  # Add any extra dependencies for your docs
+
+      # Build the Sphinx docs
+      - name: Build Sphinx Docs
+        run: |
+          make html
+
+      # Deploy to the 'docs' branch
+      - name: Deploy to 'docs' Branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          publish_branch: docs
