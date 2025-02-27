@@ -2,6 +2,9 @@
    sphinx-quickstart on Wed Feb 12 19:54:45 2025.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
+.. image:: ./_static/banner.png
+   :alt: 1Shot
+   :align: center
 
 Welcome to 1Shot!
 =================================
@@ -30,7 +33,6 @@ You can start using 1Shot by making an account at `app.1shotapi.com <https://app
    :hidden:
    :maxdepth: 2
 
-   index
    org-creation
    escrow-wallets
    transactions
