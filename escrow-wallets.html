@@ -223,6 +223,10 @@
   
 
   
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
 </div>
 
     </header>
@@ -382,8 +386,23 @@
                   
   <section id="escrow-wallets">
 <h1>Escrow Wallets<a class="headerlink" href="#escrow-wallets" title="Link to this heading">#</a></h1>
-<p>Escrow wallets are Ethereum signing keys managed by 1Shot to submit transaction on you behalf when you make a REST call to one of your configured
-transaction endpoints.</p>
+<img alt="Escrow Flow" class="only-light align-center" src="_images/escrow-flow-light.png" />
+<img alt="Escrow Flow" class="only-dark align-center" src="_images/escrow-flow-dark.png" />
+<p>Escrow wallets are Ethereum signing keys managed by 1Shot to submit transactions on your behalf when you make a REST call to one of your configured
+<a class="reference external" href="transactions.html">transaction endpoints</a>. In order to submit transaction from any of your 1Shot-manged escrow keys, you must first deposit gas tokens into the wallet.</p>
+<p>1Shot keeps your keys secure and encrypted at rest, but it is still good practice to only deposit the amount of gas tokens you need for a given period of time.
+If you need to deposit more gas tokens, you can always top up your escrow wallet at anytime and you will receive a confirmation email when 1Shot detects a deposit.</p>
+<section id="creating-an-escrow-wallet">
+<h2>Creating an Escrow Wallet<a class="headerlink" href="#creating-an-escrow-wallet" title="Link to this heading">#</a></h2>
+<img alt="Creating your first escrow wallet" class="align-center" src="_images/escrow-wallets-getting-started.png" />
+<p>To create an escrow wallet, navigate to the <a class="reference external" href="https://app.1shotapi.com/escrow-wallets">Escrow Wallets</a> page in the 1Shot dashboard and click the “Create Wallet” button.
+You will be prompted to enter a name and description for your new wallet and the target blockchain the wallet will operate on.</p>
+</section>
+<section id="funding-your-escrow-wallet">
+<h2>Funding Your Escrow Wallet<a class="headerlink" href="#funding-your-escrow-wallet" title="Link to this heading">#</a></h2>
+<p>Only fund your escrow wallet with assets on the target blockchain the wallet is configured for. For example, if you are configuring a transaction endpoint for the Ethereum mainnet,
+you should only deposit Ethereum gas tokens into the wallet. If you are configuring a transaction endpoint for the Polygon network, you should only deposit Polygon gas tokens into the wallet.</p>
+</section>
 </section>
 
 
@@ -420,6 +439,25 @@ transaction endpoints.</p>
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-an-escrow-wallet">Creating an Escrow Wallet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funding-your-escrow-wallet">Funding Your Escrow Wallet</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
