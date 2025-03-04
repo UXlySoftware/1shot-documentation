@@ -388,20 +388,25 @@
 <h1>Escrow Wallets<a class="headerlink" href="#escrow-wallets" title="Link to this heading">#</a></h1>
 <img alt="Escrow Flow" class="only-light align-center" src="_images/escrow-flow-light.png" />
 <img alt="Escrow Flow" class="only-dark align-center" src="_images/escrow-flow-dark.png" />
-<p>Escrow wallets are Ethereum signing keys managed by 1Shot to submit transactions on your behalf when you make a REST call to one of your configured
-<a class="reference external" href="transactions.html">transaction endpoints</a>. In order to submit transaction from any of your 1Shot-manged escrow keys, you must first deposit gas tokens into the wallet.</p>
-<p>1Shot keeps your keys secure and encrypted at rest, but it is still good practice to only deposit the amount of gas tokens you need for a given period of time.
-If you need to deposit more gas tokens, you can always top up your escrow wallet at anytime and you will receive a confirmation email when 1Shot detects a deposit.</p>
+<p>Escrow wallets are Ethereum-compatible signing keys managed by 1Shot to submit transactions on your behalf when you make a REST
+call to one of your configured <a class="reference external" href="transactions.html">transaction endpoints</a>. Each of your escrow wallets can be linked to one or
+more transaction endpoints (but each endpoint can only have a single escrow wallet). In order to submit a transaction from any
+of your 1Shot-managed escrow wallets, you must first deposit gas tokens.</p>
+<p>1Shot keeps your keys secure and encrypted at rest, but it is still good practice to only deposit the amount of gas tokens you
+need for a given period of time. You can <a class="reference external" href="#funding-your-escrow-wallet">deposit additional gas funds</a> into your escrow wallet
+at anytime which will trigger a confirmation email when 1Shot detects the deposit.</p>
 <section id="creating-an-escrow-wallet">
 <h2>Creating an Escrow Wallet<a class="headerlink" href="#creating-an-escrow-wallet" title="Link to this heading">#</a></h2>
 <img alt="Creating your first escrow wallet" class="align-center" src="_images/escrow-wallets-getting-started.png" />
-<p>To create an escrow wallet, navigate to the <a class="reference external" href="https://app.1shotapi.com/escrow-wallets">Escrow Wallets</a> page in the 1Shot dashboard and click the “Create Wallet” button.
-You will be prompted to enter a name and description for your new wallet and the target blockchain the wallet will operate on.</p>
+<p>To create an escrow wallet, navigate to the <a class="reference external" href="https://app.1shotapi.com/escrow-wallets">Escrow Wallets</a> page in the 1Shot dashboard
+and click the “Create Wallet” button. You will be prompted to enter a name and description for your new wallet and the target blockchain
+the wallet will operate on.</p>
 </section>
 <section id="funding-your-escrow-wallet">
-<h2>Funding Your Escrow Wallet<a class="headerlink" href="#funding-your-escrow-wallet" title="Link to this heading">#</a></h2>
-<p>Only fund your escrow wallet with assets on the target blockchain the wallet is configured for. For example, if you are configuring a transaction endpoint for the Ethereum mainnet,
-you should only deposit Ethereum gas tokens into the wallet. If you are configuring a transaction endpoint for the Polygon network, you should only deposit Polygon gas tokens into the wallet.</p>
+<span id="id2"></span><h2>Funding Your Escrow Wallet<a class="headerlink" href="#funding-your-escrow-wallet" title="Link to this heading">#</a></h2>
+<p>Only fund your escrow wallet with assets on the target blockchain the wallet is configured for. For example, if you are configuring a
+transaction endpoint for the Ethereum mainnet, you should only deposit Ethereum gas tokens into the wallet. If you are configuring
+a transaction endpoint for the Polygon network, you should only deposit Polygon gas tokens into the wallet.</p>
 </section>
 </section>
 
