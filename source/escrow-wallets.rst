@@ -39,3 +39,6 @@ Funding Your Escrow Wallet
 Only fund your escrow wallet with assets on the target blockchain the wallet is configured for. For example, if you are configuring a 
 transaction endpoint for the Ethereum mainnet, you should only deposit Ethereum gas tokens into the wallet. If you are configuring 
 a transaction endpoint for the Polygon network, you should only deposit Polygon gas tokens into the wallet.
+
+Withdrawing funds
+-----------------

@@ -2,6 +2,7 @@
    sphinx-quickstart on Wed Feb 12 19:54:45 2025.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
+
 .. image:: ./_static/light-banner.png
    :alt: 1Shot
    :align: center
@@ -11,6 +12,10 @@
    :alt: 1Shot
    :align: center
    :class: only-dark
+
+.. raw:: html
+
+   <br />
 
 Welcome to 1Shot!
 =================================
@@ -30,10 +35,32 @@ Getting Started
 
 You can start using 1Shot by making an account at `app.1shotapi.com <https://app.1shotapi.com>`_. You'll need to:
 
-1. Create an organization and add team members.
-2. Select the target blockchain network where you wish to trigger transactions, generate an escrow wallet and fund with gas tokens for that network.
-3. Configure a transaction endpoint by supplying a contract address and configuring the function on the contract the endpoint will call. You can also optionally set a webhook callback which will trigger when a transaction from this endpoint is confirmed.
-4. Call your newly configured API endpoint from your application.
+.. grid:: 2 2 2 2
+    :gutter: 4
+
+    .. grid-item-card:: 1. Organization Management 🏢
+        :link: org-creation.html
+        :link-alt: Organization Management 
+
+        Create an organization, add team members, and manage billing.
+
+    .. grid-item-card:: 2. Escrow Wallets 👛
+        :link: escrow-wallets.html
+        :link-alt: Escrow Wallets
+
+        Provision and fund escrow wallets for submitting transactions.
+   
+    .. grid-item-card:: 3. Transaction Configuration 📝
+        :link: transactions.html
+        :link-alt: Transaction Configuration
+
+        Build transaction endpoints and configure webhooks.
+
+    .. grid-item-card:: 4. Calling the 1Shot API 💻🐀
+        :link: calling-the-api.html
+        :link-alt: Calling the 1Shot API
+
+        Use your API key and secret to trigger transactions from your application.
 
 .. toctree::
    :hidden:
