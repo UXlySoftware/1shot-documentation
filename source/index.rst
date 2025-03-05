@@ -54,7 +54,7 @@ You can start using 1Shot by making an account at `app.1shotapi.com <https://app
         :link: transactions.html
         :link-alt: Transaction Configuration
 
-        Build transaction endpoints and configure webhooks.
+        Build transaction endpoints to call smart contracts and configure webhooks.
 
     .. grid-item-card:: 4. Calling the 1Shot API 💻🐀
         :link: calling-the-api.html

@@ -27,7 +27,7 @@ jobs:
       - name: Install Dependencies
         run: |
           python3 -m pip install --upgrade pip
-          python3 -m pip install sphinx pydata-sphinx-theme  # Add any extra dependencies for your docs
+          python3 -m pip install -r source/requirements.txt  # Add any extra dependencies for your docs
 
       # Build the Sphinx docs
       - name: Build Sphinx Docs

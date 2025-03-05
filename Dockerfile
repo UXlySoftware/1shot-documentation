@@ -1,3 +1,5 @@
 FROM sphinxdoc/sphinx
 
-RUN python -m pip install pydata-sphinx-theme sphinx_design
+COPY source/requirements.txt .
+
+RUN python -m pip install -r requirements.txt

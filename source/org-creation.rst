@@ -7,6 +7,10 @@ First Sign In
    :alt: Sign up
    :align: center
 
+.. raw:: html
+
+   <br />
+
 The first step in using 1Shot is to create an organization. You will be prompted to do this on your fist sign in. An organization is a container for your projects and team members. 
 
 Creating New Organizations
