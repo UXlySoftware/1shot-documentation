@@ -34,11 +34,11 @@ The call will look like this:
 
 .. code-block:: bash
 
-    # Mint 1 ERC-20 token to address 0xE936e8FAf4A5655469182A49a505055B71C17604 would look something like this
+    # Transfer 1 ERC-20 token to address 0xE936e8FAf4A5655469182A49a505055B71C17604 would look something like this
     curl -X POST api.1shotapi.com/v0/transactions/{TRANSACTION_ENDPOINT_ID}/execute \
         -H "Authorization: Bearer YOUR_BEARER_TOKEN" \
         -H "Content-Type: application/json" \
-        -d '{"params": {"to": "0xE936e8FAf4A5655469182A49a505055B71C17604", "amount": "1000000000000000000"}}'
+        -d '{"params": {"to": "0xE936e8FAf4A5655469182A49a505055B71C17604", "amount": "1000000000000000000"}}' | jq .
 
 Where the JSON object under ``params`` is the input data you configured your transaction endpoint to accept and ``TRANSACTION_ENDPOINT_ID`` 
 is the ID of the transaction endpoint you want to call.
