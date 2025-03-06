@@ -33,7 +33,7 @@ leaving the complexities of transaction submission and monitoring to us.
 Getting Started
 ----------------------------------
 
-You can start using 1Shot by making an account at `app.1shotapi.com <https://app.1shotapi.com>`_. Here are main features you can use to get started:
+You can start using 1Shot by making an account at `app.1shotapi.com <https://app.1shotapi.com>`_. Here are the main features you can use to get started:
 
 .. grid:: 2 2 2 2
     :gutter: 4
