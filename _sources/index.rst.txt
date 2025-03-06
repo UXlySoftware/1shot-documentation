@@ -23,8 +23,9 @@ Welcome to 1Shot!
 The `1Shot API <https://1shotapi.com>`_ is the first fully managed transaction service for the Ethereum mainnet and L2 ecosystem. It provides a simple REST API
 to trigger state-changing transactions on a target blockchain network with a single POST call. 
 
-1Shot is designed to handle heavy user traffic. If your product has many users triggering on-chain mechanics all at once, 1Shot ensures all of your transactions will 
-make it to the chain. 1Shot greatly simplifies the technical overhead of adding digital assets or on-chain logic to any application, regardless of the language you application is written in.
+1Shot is designed to handle heavy user traffic. If your product has many users generating on-chain mechanics all at once, 1Shot ensures all of your transactions will 
+make it to the chain quickly and gas efficiently. 1Shot greatly simplifies the technical overhead of adding digital assets or on-chain logic to any application, 
+regardless of the language you application is written in.
 
 Several helpful client sdks for popular languages like Python, Typescript, C#, and PHP are available so you can one shot your next app in no time,
 leaving the complexities of transaction submission and monitoring to us.
@@ -32,7 +33,7 @@ leaving the complexities of transaction submission and monitoring to us.
 Getting Started
 ----------------------------------
 
-You can start using 1Shot by making an account at `app.1shotapi.com <https://app.1shotapi.com>`_. You'll need to:
+You can start using 1Shot by making an account at `app.1shotapi.com <https://app.1shotapi.com>`_. Here are main features you can use to get started:
 
 .. grid:: 2 2 2 2
     :gutter: 4
