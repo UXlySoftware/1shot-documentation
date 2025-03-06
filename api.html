@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Welcome to 1Shot! &#8212; 1Shot Docs</title>
+    <title>Calling the 1Shot API &#8212; 1Shot Docs</title>
   
   
   
@@ -46,12 +46,12 @@
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=18a8d5f5"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
-    <link rel="canonical" href="https://docs.1shotapi.com/index.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api';</script>
+    <link rel="canonical" href="https://docs.1shotapi.com/api.html" />
     <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Organization Management" href="org-creation.html" />
+    <link rel="prev" title="Transaction Configuration" href="transactions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -109,7 +109,7 @@
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="index.html">
   
   
   
@@ -157,8 +157,8 @@
 </li>
 
 
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="api.html">
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
     Calling the 1Shot API
   </a>
 </li>
@@ -248,10 +248,8 @@
       
       
       
-        
-      
       <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -287,8 +285,8 @@
 </li>
 
 
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="api.html">
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
     Calling the 1Shot API
   </a>
 </li>
@@ -343,6 +341,15 @@
     
   </div>
   
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
       <div class="sidebar-primary-item">
@@ -363,7 +370,31 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none"></div>
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Calling the 1Shot API</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
               
               
               
@@ -371,61 +402,36 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <img alt="1Shot" class="only-light align-center" src="_images/light-banner.png" />
-<img alt="1Shot" class="only-dark align-center" src="_images/dark-banner.png" />
-<br /><section id="welcome-to-1shot">
-<h1>Welcome to 1Shot!<a class="headerlink" href="#welcome-to-1shot" title="Link to this heading">#</a></h1>
-<p>The <a class="reference external" href="https://1shotapi.com">1Shot API</a> is the first fully managed transaction service for the Ethereum mainnet and L2 ecosystem. It provides a simple REST API
-to trigger state-changing transactions on a target blockchain network with a single POST call.</p>
-<p>1Shot is designed to handle heavy user traffic. If your product has many users triggering on-chain mechanics all at once, 1Shot ensures all of your transactions will
-make it to the chain. 1Shot greatly simplifies the technical overhead of adding digital assets or on-chain logic to any application, regardless of the language you application is written in.</p>
-<p>Several helpful client sdks for popular languages like Python, Typescript, C#, and PHP are available so you can one shot your next app in no time,
-leaving the complexities of transaction submission and monitoring to us.</p>
-<section id="getting-started">
-<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h2>
-<p>You can start using 1Shot by making an account at <a class="reference external" href="https://app.1shotapi.com">app.1shotapi.com</a>. You’ll need to:</p>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-4 sd-g-xs-4 sd-g-sm-4 sd-g-md-4 sd-g-lg-4 docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-1. Organization Management 🏢</div>
-<p class="sd-card-text">Create an organization, add team members, and manage billing.</p>
+  <section id="calling-the-1shot-api">
+<h1>Calling the 1Shot API<a class="headerlink" href="#calling-the-1shot-api" title="Link to this heading">#</a></h1>
+<p>Once you have funded an <a class="reference external" href="escrow-wallets.html">escrow wallet</a> and configured a <a class="reference external" href="transactions.html">transaction</a>, you can trigger the transaction
+by making a POST request to the 1Shot API. To do this you’ll need to generate a bearer token using your API key and secret.</p>
+<p>Create an API key and secret by clicking the “API Keys” on the left-hand navigation bar in the 1Shot console. Click “Create New Key” and give it a name.
+This key will be active immediately and can be used to generate a bearer token. If you delete it, it will be permanently deactivated.</p>
+<section id="generating-a-bearer-token">
+<h2>Generating a Bearer Token<a class="headerlink" href="#generating-a-bearer-token" title="Link to this heading">#</a></h2>
+<p>1Shot API uses the <a class="reference external" href="https://auth0.com/blog/using-m2m-authorization/">machine-to-machine</a> (M2M) flow for authentication. This means you’ll need to
+generate a bearer token to authenticate your requests.</p>
+<p>You can generate a bearer token by making a POST request to <code class="docutils literal notranslate"><span class="pre">api.1shotapi.com/v0/token</span></code> with your API key and secret in the request body:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.1shotapi.com/v0/token<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;key&quot;: &quot;my-key&quot;, &quot;secret&quot;: &quot;secret-key&quot;}&#39;</span>
+</pre></div>
 </div>
-<a class="sd-stretched-link sd-hide-link-text reference external" href="org-creation.html"><span>Organization Management</span></a></div>
+<p>This will return a JWT token that you can use to authenticate your requests to the 1Shot API. You can drop it into <a class="reference external" href="https://jwt.io">JWT.io</a> to inspect
+the payload.</p>
+</section>
+<section id="triggering-a-transaction">
+<h2>Triggering a Transaction<a class="headerlink" href="#triggering-a-transaction" title="Link to this heading">#</a></h2>
+<p>It is now time to hit the chain! You will trigger a transaction by making a POST request to <code class="docutils literal notranslate"><span class="pre">api.1shotapi.com/v0/{transaction-endpoint-id}/execute</span></code> with your JWT.
+The call will look like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>api.1shotapi.com/v0/<span class="o">{</span>TRANSACTION_ENDPOINT_ID<span class="o">}</span>/execute<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_BEARER_TOKEN&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;params&quot;: {&quot;to&quot;: &quot;address&quot;, &quot;amount&quot;: &quot;1&quot;}}&#39;</span>
+</pre></div>
 </div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-2. Escrow Wallets 👛</div>
-<p class="sd-card-text">Provision and fund escrow wallets for submitting transactions.</p>
-</div>
-<a class="sd-stretched-link sd-hide-link-text reference external" href="escrow-wallets.html"><span>Escrow Wallets</span></a></div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-3. Transaction Configuration 📝</div>
-<p class="sd-card-text">Build transaction endpoints to call smart contracts and configure webhooks.</p>
-</div>
-<a class="sd-stretched-link sd-hide-link-text reference external" href="transactions.html"><span>Transaction Configuration</span></a></div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-4. Calling the 1Shot API 💻🐀</div>
-<p class="sd-card-text">Use your API key and secret to trigger transactions from your application.</p>
-</div>
-<a class="sd-stretched-link sd-hide-link-text reference external" href="api.html"><span>Calling the 1Shot API</span></a></div>
-</div>
-</div>
-</div>
-<div class="toctree-wrapper compound">
-</div>
+<p>Where the JSON object under <code class="docutils literal notranslate"><span class="pre">params</span></code> is the input data you configured your transaction endpoint to accept.</p>
 </section>
 </section>
 
@@ -439,14 +445,14 @@ leaving the complexities of transaction submission and monitoring to us.</p>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="right-next"
-       href="org-creation.html"
-       title="next page">
+    <a class="left-prev"
+       href="transactions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Organization Management</p>
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Transaction Configuration</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -467,7 +473,8 @@ leaving the complexities of transaction submission and monitoring to us.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-a-bearer-token">Generating a Bearer Token</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#triggering-a-transaction">Triggering a Transaction</a></li>
 </ul>
   </nav></div>
 

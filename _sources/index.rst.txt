@@ -24,8 +24,7 @@ The `1Shot API <https://1shotapi.com>`_ is the first fully managed transaction s
 to trigger state-changing transactions on a target blockchain network with a single POST call. 
 
 1Shot is designed to handle heavy user traffic. If your product has many users triggering on-chain mechanics all at once, 1Shot ensures all of your transactions will 
-make it to the chain. 1Shot greatly simplifies the technical overhead of adding digital assets or on-chain logic to any application, and unlocks new possibilities 
-for streamlined end-user experience, regardless of the language you application is written in.
+make it to the chain. 1Shot greatly simplifies the technical overhead of adding digital assets or on-chain logic to any application, regardless of the language you application is written in.
 
 Several helpful client sdks for popular languages like Python, Typescript, C#, and PHP are available so you can one shot your next app in no time,
 leaving the complexities of transaction submission and monitoring to us.
@@ -57,7 +56,7 @@ You can start using 1Shot by making an account at `app.1shotapi.com <https://app
         Build transaction endpoints to call smart contracts and configure webhooks.
 
     .. grid-item-card:: 4. Calling the 1Shot API 💻🐀
-        :link: calling-the-api.html
+        :link: api.html
         :link-alt: Calling the 1Shot API
 
         Use your API key and secret to trigger transactions from your application.
@@ -69,3 +68,4 @@ You can start using 1Shot by making an account at `app.1shotapi.com <https://app
    org-creation
    escrow-wallets
    transactions
+   api
