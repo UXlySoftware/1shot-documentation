@@ -424,9 +424,9 @@ the payload.</p>
 </section>
 <section id="triggering-a-transaction">
 <h2>Triggering a Transaction<a class="headerlink" href="#triggering-a-transaction" title="Link to this heading">#</a></h2>
-<p>It is now time to hit the chain! You will trigger a transaction by making a POST request to <code class="docutils literal notranslate"><span class="pre">api.1shotapi.com/v0/{transaction-endpoint-id}/execute</span></code> with your JWT.
+<p>It is now time to hit the chain! You will trigger a transaction by making a POST request to <code class="docutils literal notranslate"><span class="pre">api.1shotapi.com/v0/transactions/{transaction-endpoint-id}/execute</span></code> with your JWT.
 The call will look like this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>api.1shotapi.com/v0/<span class="o">{</span>TRANSACTION_ENDPOINT_ID<span class="o">}</span>/execute<span class="w"> </span><span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>api.1shotapi.com/v0/transactions/<span class="o">{</span>TRANSACTION_ENDPOINT_ID<span class="o">}</span>/execute<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_BEARER_TOKEN&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;params&quot;: {&quot;to&quot;: &quot;address&quot;, &quot;amount&quot;: &quot;1&quot;}}&#39;</span>

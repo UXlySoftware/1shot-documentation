@@ -29,12 +29,12 @@ The bearer token expires after 1 hour, after which you'll need to generate a new
 Triggering a Transaction
 ========================
 
-It is now time to hit the chain! You will trigger a transaction by making a POST request to ``api.1shotapi.com/v0/{transaction-endpoint-id}/execute`` with your JWT. 
+It is now time to hit the chain! You will trigger a transaction by making a POST request to ``api.1shotapi.com/v0/transactions/{transaction-endpoint-id}/execute`` with your JWT. 
 The call will look like this:
 
 .. code-block:: bash
 
-    curl -X POST api.1shotapi.com/v0/{TRANSACTION_ENDPOINT_ID}/execute \
+    curl -X POST api.1shotapi.com/v0/transactions/{TRANSACTION_ENDPOINT_ID}/execute \
         -H "Authorization: Bearer YOUR_BEARER_TOKEN" \
         -H "Content-Type: application/json" \
         -d '{"params": {"to": "address", "amount": "1"}}'
