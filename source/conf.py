@@ -16,13 +16,19 @@ release = '0.1.0'
 
 extensions = [
     'sphinx.ext.githubpages',
-    'sphinx_design'
+    'sphinx_design',
+    'sphinx_copybutton'
 ]
 
 templates_path = ['_templates']
 exclude_patterns = []
 
-
+# -- Sphinx-copybutton options ---------------------------------------------
+# Exclude copy button from appearing over notebook cell numbers by using :not()
+# The default copybutton selector is `div.highlight pre`
+# https://github.com/executablebooks/sphinx-copybutton/blob/master/sphinx_copybutton/__init__.py#L82
+copybutton_exclude = ".linenos, .gp"
+copybutton_selector = ":not(.prompt) > div.highlight pre"
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
