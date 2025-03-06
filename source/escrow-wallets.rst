@@ -53,8 +53,8 @@ wallet. If you are configuring a wallet for the Polygon network, you should only
 
 .. hint:: 
    
-   You can deposit ERC-20 tokens into an escrow wallet to make it easier to perform airdrops or DeFi trads. Another strategy would be to leave
-   the tokens in a cold (or soft wallet) that you control and `approve <https://eips.ethereum.org/EIPS/eip-20#approve>`_ the 1Shot escrow wallet to spend them when needed.
+   You can deposit ERC-20 tokens, ERC-721 NFTs or other similar assets into an escrow wallet to make it easier to perform airdrops or DeFi trades. Another strategy would be to leave
+   the tokens in a cold (or soft wallet) that you personally control and `approve <https://eips.ethereum.org/EIPS/eip-20#approve>`_ the 1Shot escrow wallet to spend them when needed.
 
 Withdrawing funds
 -----------------
