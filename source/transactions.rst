@@ -39,8 +39,8 @@ On the next page, we will enter ``transfer`` as the function name we want to cal
 
 The ``transfer`` function on the USDC contract expects the following input parameters:
 
-- ``to``: The address to transfer the tokens to
-- ``value``: The amount of tokens to transfer (USDC has 18 decimal places)
+- ``to``: The address to transfer the tokens to which is a primitive type ``address``
+- ``value``: The amount of tokens to transfer (USDC has 18 decimal places) which is a primitive type ``uint256``
 
 We'll set both of these parameters to be ``Dynamic`` so because we will pass both of them as input parameters when we call the API endpoit. 
 
@@ -49,12 +49,53 @@ We'll set both of these parameters to be ``Dynamic`` so because we will pass bot
     You can also set parameters to be ``Static`` if you want to hardcode them in the transaction endpoint configuration. This is useful, for example, 
     if you always want to transfer the same amount of tokens every time but to different addresses.
 
+Transaction Parameters
+----------------------
+
+At the highest configuration level, input paramerters can be either ``primitive``, ``array``, or ``struct`` types. A ``primitive`` is a type like
+``uint`` or ``bool`` that is not composed of other types and is likely the most common input type. An ``array`` is a collection 
+of the same type of elements, and a ``struct`` is a collection of different types of elements.
+
 Static vs Dynamic Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When configuring a transaction endpoint, input parameters can be either ``Static`` or ``Dynamic``. Parameters set to ``Static`` will be hardcoded in the
-transaction endpoint configuration and cannot be changed when calling the API. Parameters set to ``Dynamic`` will be passed as input parameters when calling
-the API and can be different for each transaction. See `Calling the 1Shot API <api.html>`_ for more information on how to trigger a transaction.
+transaction endpoint configuration and are not specified in the request payload when calling the API. Parameters set to ``Dynamic`` will be passed as 
+input parameters when calling the API and can be different for each transaction. See `Calling the 1Shot API <api.html>`_ for more information on how 
+to trigger a transaction.
+
+.. important::
+
+    Only primitive types are supported for static parameters. Dynamic parameters can be primitive types or compound types like structs and arrays.
+    If your function takes a compound type, you'll need to pass it as a JSON object in the request payload.
+
+Struct and Array Inputs
+~~~~~~~~~~~~~~~~~~~~~~~
+
+If the function you want to call takes a struct or array as an input parameter, you'll need to define the structure of the input in the transaction
+endpoint builder. Take the following example in which the input parameter is a struct which itself contains a ``uint128``, ``string``, and ``array`` of booleans:
+
+.. code-block:: solidity
+
+    struct Foo {
+        uint128 fooUint128;
+        string fooString;
+        bool[] fooBoolArray;
+    }
+
+    function callFooBar(Foo calldata foo) public {
+        emit CalledFoo(foo.fooUint128, foo.fooString, foo.fooBoolArray[0]);
+    }
+
+The configuration for the input struct parameter, ``foo``, would look like this:
+
+.. image:: ./_static/transactions/struct-example.png
+   :alt: Struct configuration example
+   :align: center
+
+.. raw:: html
+
+   <br />
 
 Webhooks
 ---------
