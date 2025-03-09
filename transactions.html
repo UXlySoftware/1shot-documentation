@@ -409,14 +409,14 @@
 <p class="admonition-title">Note</p>
 <p>Before you can configure a transaction endpoint, you’ll need to provision and fund an <a class="reference external" href="escrow-wallets.html">escrow wallet</a>.</p>
 </div>
-<p>Transaction endpoints are the core of the 1Shot API. They are the RESTful endpoints you configure to call smart contracts on the blockchain.
+<p>Transaction endpoints are the core of the 1Shot API. They are the RESTful endpoints you configure to call smart contract functions on the blockchain.
 Each transaction endpoint is linked to a single escrow wallet and can be configured to accept a specific set of input parameters. In order to
 configure a transaction endpoint, you’ll need to provide the following information:</p>
 <ol class="arabic simple">
-<li><p>The target blockchain network (Ethereum mainnet, Binance Smart Chain, Avalanche, etc.)</p></li>
+<li><p>A target blockchain network (Ethereum mainnet, Binance Smart Chain, Avalanche, etc.)</p></li>
 <li><p>The contract address of the smart contract you want to interact with</p></li>
 <li><p>The name of the function you want to call on the contract</p></li>
-<li><p>The input parameters the function expects</p></li>
+<li><p>Input parameters the function expects</p></li>
 <li><p>(optional) A webhook URL to receive real-time feedback on the transaction status</p></li>
 </ol>
 <p>Once you’ve configured a transaction endpoint, you can trigger the transaction by making a POST request to the 1Shot API with
@@ -424,8 +424,8 @@ your <a class="reference external" href="api.html">API key and secret</a>.</p>
 <section id="example-base-usdc-transfer">
 <h2>Example: Base USDC Transfer<a class="headerlink" href="#example-base-usdc-transfer" title="Link to this heading">#</a></h2>
 <img alt="USDC Transfer Example" class="align-center" src="_images/usdc-example.gif" />
-<br /><p>In this example, we’ll configure a transaction endpoint to transfer USDC tokens from one address to another. We’ll assume you’ve already created
-and funded an <a class="reference external" href="escrow-wallets.html">escrow wallet</a> for the Base L2 network with BaseETH and that it contains some USDC tokens.</p>
+<br /><p>In this example, we’ll configure a transaction endpoint to transfer USDC tokens from our escrow wallet to a recipient. We’ll assume you’ve
+already created and funded an <a class="reference external" href="escrow-wallets.html">escrow wallet</a> for the Base L2 network with BaseETH and that it contains some USDC tokens.</p>
 <p>We’ll start by clicking the “Create a New Endpoint” button on the Transactions page. Give the endpoint a name and description, then select the
 Base L2 network from the dropdown. Fill in the webhook URL if you want to receive real-time feedback on the transaction status.</p>
 <p>On the next page, we will enter <code class="docutils literal notranslate"><span class="pre">transfer</span></code> as the function name we want to call on the USDC contract address <a class="reference external" href="https://basescan.org/token/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913">0x833589fcd6edb6e08f4c7c32d4f71b54bda02913</a>.</p>
@@ -440,6 +440,12 @@ Base L2 network from the dropdown. Fill in the webhook URL if you want to receiv
 <p>You can also set parameters to be <code class="docutils literal notranslate"><span class="pre">Static</span></code> if you want to hardcode them in the transaction endpoint configuration. This is useful, for example,
 if you always want to transfer the same amount of tokens every time but to different addresses.</p>
 </div>
+<section id="static-vs-dynamic-parameters">
+<h3>Static vs Dynamic Parameters<a class="headerlink" href="#static-vs-dynamic-parameters" title="Link to this heading">#</a></h3>
+<p>When configuring a transaction endpoint, input parameters can be either <code class="docutils literal notranslate"><span class="pre">Static</span></code> or <code class="docutils literal notranslate"><span class="pre">Dynamic</span></code>. Parameters set to <code class="docutils literal notranslate"><span class="pre">Static</span></code> will be hardcoded in the
+transaction endpoint configuration and cannot be changed when calling the API. Parameters set to <code class="docutils literal notranslate"><span class="pre">Dynamic</span></code> will be passed as input parameters when calling
+the API and can be different for each transaction. See <a class="reference external" href="api.html">Calling the 1Shot API</a> for more information on how to trigger a transaction.</p>
+</section>
 </section>
 <section id="webhooks">
 <h2>Webhooks<a class="headerlink" href="#webhooks" title="Link to this heading">#</a></h2>
@@ -495,7 +501,10 @@ has been confirmed on the blochchain network.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-base-usdc-transfer">Example: Base USDC Transfer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-base-usdc-transfer">Example: Base USDC Transfer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-vs-dynamic-parameters">Static vs Dynamic Parameters</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#webhooks">Webhooks</a></li>
 </ul>
   </nav></div>
