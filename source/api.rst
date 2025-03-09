@@ -14,7 +14,7 @@ Generating a Bearer Token
 generate a bearer token to authenticate your requests.
 
 .. image:: ./_static/api/api-key-creation.gif
-   :alt: Creating new organizations
+   :alt: Creating an API key
    :align: center
 
 .. raw:: html
