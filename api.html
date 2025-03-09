@@ -412,7 +412,8 @@ This key will be active immediately and can be used to generate a bearer token. 
 <h2>Generating a Bearer Token<a class="headerlink" href="#generating-a-bearer-token" title="Link to this heading">#</a></h2>
 <p>1Shot API uses the <a class="reference external" href="https://auth0.com/blog/using-m2m-authorization/">machine-to-machine</a> (M2M) flow for authentication. This means you’ll need to
 generate a bearer token to authenticate your requests.</p>
-<p>You can generate a bearer token by making a POST request to <code class="docutils literal notranslate"><span class="pre">api.1shotapi.com/v0/token</span></code> with your API key and secret in the request body:</p>
+<img alt="Creating new organizations" class="align-center" src="_images/api-key-creation.gif" />
+<br /><p>You can generate a bearer token by making a POST request to <code class="docutils literal notranslate"><span class="pre">api.1shotapi.com/v0/token</span></code> with your API <code class="docutils literal notranslate"><span class="pre">key</span></code> and <code class="docutils literal notranslate"><span class="pre">secret</span></code> in the request body:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.1shotapi.com/v0/token<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;key&quot;: &quot;my-key&quot;, &quot;secret&quot;: &quot;secret-key&quot;}&#39;</span>
