@@ -46,7 +46,8 @@ The call will look like this:
     curl -X POST api.1shotapi.com/v0/transactions/{TRANSACTION_ENDPOINT_ID}/execute \
         -H "Authorization: Bearer YOUR_BEARER_TOKEN" \
         -H "Content-Type: application/json" \
-        -d '{"params": {"to": "0xE936e8FAf4A5655469182A49a505055B71C17604", "amount": "1000000000000000000"}}' | jq .
+        -d '{"params": {"to": "0xE936e8FAf4A5655469182A49a505055B71C17604", "value": "1000000000000000000"}}' | jq .
 
 Where the JSON object under ``params`` is the input data you configured your transaction endpoint to accept and ``TRANSACTION_ENDPOINT_ID`` 
-is the ID of the transaction endpoint you want to call.
+is the ID of the transaction endpoint you want to call. The `USDC example <transactions.html#example-base-usdc-transfer>`_ from the 
+`Transactions <transactions.html>`_ page would have the same payload structure as this. 
