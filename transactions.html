@@ -431,8 +431,8 @@ Base L2 network from the dropdown. Fill in the webhook URL if you want to receiv
 <p>On the next page, we will enter <code class="docutils literal notranslate"><span class="pre">transfer</span></code> as the function name we want to call on the USDC contract address <a class="reference external" href="https://basescan.org/token/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913">0x833589fcd6edb6e08f4c7c32d4f71b54bda02913</a>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">transfer</span></code> function on the USDC contract expects the following input parameters:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">to</span></code>: The address to transfer the tokens to</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: The amount of tokens to transfer (USDC has 18 decimal places)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">to</span></code>: The address to transfer the tokens to which is a primitive type <code class="docutils literal notranslate"><span class="pre">address</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code>: The amount of tokens to transfer (USDC has 18 decimal places) which is a primitive type <code class="docutils literal notranslate"><span class="pre">uint256</span></code></p></li>
 </ul>
 <p>We’ll set both of these parameters to be <code class="docutils literal notranslate"><span class="pre">Dynamic</span></code> so because we will pass both of them as input parameters when we call the API endpoit.</p>
 <div class="admonition hint">
@@ -440,12 +440,42 @@ Base L2 network from the dropdown. Fill in the webhook URL if you want to receiv
 <p>You can also set parameters to be <code class="docutils literal notranslate"><span class="pre">Static</span></code> if you want to hardcode them in the transaction endpoint configuration. This is useful, for example,
 if you always want to transfer the same amount of tokens every time but to different addresses.</p>
 </div>
+</section>
+<section id="transaction-parameters">
+<h2>Transaction Parameters<a class="headerlink" href="#transaction-parameters" title="Link to this heading">#</a></h2>
+<p>At the highest configuration level, input paramerters can be either <code class="docutils literal notranslate"><span class="pre">primitive</span></code>, <code class="docutils literal notranslate"><span class="pre">array</span></code>, or <code class="docutils literal notranslate"><span class="pre">struct</span></code> types. A <code class="docutils literal notranslate"><span class="pre">primitive</span></code> is a type like
+<code class="docutils literal notranslate"><span class="pre">uint</span></code> or <code class="docutils literal notranslate"><span class="pre">bool</span></code> that is not composed of other types and is likely the most common input type. An <code class="docutils literal notranslate"><span class="pre">array</span></code> is a collection
+of the same type of elements, and a <code class="docutils literal notranslate"><span class="pre">struct</span></code> is a collection of different types of elements.</p>
 <section id="static-vs-dynamic-parameters">
 <h3>Static vs Dynamic Parameters<a class="headerlink" href="#static-vs-dynamic-parameters" title="Link to this heading">#</a></h3>
 <p>When configuring a transaction endpoint, input parameters can be either <code class="docutils literal notranslate"><span class="pre">Static</span></code> or <code class="docutils literal notranslate"><span class="pre">Dynamic</span></code>. Parameters set to <code class="docutils literal notranslate"><span class="pre">Static</span></code> will be hardcoded in the
-transaction endpoint configuration and cannot be changed when calling the API. Parameters set to <code class="docutils literal notranslate"><span class="pre">Dynamic</span></code> will be passed as input parameters when calling
-the API and can be different for each transaction. See <a class="reference external" href="api.html">Calling the 1Shot API</a> for more information on how to trigger a transaction.</p>
+transaction endpoint configuration and are not specified in the request payload when calling the API. Parameters set to <code class="docutils literal notranslate"><span class="pre">Dynamic</span></code> will be passed as
+input parameters when calling the API and can be different for each transaction. See <a class="reference external" href="api.html">Calling the 1Shot API</a> for more information on how
+to trigger a transaction.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Only primitive types are supported for static parameters. Dynamic parameters can be primitive types or compound types like structs and arrays.
+If your function takes a compound type, you’ll need to pass it as a JSON object in the request payload.</p>
+</div>
 </section>
+<section id="struct-and-array-inputs">
+<h3>Struct and Array Inputs<a class="headerlink" href="#struct-and-array-inputs" title="Link to this heading">#</a></h3>
+<p>If the function you want to call takes a struct or array as an input parameter, you’ll need to define the structure of the input in the transaction
+endpoint builder. Take the following example in which the input parameter is a struct which itself contains a <code class="docutils literal notranslate"><span class="pre">uint128</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span></code>, and <code class="docutils literal notranslate"><span class="pre">array</span></code> of booleans:</p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span class="kt">struct</span><span class="w"> </span><span class="nv">Foo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">uint128</span><span class="w"> </span><span class="nv">fooUint128</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="nv">fooString</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="p">[]</span><span class="w"> </span>fooBoolArray<span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">function</span><span class="w"> </span><span class="nv">callFooBar</span><span class="p">(</span>Foo<span class="w"> </span>calldata<span class="w"> </span>foo<span class="p">)</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span>emit<span class="w"> </span>CalledFoo<span class="p">(</span>foo<span class="p">.</span>fooUint128<span class="p">,</span><span class="w"> </span>foo<span class="p">.</span>fooString<span class="p">,</span><span class="w"> </span>foo<span class="p">.</span>fooBoolArray<span class="p">[</span><span class="m m-Decimal">0</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The configuration for the input struct parameter, <code class="docutils literal notranslate"><span class="pre">foo</span></code>, would look like this:</p>
+<img alt="Struct configuration example" class="align-center" src="_images/struct-example.png" />
+<br /></section>
 </section>
 <section id="webhooks">
 <h2>Webhooks<a class="headerlink" href="#webhooks" title="Link to this heading">#</a></h2>
@@ -501,8 +531,10 @@ has been confirmed on the blochchain network.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-base-usdc-transfer">Example: Base USDC Transfer</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-base-usdc-transfer">Example: Base USDC Transfer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transaction-parameters">Transaction Parameters</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-vs-dynamic-parameters">Static vs Dynamic Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struct-and-array-inputs">Struct and Array Inputs</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#webhooks">Webhooks</a></li>
