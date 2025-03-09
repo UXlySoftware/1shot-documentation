@@ -13,7 +13,15 @@ Generating a Bearer Token
 1Shot API uses the `machine-to-machine <https://auth0.com/blog/using-m2m-authorization/>`_ (M2M) flow for authentication. This means you'll need to 
 generate a bearer token to authenticate your requests.
 
-You can generate a bearer token by making a POST request to ``api.1shotapi.com/v0/token`` with your API key and secret in the request body:
+.. image:: ./_static/api/api-key-creation.gif
+   :alt: Creating new organizations
+   :align: center
+
+.. raw:: html
+
+   <br />
+
+You can generate a bearer token by making a POST request to ``api.1shotapi.com/v0/token`` with your API ``key`` and ``secret`` in the request body:
 
 .. code-block:: bash
 
