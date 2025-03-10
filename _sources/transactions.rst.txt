@@ -16,7 +16,7 @@ configure a transaction endpoint, you'll need to provide the following informati
 5. (optional) A webhook URL to receive real-time feedback on the transaction status
 
 Once you've configured a transaction endpoint, you can trigger the transaction by making a POST request to the 1Shot API with 
-your `API key and secret <api.html>`_.
+your `API key and secret <api.html>`_. You'll need to graph the ``TRANSACTION_ENDPOINT_ID`` of the endpoint from the 1Shot dashboard.
 
 Example: Base USDC Transfer
 ---------------------------
@@ -97,6 +97,20 @@ The configuration for the input struct parameter, ``foo``, would look like this:
 
    <br />
 
+The payload used to `call the API <api.html#triggering-a-transaction>`_ endpoint would look like this:
+
+.. code:: json
+
+    {
+        "params": {
+            "foo": {
+                "fooUint128": 123,
+                "fooString": "Hello, World!",
+                "fooBoolArray": [true, false, true]
+            }
+        }
+    }
+
 Webhooks
 ---------
 
@@ -113,14 +127,12 @@ When you configure a webhook, 1Shot will send a POST request to the URL you prov
 One time verification challenge
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When you configure a webhook, 1Shot will send a one-time verification challenge to the URL you provide. This challenge is a POST request with a JSON payload containing a random string
-and a signature of the string using the secret you provide. Your application should respond with a 200 status code and the same random string in the response body. This verifies that
-the webhook URL is under your control and can receive POST requests from 1Shot.
-
-Verification ensures that the 1Shot API cannot be used as a DDoS vector.
+When you configure a webhook, 1Shot will send a one-time verification challenge to the URL you provide. This challenge is a POST request with a JSON payload containing a 
+random string. Your application should respond with a 200 status code and replay the same random string in the response body. This verifies that the webhook URL is under your 
+control and can receive POST requests from 1Shot.
 
 Webhook Signatures
 ~~~~~~~~~~~~~~~~~~
 
-1Shot signs the webhook payload using ed25519 signature scheme. The signature is included in the ``X-1Shot-Signature`` header of the POST request. You can verify the signature using the
+1Shot signs the webhook payload using `ed25519 <https://en.wikipedia.org/wiki/EdDSA#Ed25519>`_ signature scheme. The signature is included in the ``X-1Shot-Signature`` header of the POST request. You can verify the signature using the
 public key provided in the webhook configuration. The public key is a base64 encoded ed25519 public key that you can use to verify the signature.
