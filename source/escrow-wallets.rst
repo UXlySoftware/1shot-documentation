@@ -28,8 +28,8 @@ at anytime which will trigger a confirmation email when 1Shot detects the deposi
 Creating an Escrow Wallet
 --------------------------
 
-.. image:: ./_static/escrow-wallet/escrow-wallets-getting-started.png
-   :alt: Creating your first escrow wallet
+.. image:: ./_static/escrow-wallet/create-escrow-wallet.gif
+   :alt: Creating an escrow wallet
    :align: center
 
 .. raw:: html
