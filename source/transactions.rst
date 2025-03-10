@@ -101,5 +101,26 @@ Webhooks
 ---------
 
 Webhooks are an optional configuration for you transaction endpoint but are highly recommended as they provide immediate feedback to your application once your transaction
-has been confirmed on the blochchain network. 
+has been confirmed on the blochchain network. 1Shot implements best practices for webhooks are discussed at `webhooks.fyi <https://webhooks.fyi/>`_, which includes
+consumer verification, replay protection and forward compatibility. , 
 
+When you configure a webhook, 1Shot will send a POST request to the URL you provide with a JSON payload containing the following fields:
+
+- ``transactionHash``: The hash of the transaction that was submitted to the blockchain
+- ``status``: The status of the transaction (``pending``, ``success``, or ``failure``)
+- ``blockNumber``: The block number the transaction was included in
+
+One time verification challenge
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When you configure a webhook, 1Shot will send a one-time verification challenge to the URL you provide. This challenge is a POST request with a JSON payload containing a random string
+and a signature of the string using the secret you provide. Your application should respond with a 200 status code and the same random string in the response body. This verifies that
+the webhook URL is under your control and can receive POST requests from 1Shot.
+
+Verification ensures that the 1Shot API cannot be used as a DDoS vector.
+
+Webhook Signatures
+~~~~~~~~~~~~~~~~~~
+
+1Shot signs the webhook payload using ed25519 signature scheme. The signature is included in the ``X-1Shot-Signature`` header of the POST request. You can verify the signature using the
+public key provided in the webhook configuration. The public key is a base64 encoded ed25519 public key that you can use to verify the signature.
