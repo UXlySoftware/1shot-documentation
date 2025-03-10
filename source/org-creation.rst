@@ -18,7 +18,7 @@ Creating New Organizations
 --------------------------------
 
 .. image:: ./_static/org-creation/create-org-recording.gif
-   :alt: Onboarding Screen
+   :alt: Creating a new organization
    :align: center
 
 .. raw:: html
@@ -29,14 +29,14 @@ You can create new organizations by going to the "Organizations" tab in the 1Sho
 Escrow wallets and transaction endpoints are not shared between organizations and each organization has its own billing.
 
 Member Management
---------------------------------
+-----------------
 
 Once you have created an organization, you can add team members to it. Team members can be added by clicking on your profile icon in the top
 right of the console and selecting "Organizations". This will take you to a page showing all organizations of which you are currently a member.
 Click "Details" on the target organization you want to add a new member to. 
 
 .. image:: ./_static/org-creation/manage-members.gif
-   :alt: Creating new organizations
+   :alt: Org member management
    :align: center
 
 .. raw:: html
