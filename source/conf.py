@@ -62,6 +62,16 @@ html_theme_options = {
             "icon": "fa-brands fa-x-twitter",
             # The type of image to be used (see below for details)
             "type": "fontawesome",
+        },
+        {
+            # Label for this link
+            "name": "Discord",
+            # URL where the link will redirect
+            "url": "https://discord.gg/xkF9NFS6",  # required
+            # Icon class (if "type": "fontawesome"), or path to local image (if "type": "local")
+            "icon": "fa-brands fa-discord",
+            # The type of image to be used (see below for details)
+            "type": "fontawesome",
         }
    ],
    "secondary_sidebar_items": ["page-toc"],
