@@ -51,3 +51,13 @@ The call will look like this:
 where the JSON object under ``params`` is the input data you configured your `transaction <transactions.html>`_ endpoint to accept and ``TRANSACTION_ENDPOINT_ID`` 
 is the ID of the transaction endpoint you want to call. The `USDC example <transactions.html#example-base-usdc-transfer>`_ from the 
 transactions page would have the same payload structure as this. 
+
+List Available Transaction Endpoints
+====================================
+
+Get a JSON list of all transactions currently configured under your organization.
+
+.. code-block:: bash
+
+    curl -X GET https://api.1shotapi.com/v0/business/{ORGANIZATION_ID}/transactions \
+        -H "Authorization: Bearer YOUR_BEARER_TOKEN" | jq .

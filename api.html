@@ -438,6 +438,14 @@ curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </spa
 is the ID of the transaction endpoint you want to call. The <a class="reference external" href="transactions.html#example-base-usdc-transfer">USDC example</a> from the
 transactions page would have the same payload structure as this.</p>
 </section>
+<section id="list-available-transaction-endpoints">
+<h2>List Available Transaction Endpoints<a class="headerlink" href="#list-available-transaction-endpoints" title="Link to this heading">#</a></h2>
+<p>Get a JSON list of all transactions currently configured under your organization.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span>https://api.1shotapi.com/v0/business/<span class="o">{</span>ORGANIZATION_ID<span class="o">}</span>/transactions<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_BEARER_TOKEN&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -480,6 +488,7 @@ transactions page would have the same payload structure as this.</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-a-bearer-token">Generating a Bearer Token</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#triggering-a-transaction">Triggering a Transaction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-available-transaction-endpoints">List Available Transaction Endpoints</a></li>
 </ul>
   </nav></div>
 

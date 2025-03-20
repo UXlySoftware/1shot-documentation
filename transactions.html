@@ -491,25 +491,19 @@ endpoint builder. Take the following example in which the input parameter is a s
 </section>
 <section id="webhooks">
 <h2>Webhooks<a class="headerlink" href="#webhooks" title="Link to this heading">#</a></h2>
-<p>Webhooks are an optional configuration for you transaction endpoint but are highly recommended as they provide immediate feedback to your application once your transaction
-has been confirmed on the blochchain network. 1Shot implements best practices for webhooks are discussed at <a class="reference external" href="https://webhooks.fyi/">webhooks.fyi</a>, which includes
-consumer verification, replay protection and forward compatibility. ,</p>
-<p>When you configure a webhook, 1Shot will send a POST request to the URL you provide with a JSON payload containing the following fields:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">transactionHash</span></code>: The hash of the transaction that was submitted to the blockchain</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code>: The status of the transaction (<code class="docutils literal notranslate"><span class="pre">pending</span></code>, <code class="docutils literal notranslate"><span class="pre">success</span></code>, or <code class="docutils literal notranslate"><span class="pre">failure</span></code>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">blockNumber</span></code>: The block number the transaction was included in</p></li>
-</ul>
-<section id="one-time-verification-challenge">
-<h3>One time verification challenge<a class="headerlink" href="#one-time-verification-challenge" title="Link to this heading">#</a></h3>
-<p>When you configure a webhook, 1Shot will send a one-time verification challenge to the URL you provide. This challenge is a POST request with a JSON payload containing a
-random string. Your application should respond with a 200 status code and replay the same random string in the response body. This verifies that the webhook URL is under your
-control and can receive POST requests from 1Shot.</p>
-</section>
+<p>Webhooks are an optional configuration for your transaction endpoints but are highly recommended as they provide immediate feedback to your application once a transaction
+has been confirmed on the blockchain network. 1Shot API implements best practices for webhooks are discussed at <a class="reference external" href="https://webhooks.fyi/">webhooks.fyi</a>, which includes
+replay protection and forward compatibility. ,</p>
+<p>When you configure a webhook, 1Shot will send a POST request to the URL you provide with a JSON payload that looks like this:</p>
 <section id="webhook-signatures">
 <h3>Webhook Signatures<a class="headerlink" href="#webhook-signatures" title="Link to this heading">#</a></h3>
-<p>1Shot signs the webhook payload using <a class="reference external" href="https://en.wikipedia.org/wiki/EdDSA#Ed25519">ed25519</a> signature scheme. The signature is included in the <code class="docutils literal notranslate"><span class="pre">X-1Shot-Signature</span></code> header of the POST request. You can verify the signature using the
-public key provided in the webhook configuration. The public key is a base64 encoded ed25519 public key that you can use to verify the signature.</p>
+<p>1Shot API signs the webhook payload using the <a class="reference external" href="https://en.wikipedia.org/wiki/EdDSA#Ed25519">ed25519</a> signature scheme. As shown
+in the example above, signature is included in the JSON payload under the key <code class="docutils literal notranslate"><span class="pre">signature</span></code>. You should verify the signature using the
+public key provided in the transaction details page. The public key is a base64 encoded ed25519 public key that you can use to verify
+the signature.</p>
+<p>Here is an example of a <a class="reference external" href="https://fastapi.tiangolo.com/tutorial/">FastAPI</a> server that verifies authenticates callbacks from 1Shot API:</p>
+<p>A complete example you can run from your local machine using <a class="reference external" href="https://ngrok.com/">ngrok</a> tunnels can be
+found <a class="reference external" href="https://github.com/UXlySoftware/webhook-sinker">here</a>.</p>
 </section>
 </section>
 </section>
@@ -568,7 +562,6 @@ public key provided in the webhook configuration. The public key is a base64 enc
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#webhooks">Webhooks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-time-verification-challenge">One time verification challenge</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#webhook-signatures">Webhook Signatures</a></li>
 </ul>
 </li>
