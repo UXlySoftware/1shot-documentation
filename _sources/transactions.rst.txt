@@ -121,6 +121,7 @@ replay protection and forward compatibility. ,
 When you configure a webhook, 1Shot will send a POST request to the URL you provide with a JSON payload that looks like this:
 
 .. code:: json
+
     {
       "eventName": "BusinessCreated",
       "data": {
@@ -179,6 +180,7 @@ the signature.
 Here is an example of a `FastAPI <https://fastapi.tiangolo.com/tutorial/>`_ server that verifies authenticates callbacks from 1Shot API:
 
 .. code:: python
+    
     from fastapi import FastAPI, Request, HTTPException, Depends
     import json
     import base64
