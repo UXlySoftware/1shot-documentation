@@ -16,7 +16,7 @@ configure a transaction endpoint, you'll need to provide the following informati
 5. (optional) A webhook URL to receive real-time feedback on the transaction status
 
 Once you've configured a transaction endpoint, you can trigger the transaction by making a POST request to the 1Shot API with 
-your `API key and secret <api.html>`_. You'll need to graph the ``TRANSACTION_ENDPOINT_ID`` of the endpoint from the 1Shot dashboard.
+your `API key and secret <api.html>`_. You'll need to grab the ``TRANSACTION_ENDPOINT_ID`` of the endpoint from the 1Shot dashboard.
 
 Example: Base USDC Transfer
 ---------------------------
@@ -180,7 +180,7 @@ the signature.
 Here is an example of a `FastAPI <https://fastapi.tiangolo.com/tutorial/>`_ server that verifies authenticates callbacks from 1Shot API:
 
 .. code:: python
-    
+
     from fastapi import FastAPI, Request, HTTPException, Depends
     import json
     import base64
