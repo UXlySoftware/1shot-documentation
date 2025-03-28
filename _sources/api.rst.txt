@@ -27,10 +27,20 @@ You can generate a bearer token by making a POST request to ``api.1shotapi.com/v
 
     curl -X POST https://api.1shotapi.com/v0/token \
         -H "Content-Type: application/json" \
-        -d '{"key": "my-key", "secret": "secret-key"}'
+        -d '{"grant_type": "client_credentials", "client_id":"{YOUR_API_CLIENT_ID}", "client_secret": "{YOUR_API_CLIENT_SECRET}"}'
 
-This will return a JWT bearer token that you can use to authenticate your requests to the 1Shot API. You can drop it into `JWT.io <https://jwt.io>`_ to inspect 
-the payload. 
+This will return with a code 200 and a JSON payload with your access token:
+
+.. code-block:: bash
+
+    {
+        "access_token": "string",
+        "token_type": "Bearer",
+        "expires_in": 0,
+        "scope": "string"
+    }
+
+You can drop your access token into `JWT.io <https://jwt.io>`_ to inspect its properties. 
 
 The bearer token expires after 1 hour, after which you'll need to generate a new one.
 

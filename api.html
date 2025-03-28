@@ -416,11 +416,19 @@ generate a bearer token to authenticate your requests.</p>
 <br /><p>You can generate a bearer token by making a POST request to <code class="docutils literal notranslate"><span class="pre">api.1shotapi.com/v0/token</span></code> with your API <code class="docutils literal notranslate"><span class="pre">key</span></code> and <code class="docutils literal notranslate"><span class="pre">secret</span></code> in the request body:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.1shotapi.com/v0/token<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;key&quot;: &quot;my-key&quot;, &quot;secret&quot;: &quot;secret-key&quot;}&#39;</span>
+<span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;grant_type&quot;: &quot;client_credentials&quot;, &quot;client_id&quot;:&quot;{YOUR_API_CLIENT_ID}&quot;, &quot;client_secret&quot;: &quot;{YOUR_API_CLIENT_SECRET}&quot;}&#39;</span>
 </pre></div>
 </div>
-<p>This will return a JWT bearer token that you can use to authenticate your requests to the 1Shot API. You can drop it into <a class="reference external" href="https://jwt.io">JWT.io</a> to inspect
-the payload.</p>
+<p>This will return with a code 200 and a JSON payload with your access token:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;access_token&quot;</span>:<span class="w"> </span><span class="s2">&quot;string&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;token_type&quot;</span>:<span class="w"> </span><span class="s2">&quot;Bearer&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;expires_in&quot;</span>:<span class="w"> </span><span class="m">0</span>,
+<span class="w">    </span><span class="s2">&quot;scope&quot;</span>:<span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>You can drop your access token into <a class="reference external" href="https://jwt.io">JWT.io</a> to inspect its properties.</p>
 <p>The bearer token expires after 1 hour, after which you’ll need to generate a new one.</p>
 </section>
 <section id="triggering-a-transaction">
