@@ -62,6 +62,26 @@ html_theme_options = {
             "icon": "fa-brands fa-discord",
             # The type of image to be used (see below for details)
             "type": "fontawesome",
+        },
+        {
+            # Label for this link
+            "name": "Telegram",
+            # URL where the link will redirect
+            "url": "https://t.me/oneshotapi",  # required
+            # Icon class (if "type": "fontawesome"), or path to local image (if "type": "local")
+            "icon": "fa-brands fa-telegram",
+            # The type of image to be used (see below for details)
+            "type": "fontawesome",
+        },
+        {
+            # Label for this link
+            "name": "YouTube",
+            # URL where the link will redirect
+            "url": "https://www.youtube.com/@1ShotAPI",  # required
+            # Icon class (if "type": "fontawesome"), or path to local image (if "type": "local")
+            "icon": "fa-brands fa-youtube",
+            # The type of image to be used (see below for details)
+            "type": "fontawesome",
         }
    ],
    "secondary_sidebar_items": ["page-toc"],

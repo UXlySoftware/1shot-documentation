@@ -1,4 +1,4 @@
-Organization Management
+Org Management
 ========================
 
 Onboarding

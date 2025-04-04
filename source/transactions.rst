@@ -1,5 +1,5 @@
-Transaction Configuration
-==========================
+TX Configs
+==========
 
 .. note::
 
