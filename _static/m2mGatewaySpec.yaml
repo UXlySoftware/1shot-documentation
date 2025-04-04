@@ -801,7 +801,6 @@ components:
       description: The total number of results returned by a paged response
       type: integer
       example: 1
-      $ref: "#/components/schemas/TotalResults"
 
     PagedResponse:
       type: object
