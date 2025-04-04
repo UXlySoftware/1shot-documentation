@@ -454,6 +454,24 @@ transactions page would have the same payload structure as this.</p>
 </pre></div>
 </div>
 </section>
+<section id="openapi-spec">
+<h2>OpenAPI Spec<a class="headerlink" href="#openapi-spec" title="Link to this heading">#</a></h2>
+<div id="swagger-ui"></div>
+<link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css">
+<script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
+<script>
+  window.onload = () => {
+    SwaggerUIBundle({
+      url: "_static/m2mGatewaySpec.yaml",
+      dom_id: "#swagger-ui",
+      presets: [
+        SwaggerUIBundle.presets.apis,
+        SwaggerUIBundle.SwaggerUIStandalonePreset
+      ],
+      layout: "BaseLayout"
+    });
+  };
+</script></section>
 </section>
 
 
@@ -497,6 +515,7 @@ transactions page would have the same payload structure as this.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-a-bearer-token">Generating a Bearer Token</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#triggering-a-transaction">Triggering a Transaction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-available-transaction-endpoints">List Available Transaction Endpoints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openapi-spec">OpenAPI Spec</a></li>
 </ul>
   </nav></div>
 
