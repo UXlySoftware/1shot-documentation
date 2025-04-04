@@ -73,4 +73,4 @@ You can start using 1Shot by making an account at `app.1shotapi.com <https://app
    org-creation
    escrow-wallets
    transactions
-   api
+   api/index.rst
