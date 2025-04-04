@@ -18,7 +18,6 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx_design',
     'sphinx_copybutton',
-    'sphinxcontrib.openapi'
 ]
 
 templates_path = ['_templates']
