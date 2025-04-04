@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
-  title: M2M Gateway API
-  description: The M2M Gateway API is for communication by 3rd party servers for automated tasks in the Framework
+  title: 1Shot API
+  description: The 1Shot API is for communication by 3rd party servers to manage hot wallet infrastructure and transaction execution.
   termsOfService: https://uxly.software/terms/
   contact:
     name: API Support

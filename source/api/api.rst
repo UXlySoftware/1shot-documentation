@@ -13,7 +13,7 @@ Generating a Bearer Token
 1Shot API uses the `machine-to-machine <https://auth0.com/blog/using-m2m-authorization/>`_ (M2M) flow for authentication. This means you'll need to 
 generate a bearer token to authenticate your requests.
 
-.. image:: ./_static/api/api-key-creation.gif
+.. image:: ../_static/api/api-key-creation.gif
    :alt: Creating an API key
    :align: center
 
@@ -60,7 +60,7 @@ The call will look like this:
 
 where the JSON object under ``params`` is the input data you configured your `transaction <transactions.html>`_ endpoint to accept and ``TRANSACTION_ENDPOINT_ID`` 
 is the ID of the transaction endpoint you want to call. The `USDC example <transactions.html#example-base-usdc-transfer>`_ from the 
-transactions page would have the same payload structure as this. 
+transactions page would have the same payload structure as this.  
 
 List Available Transaction Endpoints
 ====================================
@@ -71,25 +71,3 @@ Get a JSON list of all transactions currently configured under your organization
 
     curl -X GET https://api.1shotapi.com/v0/business/{ORGANIZATION_ID}/transactions \
         -H "Authorization: Bearer YOUR_BEARER_TOKEN" | jq .
-
-OpenAPI Spec
-=================
-
-.. raw:: html
-
-   <div id="swagger-ui"></div>
-   <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css">
-   <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
-   <script>
-     window.onload = () => {
-       SwaggerUIBundle({
-         url: "_static/m2mGatewaySpec.yaml",
-         dom_id: "#swagger-ui",
-         presets: [
-           SwaggerUIBundle.presets.apis,
-           SwaggerUIBundle.SwaggerUIStandalonePreset
-         ],
-         layout: "BaseLayout"
-       });
-     };
-   </script>
