@@ -71,3 +71,25 @@ Get a JSON list of all transactions currently configured under your organization
 
     curl -X GET https://api.1shotapi.com/v0/business/{ORGANIZATION_ID}/transactions \
         -H "Authorization: Bearer YOUR_BEARER_TOKEN" | jq .
+
+OpenAPI Spec
+=================
+
+.. raw:: html
+
+   <div id="swagger-ui"></div>
+   <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css">
+   <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
+   <script>
+     window.onload = () => {
+       SwaggerUIBundle({
+         url: "_static/m2mGatewaySpec.yaml",
+         dom_id: "#swagger-ui",
+         presets: [
+           SwaggerUIBundle.presets.apis,
+           SwaggerUIBundle.SwaggerUIStandalonePreset
+         ],
+         layout: "BaseLayout"
+       });
+     };
+   </script>

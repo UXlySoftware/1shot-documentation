@@ -11,7 +11,8 @@ Replace example path with correct path for your filesystem.
 To build the documentation:
 
 ```sh
-docker run --rm -v ~/code/1shot-documentation:/docs sphinxdoc/sphinx make html
+docker build -t pydata-sphinx .
+docker run --rm -v ~/code/1shot-documentation:/docs pydata-sphinx make html
 ```
 
 To serve the documentation locally:
