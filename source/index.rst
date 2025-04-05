@@ -18,7 +18,7 @@
    <br />
 
 Welcome to 1Shot!
-=================================
+==================
 
 The `1Shot API <https://1shotapi.com>`_ is the first fully managed, enterprise-grade hot wallet and transaction service for the Ethereum mainnet and L2 ecosystem 
 (Binance and Avalanche supported as well). It provides a simple REST API to trigger state-changing smart contract transactions on a target blockchain network with 

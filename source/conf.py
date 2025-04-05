@@ -18,6 +18,7 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx_design',
     'sphinx_copybutton',
+    'sphinxcontrib.youtube'
 ]
 
 templates_path = ['_templates']

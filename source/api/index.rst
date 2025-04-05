@@ -6,3 +6,4 @@ API Docs
 
    api
    openapi
+   examples/index.rst
