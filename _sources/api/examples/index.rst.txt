@@ -8,3 +8,4 @@ Check out these complete examples to get started with the API:
 
    webhooks
    discord
+   telegram
