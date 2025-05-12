@@ -123,50 +123,238 @@ When you configure a webhook, 1Shot will send a POST request to the URL you prov
 .. code:: json
 
     {
-      "eventName": "BusinessCreated",
-      "data": {
-        "businessId": "c7c34dd2-4068-45b3-b894-081bbe68944d",
-        "chain": 11155111,
-        "transactionExecutionId": "aefe1058-6a0f-4271-b99c-4753779f9bb1",
-        "transactionReceipt": {
-          "_type": "TransactionReceipt",
-          "blobGasPrice": null,
-          "blobGasUsed": null,
-          "blockHash": "0xb5e0dec517a6498917c951323cc24ac66d179e9408b84abedc59d203eb0789d7",
-          "blockNumber": 7939928,
-          "contractAddress": null,
-          "cumulativeGasUsed": "9783249",
-          "from": "0xD6AC871Ea68dD41774dA321B85e11D094b49aaa8",
-          "gasPrice": "4200820",
-          "gasUsed": "34770",
-          "hash": "0x5a197c403feaf9d923751810e3927f3e73b3c64775a403728c0ffec3e332a497",
-          "index": 108,
-          "logs": [
-            {
-              "_type": "log",
-              "address": "0x17Ed2c50596E1C74175F905918dEd2d2042b87f3",
-              "blockHash": "0xb5e0dec517a6498917c951323cc24ac66d179e9408b84abedc59d203eb0789d7",
-              "blockNumber": 7939928,
-              "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000",
-              "index": 149,
-              "topics": [
-                "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
-                "0x0000000000000000000000000000000000000000000000000000000000000000",
-                "0x00000000000000000000000032dcd6af330461788c378a7204fb72ad83a0e250"
-              ],
-              "transactionHash": "0x5a197c403feaf9d923751810e3927f3e73b3c64775a403728c0ffec3e332a497",
-              "transactionIndex": 108
-            }
-          ],
-          "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000020000000002000000000800000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000800000000000000000000000000000000000000000040002000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000001000000000000000",
-          "status": 1,
-          "to": "0x17Ed2c50596E1C74175F905918dEd2d2042b87f3"
+        "eventName": "TransactionExecutionSuccess",
+        "data": {
+            "businessId": "c7c34dd2-4068-45b3-b894-081bbe68944d",
+            "chain": 11155111,
+            "logs": [
+                {
+                    "args": [
+                        "0x0000000000000000000000000000000000000000000000000000000000000000",
+                        "0xD6AC871Ea68dD41774dA321B85e11D094b49aaa8",
+                        "0xA1BfEd6c6F1C3A516590edDAc7A8e359C2189A61"
+                    ],
+                    "fragment": {
+                        "anonymous": false,
+                        "inputs": [
+                            {
+                                "arrayChildren": null,
+                                "arrayLength": null,
+                                "baseType": "bytes32",
+                                "components": null,
+                                "indexed": true,
+                                "name": "role",
+                                "type": "bytes32"
+                            },
+                            {
+                                "arrayChildren": null,
+                                "arrayLength": null,
+                                "baseType": "address",
+                                "components": null,
+                                "indexed": true,
+                                "name": "account",
+                                "type": "address"
+                            },
+                            {
+                                "arrayChildren": null,
+                                "arrayLength": null,
+                                "baseType": "address",
+                                "components": null,
+                                "indexed": true,
+                                "name": "sender",
+                                "type": "address"
+                            }
+                        ],
+                        "name": "RoleGranted",
+                        "type": "event"
+                    },
+                    "name": "RoleGranted",
+                    "signature": "RoleGranted(bytes32,address,address)",
+                    "topic": "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d"
+                },
+                {
+                    "args": [
+                        "0x9f2df0fed2c77648de5860a4cc508cd0818c85b8b8a1ab4ceeef8d981c8956a6",
+                        "0xD6AC871Ea68dD41774dA321B85e11D094b49aaa8",
+                        "0xA1BfEd6c6F1C3A516590edDAc7A8e359C2189A61"
+                    ],
+                    "fragment": {
+                        "anonymous": false,
+                        "inputs": [
+                            {
+                                "arrayChildren": null,
+                                "arrayLength": null,
+                                "baseType": "bytes32",
+                                "components": null,
+                                "indexed": true,
+                                "name": "role",
+                                "type": "bytes32"
+                            },
+                            {
+                                "arrayChildren": null,
+                                "arrayLength": null,
+                                "baseType": "address",
+                                "components": null,
+                                "indexed": true,
+                                "name": "account",
+                                "type": "address"
+                            },
+                            {
+                                "arrayChildren": null,
+                                "arrayLength": null,
+                                "baseType": "address",
+                                "components": null,
+                                "indexed": true,
+                                "name": "sender",
+                                "type": "address"
+                            }
+                        ],
+                        "name": "RoleGranted",
+                        "type": "event"
+                    },
+                    "name": "RoleGranted",
+                    "signature": "RoleGranted(bytes32,address,address)",
+                    "topic": "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d"
+                },
+                {
+                    "args": [
+                        "0xb4FC5Efab498Ce8b60D0Ad1fc780B871D1199C32"
+                    ],
+                    "fragment": {
+                        "anonymous": false,
+                        "inputs": [
+                            {
+                                "arrayChildren": null,
+                                "arrayLength": null,
+                                "baseType": "address",
+                                "components": null,
+                                "indexed": false,
+                                "name": "token",
+                                "type": "address"
+                            }
+                        ],
+                        "name": "TokenCreated",
+                        "type": "event"
+                    },
+                    "name": "TokenCreated",
+                    "signature": "TokenCreated(address)",
+                    "topic": "0x2e2b3f61b70d2d131b2a807371103cc98d51adcaa5e9a8f9c32658ad8426e74e"
+                }
+            ],
+            "transactionExecutionId": "57335f5e-7fc4-406f-ae9e-670b561ff7d9",
+            "transactionExecutionMemo": "{\"tx_type\":0,\"associated_user_id\":5034284669,\"note_to_user\":\"{\\\"name\\\":\\\"Test\\\",\\\"ticker\\\":\\\"TES\\\",\\\"description\\\":\\\"test token\\\",\\\"image_file_id\\\":\\\"AgACAgEAAxkBAAIDfWgiPNEzB-K22SSCR1JSs-i7gjb7AALgrTEbgroQRVyOzOUCHxPMAQADAgADeQADNgQ\\\"}\"}",
+            "transactionId": "528c4ba0-e288-47d5-a78b-908cd882d3df",
+            "transactionReceipt": {
+                "_type": "TransactionReceipt",
+                "blobGasPrice": null,
+                "blobGasUsed": null,
+                "blockHash": "0x1f3c257e72f364ea993ca69da45f34e22b550b097655bb248a3ad3556a246a54",
+                "blockNumber": 8312770,
+                "contractAddress": null,
+                "cumulativeGasUsed": "41935874",
+                "from": "0xD6AC871Ea68dD41774dA321B85e11D094b49aaa8",
+                "gasPrice": "1000017",
+                "gasUsed": "324143",
+                "hash": "0xbef4c293fa9ed89080bbf80ff960a1625182d0077b1d0dfe1699733588494cca",
+                "index": 337,
+                "logs": [
+                    {
+                        "_type": "log",
+                        "address": "0xb4FC5Efab498Ce8b60D0Ad1fc780B871D1199C32",
+                        "blockHash": "0x1f3c257e72f364ea993ca69da45f34e22b550b097655bb248a3ad3556a246a54",
+                        "blockNumber": 8312770,
+                        "data": "0x",
+                        "index": 657,
+                        "topics": [
+                            "0x1cf3b03a6cf19fa2baba4df148e9dcabedea7f8a5c07840e207e5c089be95d3e",
+                            "0x000000000000000000000000248c1e059619791d4743ebf84374edb311dc0306"
+                        ],
+                        "transactionHash": "0xbef4c293fa9ed89080bbf80ff960a1625182d0077b1d0dfe1699733588494cca",
+                        "transactionIndex": 337
+                    },
+                    {
+                        "_type": "log",
+                        "address": "0xb4FC5Efab498Ce8b60D0Ad1fc780B871D1199C32",
+                        "blockHash": "0x1f3c257e72f364ea993ca69da45f34e22b550b097655bb248a3ad3556a246a54",
+                        "blockNumber": 8312770,
+                        "data": "0x0000000000000000000000000000000000000000000000000de0b6b3a7640000",
+                        "index": 658,
+                        "topics": [
+                            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+                            "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "0x000000000000000000000000d6ac871ea68dd41774da321b85e11d094b49aaa8"
+                        ],
+                        "transactionHash": "0xbef4c293fa9ed89080bbf80ff960a1625182d0077b1d0dfe1699733588494cca",
+                        "transactionIndex": 337
+                    },
+                    {
+                        "_type": "log",
+                        "address": "0xb4FC5Efab498Ce8b60D0Ad1fc780B871D1199C32",
+                        "blockHash": "0x1f3c257e72f364ea993ca69da45f34e22b550b097655bb248a3ad3556a246a54",
+                        "blockNumber": 8312770,
+                        "data": "0x",
+                        "index": 659,
+                        "topics": [
+                            "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d",
+                            "0x0000000000000000000000000000000000000000000000000000000000000000",
+                            "0x000000000000000000000000d6ac871ea68dd41774da321b85e11d094b49aaa8",
+                            "0x000000000000000000000000a1bfed6c6f1c3a516590eddac7a8e359c2189a61"
+                        ],
+                        "transactionHash": "0xbef4c293fa9ed89080bbf80ff960a1625182d0077b1d0dfe1699733588494cca",
+                        "transactionIndex": 337
+                    },
+                    {
+                        "_type": "log",
+                        "address": "0xb4FC5Efab498Ce8b60D0Ad1fc780B871D1199C32",
+                        "blockHash": "0x1f3c257e72f364ea993ca69da45f34e22b550b097655bb248a3ad3556a246a54",
+                        "blockNumber": 8312770,
+                        "data": "0x",
+                        "index": 660,
+                        "topics": [
+                            "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d",
+                            "0x9f2df0fed2c77648de5860a4cc508cd0818c85b8b8a1ab4ceeef8d981c8956a6",
+                            "0x000000000000000000000000d6ac871ea68dd41774da321b85e11d094b49aaa8",
+                            "0x000000000000000000000000a1bfed6c6f1c3a516590eddac7a8e359c2189a61"
+                        ],
+                        "transactionHash": "0xbef4c293fa9ed89080bbf80ff960a1625182d0077b1d0dfe1699733588494cca",
+                        "transactionIndex": 337
+                    },
+                    {
+                        "_type": "log",
+                        "address": "0xb4FC5Efab498Ce8b60D0Ad1fc780B871D1199C32",
+                        "blockHash": "0x1f3c257e72f364ea993ca69da45f34e22b550b097655bb248a3ad3556a246a54",
+                        "blockNumber": 8312770,
+                        "data": "0x0000000000000000000000000000000000000000000000000000000000000001",
+                        "index": 661,
+                        "topics": [
+                            "0xc7f505b2f371ae2175ee4913f4499e1f2633a7b5936321eed1cdaeb6115181d2"
+                        ],
+                        "transactionHash": "0xbef4c293fa9ed89080bbf80ff960a1625182d0077b1d0dfe1699733588494cca",
+                        "transactionIndex": 337
+                    },
+                    {
+                        "_type": "log",
+                        "address": "0xA1BfEd6c6F1C3A516590edDAc7A8e359C2189A61",
+                        "blockHash": "0x1f3c257e72f364ea993ca69da45f34e22b550b097655bb248a3ad3556a246a54",
+                        "blockNumber": 8312770,
+                        "data": "0x000000000000000000000000b4fc5efab498ce8b60d0ad1fc780b871d1199c32",
+                        "index": 662,
+                        "topics": [
+                            "0x2e2b3f61b70d2d131b2a807371103cc98d51adcaa5e9a8f9c32658ad8426e74e"
+                        ],
+                        "transactionHash": "0xbef4c293fa9ed89080bbf80ff960a1625182d0077b1d0dfe1699733588494cca",
+                        "transactionIndex": 337
+                    }
+                ],
+                "logsBloom": "0x00020004000000000000000000000000000000000008000000000000000000000000000000000000000000000000004000000800000000000004100040000000000000000000000000000008001000000000000200000000000000000000000000000000020000000000008000000800000000000000000000000010001000000000000010000000000800000000080000000000000080000040000000000400000000000000000000000000000000400000000000000000001000000010000000000002000000000200000000000000001000000004000100800000480020000000000000000000002000000000000000000000000000001000000000000000",
+                "status": 1,
+                "to": "0xA1BfEd6c6F1C3A516590edDAc7A8e359C2189A61"
+            },
+            "userId": null
         },
-        "userId": null
-      },
-      "timestamp": 1742445849,
-      "apiVersion": 0,
-      "signature": "EAyg4CA2OqpWR/IlklQmYI9QZk7tJK4o4Egfh0kvCP3VwZSD6n2kpJLxrqcPqB59gtE6a6N3zMmfAKevnaDfCQ=="
+        "timestamp": 1747074278,
+        "apiVersion": 0,
+        "signature": "AacvQXGjpCLG/zu8JHhMwbFdHRx/BsOEt+wpVI4cwEiOvN8rzVD+i1IIWYlNgeHRV914giGkoWKsNRVhLV6PAA=="
     }
 
 Webhook Signatures
