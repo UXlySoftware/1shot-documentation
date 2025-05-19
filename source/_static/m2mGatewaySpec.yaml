@@ -78,7 +78,7 @@ paths:
         - Transaction
         - Transaction Execution
         - Test
-      description: This method simulates the execution of a transaction. No gas will be spent and nothing on chain will change, but it will let you know whether or not an execution would succeed.
+      description: This method simulates the execution of a transaction. No gas will be spent and nothing on chain will change, but it will let you know whether or not an execution would succeed. Internally, this method relies on staticCall.
       parameters:
         - name: transactionId
           in: path
@@ -104,7 +104,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/JSONValue'
+                $ref: '#/components/schemas/TransactionTestResult'
         500:
           $ref: "#/components/responses/DatabaseError"
 
@@ -412,6 +412,52 @@ paths:
       responses:
         200:
           description: Returns the transaction object.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Transaction"
+
+        500:
+          $ref: "#/components/responses/DatabaseError"
+
+  /business/{businessId}/transactions/contract:
+    post:
+      tags:
+        - Transaction
+        - Create
+      description: Assures that Transactions exist for a given contract. This is based on the verified contract ABI and the highest-ranked Contract Description. If Transactions already exist, they are not modified. If they do not exist, any methods that are in the Contract Description will be created with the details from the Contract Description.
+      parameters:
+        - name: businessId
+          in: path
+          description: The internal uuid of the Business you are interested in
+          required: true
+          schema:
+            $ref: "#/components/schemas/BusinessId"
+      security:
+        - OAuth2ClientCredentials:
+          - read:api
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                chain:
+                  $ref: "#/components/schemas/EChain"
+                contractAddress:
+                  $ref: "#/components/schemas/ContractAddress"
+                escrowWalletId:
+                  $ref: "#/components/schemas/EscrowWalletId"
+              required:
+                - chain
+                - contractAddress
+                - escrowWalletId
+      responses:
+        200:
+          description: Returns all the transactions defined by the Contract Description.
           content:
             application/json:
               schema:
@@ -1035,6 +1081,41 @@ paths:
                 $ref: "#/components/schemas/SolidityStruct"
         403:
           $ref: "#/components/responses/PermissionError"
+        500:
+          $ref: "#/components/responses/DatabaseError"
+
+  /contracts/descriptions/search:
+    post:
+      tags:
+        - Search
+        - Contract Descriptions
+      description: Performs a semantic search on contract descriptions to find the most relevant contracts.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  description: A free-form query to search for contracts. This uses semantic search to find the most relevant contracts.
+                chain:
+                  $ref: "#/components/schemas/EChain"
+              required:
+                - query
+      security:
+        - OAuth2ClientCredentials:
+          - read:api
+      responses:
+        200:
+          description: Returns a paged response of contract descriptions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FullContractDescription"
         500:
           $ref: "#/components/responses/DatabaseError"
 
@@ -1704,4 +1785,134 @@ components:
       description: The intenral ID of the business. Every object in the API is ultimately scoped to a single Business. You can get this from the Organization Details page on app.1shotapi.com.
       example: 8a6e0804-2bd0-4672-b79d-d97027f90720
     
+    ContractDescription:
+      description: A description of a contract, designed to be used for contract discovery by AI agents.
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+              description: internal ID of the contract description
+              example: f4e3d951-85ad-42fa-8e21-75545145c7bc
+              readOnly: true
+            userId:
+              type: string
+              format: uuid
+              description: ID of the user that created 
+              example: f4e3d951-85ad-42fa-8e21-75545145c7bc
+              readOnly: true
+            chain:
+              $ref: "#/components/schemas/EChain"
+            contractAddress:
+              $ref: "#/components/schemas/ContractAddress"
+            name:
+              type: string
+              description: The name of the contract. This is human provided and has no technical significance
+            description:
+              type: string
+              description: The human provided description of what the contract is and does, and the top level
+            tags:
+              type: array
+              description: An array of tag names provided to the contract
+              items:
+                type: string
+          required:
+            - id
+            - userId
+            - chain
+            - contractAddress
+            - name
+            - description
+            - tags
+        - $ref: "#/components/schemas/EntityBookKeepingWithoutDeleted"
+  
+    FullContractDescription:
+      description: A description of a contract
+      allOf:
+        - type: object
+          properties:
+            functions: 
+              type: array
+              description: An array of Contract Function Descriptions, describing each function on the contract.
+              items:
+                $ref: "#/components/schemas/ContractFunctionDescription"
+          required:
+            - functions
+        - $ref: "#/components/schemas/ContractDescription"
+
+    ContractFunctionDescription:
+      description: The description of a single function on a contract
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the function. This has to exactly match the name of the function in the Solidity contract, including the case and whitespace
+        description:
+          type: string
+          description: A human provided description of the function, what it does, and a basic overview of its parameters.
+        tags:
+          type: array
+          description: An array of tag names provided to the contract function
+          items:
+            type: string
+        inputs:
+          type: array
+          description: An array of input parameters for the function. All inputs are required to be named.
+          items:
+            $ref: "#/components/schemas/ContractFunctionParamDescription"
+        outputs:
+          type: array
+          description: An array of input parameters for the function. All inputs are required to be named.
+          items:
+            $ref: "#/components/schemas/ContractFunctionParamDescription"
+      required:
+        - name
+        - description
+        - tags
+        - inputs
+        - outputDescription
+
+    ContractFunctionParamDescription:
+      description: A description of a function parameter. This may be an input or an output parameter.
+      type: object
+      properties:
+        index:
+          type: integer
+          description: The index of the parameter. Starts at 0.
+        name:
+          type: string
+          description: The name of the parameter, as defined in the Solidity contract. Input parameters are required to have names; this may be blank for output parameters.
+        description:
+          type: string
+          description: A description of the parameter and its purpose. These descriptions are provided by either humans or AI and are intended for AI agent consumption.
+        tags:
+          type: array
+          description: An array of tag names associated with the function parameter.
+          items:
+            type: string 
+      required:
+        - index
+        - name
+        - description
+        - tags
     
+    TransactionTestResult:
+      description: The result of running /test on a transaction.
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: Whether or not the transaction would run successfully. 
+        result:
+          type: object
+          description: The result returned by the transaction, if it was successful. When running a test, no changes are made on the blockchain, so these results are hypothetical.
+          nullable: true
+        error:
+          type: object
+          description: The error that occurred, if the transaction was not successful.
+          nullable: true
+      required:
+        - success
+        - result
+        - error
