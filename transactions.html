@@ -541,7 +541,7 @@ endpoint builder. Take the following example in which the input parameter is a s
 <h2>Webhooks<a class="headerlink" href="#webhooks" title="Link to this heading">#</a></h2>
 <p>Webhooks are an optional configuration for your transaction endpoints but are highly recommended as they provide immediate feedback to your application once a transaction
 has been confirmed on the blockchain network. 1Shot API implements best practices for webhooks are discussed at <a class="reference external" href="https://webhooks.fyi/">webhooks.fyi</a>, which includes
-replay protection and forward compatibility. ,</p>
+replay protection and forward compatibility.</p>
 <p>When you configure a webhook, 1Shot will send a POST request to the URL you provide with a JSON payload that looks like this:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;eventName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TransactionExecutionSuccess&quot;</span><span class="p">,</span>
@@ -781,10 +781,10 @@ replay protection and forward compatibility. ,</p>
 </div>
 <section id="webhook-signatures">
 <h3>Webhook Signatures<a class="headerlink" href="#webhook-signatures" title="Link to this heading">#</a></h3>
-<p>1Shot API signs the webhook payload using the <a class="reference external" href="https://en.wikipedia.org/wiki/EdDSA#Ed25519">ed25519</a> signature scheme. As shown
-in the example above, signature is included in the JSON payload under the key <code class="docutils literal notranslate"><span class="pre">signature</span></code>. You should verify the signature using the
-public key provided in the transaction details page. The public key is a base64 encoded ed25519 public key that you can use to verify
-the signature.</p>
+<p>1Shot API signs the webhook payload using the <a class="reference external" href="https://en.wikipedia.org/wiki/EdDSA#Ed25519">ed25519</a> signature scheme. Each transaction
+endpoint generates its own public-private keypair. As shown in the example above, the signature is included in the JSON payload under the
+key <code class="docutils literal notranslate"><span class="pre">signature</span></code>. You should verify the signature using the public key provided in the transaction details page. The public key is a
+base64 encoded ed25519 public key that you can use to verify the signature.</p>
 <p>Here is an example of a <a class="reference external" href="https://fastapi.tiangolo.com/tutorial/">FastAPI</a> server that verifies authenticates callbacks from 1Shot API:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Request</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">Depends</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>

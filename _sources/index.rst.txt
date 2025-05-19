@@ -24,15 +24,17 @@ The `1Shot API <https://1shotapi.com>`_ is the first fully managed, enterprise-g
 (Binance and Avalanche supported as well). It provides a simple REST API to trigger state-changing smart contract transactions on a target blockchain network with 
 a single POST call. 
 
-1Shot is not an RPC provider, but a transaction service. In fact, depending on your usecase you may not even need an RPC provider as we handle the full transaction 
-lifecycle with real-time webhook callbacks on the final state of your transactions. This lets you focus on the logic specific to your application.
+1Shot is not an RPC provider, but an abstraction layer on top of typical RPC providers (like Infura or Alchemy). In fact, depending on your use case you may not even 
+need an RPC provider as we handle the full transaction lifecycle with real-time webhook callbacks on the final state of your transactions. 1Shot API allows you to read from 
+and write to smart contracts without the need of importing web3 clients like ethers.js into your source code. This lets you focus on the logic specific to your application
+while 1Shot API handles the complexities of data types, contract ABIs, signers and private key security, and nonce cohesion for you.
 
-The 1Shot API service is designed to handle heavy user traffic. If your product has many users generating on-chain mechanics all at once, 1Shot ensures all of your 
+The 1Shot API service is designed to handle heavy user traffic. If your product has many users generating on-chain mechanics all at once, 1Shot API ensures all of your 
 transactions will make it to the chain quickly and gas efficiently. 1Shot greatly simplifies the technical overhead of adding digital assets or on-chain logic to 
-any application, regardless of the language you application is written in.
+any application, bot, or agent, regardless of the language your application is written in.
 
-Several helpful client sdks for popular languages like Python, Typescript, C#, and PHP are available so you can one shot your next app in no time,
-leaving the complexities of transaction submission and monitoring to us.
+Several helpful client sdks for popular languages like [Python](https://pypi.org/project/uxly-1shot-client/), [Typescript](https://www.npmjs.com/package/@uxly/1shot-client) 
+are available so you can one shot your next app in no time, leaving the complexities of transaction submission and monitoring to us.
 
 Getting Started
 ----------------------------------

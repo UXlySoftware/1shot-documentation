@@ -17,8 +17,8 @@ Escrow Wallets
 
 Escrow wallets are Ethereum-compatible signing keys managed by 1Shot to submit transactions on your behalf when you make a REST 
 call to one of your configured `transaction endpoints <transactions.html>`_. Each of your escrow wallets can be linked to one or 
-more transaction endpoints (but each endpoint can only have a single escrow wallet). In order to submit a transaction from any 
-of your 1Shot-managed escrow wallets, you must first deposit gas tokens.
+more transaction endpoints (but each endpoint can only have a single default escrow wallet which can be overridden when the endpoint
+is called from the api). In order to submit a transaction from any of your 1Shot-managed escrow wallets, you must first deposit gas tokens.
 
 1Shot's hot wallet infrastructure keeps your keys secure and encrypted at rest, but it is still good practice to only deposit 
 the amount of gas tokens you need for a given period of time. When your wallet runs low on funds, 1Shot will automatically send 

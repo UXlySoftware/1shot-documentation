@@ -78,7 +78,7 @@ paths:
         - Transaction
         - Transaction Execution
         - Test
-      description: This method simulates the execution of a transaction. No gas will be spent and nothing on chain will change, but it will let you know whether or not an execution would succeed.
+      description: This method simulates the execution of a transaction. No gas will be spent and nothing on chain will change, but it will let you know whether or not an execution would succeed. Internally, this method relies on staticCall.
       parameters:
         - name: transactionId
           in: path
@@ -104,7 +104,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/JSONValue'
+                $ref: '#/components/schemas/TransactionTestResult'
         500:
           $ref: "#/components/responses/DatabaseError"
 
