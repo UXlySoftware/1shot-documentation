@@ -1858,14 +1858,11 @@ components:
             type: string
         inputs:
           type: array
-          description: An array of input parameters for the function. All inputs are required to be named.
           items:
-            $ref: "#/components/schemas/ContractFunctionParamDescription"
-        outputs:
-          type: array
-          description: An array of input parameters for the function. All inputs are required to be named.
-          items:
-            $ref: "#/components/schemas/ContractFunctionParamDescription"
+            $ref: "#/components/schemas/ContractFunctionInputDescription"
+        outputDescription:
+          type: string
+          description: Only meaningful for view functions, this is a description of the output of the function.
       required:
         - name
         - description
@@ -1873,19 +1870,22 @@ components:
         - inputs
         - outputDescription
 
-    ContractFunctionParamDescription:
-      description: A description of a function parameter. This may be an input or an output parameter.
+    ContractFunctionInputDescription:
+      description: A description of a function input parameter
       type: object
       properties:
         index:
           type: integer
-          description: The index of the parameter. Starts at 0.
+          description: The index of the input parameter. Starts at 0.
         name:
           type: string
-          description: The name of the parameter, as defined in the Solidity contract. Input parameters are required to have names; this may be blank for output parameters.
+          description: The name of the input parameter, as defined in the Solidity contract.
+        type:
+          type: string
+          description: The Solidity type of the function parameter (e.g., uint256, address).
         description:
           type: string
-          description: A description of the parameter and its purpose. These descriptions are provided by either humans or AI and are intended for AI agent consumption.
+          description: A human-provided description of the parameter and its purpose.
         tags:
           type: array
           description: An array of tag names associated with the function parameter.
@@ -1894,25 +1894,7 @@ components:
       required:
         - index
         - name
+        - type
         - description
         - tags
     
-    TransactionTestResult:
-      description: The result of running /test on a transaction.
-      type: object
-      properties:
-        success:
-          type: boolean
-          description: Whether or not the transaction would run successfully. 
-        result:
-          type: object
-          description: The result returned by the transaction, if it was successful. When running a test, no changes are made on the blockchain, so these results are hypothetical.
-          nullable: true
-        error:
-          type: object
-          description: The error that occurred, if the transaction was not successful.
-          nullable: true
-      required:
-        - success
-        - result
-        - error
