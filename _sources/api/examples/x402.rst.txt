@@ -1,0 +1,18 @@
+Easy x402 Payments with 1Shot API
+=================================
+
+x402 is a payment standard proposed by Coinbase that enables API services to charge for access by piggybacking on top 
+of the existing HTTP 402 status code. Specifically, x402 enables API customers, particularly AI agents, to pay for and 
+gain access to premium API resources by cryptographically signing (see `EIP-712 <https://eips.ethereum.org/EIPS/eip-712>`_) 
+time-bound value transfers that are executed onchain by a fascilitator (e.g. 1Shot API).
+
+This demo focuses on `FastAPI <https://fastapi.tiangolo.com/>`_ as the web server framework and leverages 
+`Pydantic <https://docs.pydantic.dev/latest/>`_ for data validation of the x402 payload specifications.
+
+Specifically, we show how FastAPI route dependencies can be used to implement x402 payments while being minimally invasive 
+to your existing codebase.
+
+..  youtube:: Qp7n2ZnlbSw
+   :align: center
+
+Check out the github repo for this tutorial `here <https://github.com/uxlySoftware/1shot-x402>`_.

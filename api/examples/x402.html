@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>How to Use Webhooks in 1Shot &#8212; 1Shot Docs</title>
+    <title>Easy x402 Payments with 1Shot API &#8212; 1Shot Docs</title>
   
   
   
@@ -46,13 +46,12 @@
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=18a8d5f5"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api/examples/webhooks';</script>
-    <link rel="canonical" href="https://docs.1shotapi.com/api/examples/webhooks.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/examples/x402';</script>
+    <link rel="canonical" href="https://docs.1shotapi.com/api/examples/x402.html" />
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Onchain Actions for Discord Bots" href="discord.html" />
-    <link rel="prev" title="Examples" href="index.html" />
+    <link rel="prev" title="Onchain Actions for Telegram Bots" href="telegram.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -395,10 +394,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../api.html">Calling the 1Shot API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../openapi.html">OpenAPI Specification</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">How to Use Webhooks in 1Shot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks.html">How to Use Webhooks in 1Shot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="discord.html">Onchain Actions for Discord Bots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="telegram.html">Onchain Actions for Telegram Bots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="x402.html">Easy x402 Payments with 1Shot API</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Easy x402 Payments with 1Shot API</a></li>
 </ul>
 </details></li>
 </ul>
@@ -447,7 +446,7 @@
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">Examples</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">How to Use Webhooks in 1Shot</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Easy x402 Payments with 1Shot API</span></li>
   </ul>
 </nav>
 </div>
@@ -464,14 +463,19 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="how-to-use-webhooks-in-1shot">
-<h1>How to Use Webhooks in 1Shot<a class="headerlink" href="#how-to-use-webhooks-in-1shot" title="Link to this heading">#</a></h1>
-<p>1Shot API provides webhooks to notify your application of the final state of a transaction. This allows you to receive real-time updates
-on the status of your transactions without having to poll the API for updates.</p>
-<p>Check out the YouTube video below for a complete walkthrough of how to set up webhooks in 1Shot API and authenticate them in your application:</p>
+  <section id="easy-x402-payments-with-1shot-api">
+<h1>Easy x402 Payments with 1Shot API<a class="headerlink" href="#easy-x402-payments-with-1shot-api" title="Link to this heading">#</a></h1>
+<p>x402 is a payment standard proposed by Coinbase that enables API services to charge for access by piggybacking on top
+of the existing HTTP 402 status code. Specifically, x402 enables API customers, particularly AI agents, to pay for and
+gain access to premium API resources by cryptographically signing (see <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-712">EIP-712</a>)
+time-bound value transfers that are executed onchain by a fascilitator (e.g. 1Shot API).</p>
+<p>This demo focuses on <a class="reference external" href="https://fastapi.tiangolo.com/">FastAPI</a> as the web server framework and leverages
+<a class="reference external" href="https://docs.pydantic.dev/latest/">Pydantic</a> for data validation of the x402 payload specifications.</p>
+<p>Specifically, we show how FastAPI route dependencies can be used to implement x402 payments while being minimally invasive
+to your existing codebase.</p>
 <div class="video_wrapper align-center" style="text-align: center">
-<iframe allowfullscreen="true" src="https://www.youtube.com/embed/UYWcTV2FwVo" style="border: 0; height: 345px; width: 560px">
-</iframe></div><p>The complete github repo for this tutorial can be found <a class="reference external" href="https://github.com/uxlySoftware/webhook-sinker">here</a>.</p>
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/Qp7n2ZnlbSw" style="border: 0; height: 345px; width: 560px">
+</iframe></div><p>Check out the github repo for this tutorial <a class="reference external" href="https://github.com/uxlySoftware/1shot-x402">here</a>.</p>
 </section>
 
 
@@ -485,22 +489,13 @@ on the status of your transactions without having to poll the API for updates.</
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="index.html"
+       href="telegram.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Examples</p>
+        <p class="prev-next-title">Onchain Actions for Telegram Bots</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="discord.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Onchain Actions for Discord Bots</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
