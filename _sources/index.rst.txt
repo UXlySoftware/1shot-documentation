@@ -33,7 +33,7 @@ The 1Shot API service is designed to handle heavy user traffic. If your product 
 transactions will make it to the chain quickly and gas efficiently. 1Shot greatly simplifies the technical overhead of adding digital assets or on-chain logic to 
 any application, bot, or agent, regardless of the language your application is written in.
 
-Several helpful client sdks for popular languages like [Python](https://pypi.org/project/uxly-1shot-client/), [Typescript](https://www.npmjs.com/package/@uxly/1shot-client) 
+Several helpful client sdks for popular languages like `Python <https://pypi.org/project/uxly-1shot-client/>`_, `Typescript <https://www.npmjs.com/package/@uxly/1shot-client>`_ 
 are available so you can one shot your next app in no time, leaving the complexities of transaction submission and monitoring to us.
 
 1Shot Prompts
