@@ -419,8 +419,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <img alt="1Shot" class="only-light align-center" src="_images/light-banner.png" />
-<img alt="1Shot" class="only-dark align-center" src="_images/dark-banner.png" />
+  <img alt="1Shot" class="align-center" src="_static/smart-tools-for-smart-contracts.png" />
 <br /><section id="welcome-to-1shot">
 <h1>Welcome to 1Shot!<a class="headerlink" href="#welcome-to-1shot" title="Link to this heading">#</a></h1>
 <p>The <a class="reference external" href="https://1shotapi.com">1Shot API</a> is the first fully managed, enterprise-grade hot wallet and transaction service for the Ethereum mainnet and L2 ecosystem
@@ -428,13 +427,20 @@
 a single POST call.</p>
 <p>1Shot is not an RPC provider, but an abstraction layer on top of typical RPC providers (like Infura or Alchemy). In fact, depending on your use case you may not even
 need an RPC provider as we handle the full transaction lifecycle with real-time webhook callbacks on the final state of your transactions. 1Shot API allows you to read from
-and write to smart contracts without the need of importing web3 clients like ethers.js into your source code. This lets you focus on the logic specific to your application
+and write to smart contracts without the need of importing web3 clients like viem or ethers.js into your source code. This lets you focus on the logic specific to your application
 while 1Shot API handles the complexities of data types, contract ABIs, signers and private key security, and nonce cohesion for you.</p>
 <p>The 1Shot API service is designed to handle heavy user traffic. If your product has many users generating on-chain mechanics all at once, 1Shot API ensures all of your
 transactions will make it to the chain quickly and gas efficiently. 1Shot greatly simplifies the technical overhead of adding digital assets or on-chain logic to
 any application, bot, or agent, regardless of the language your application is written in.</p>
 <p>Several helpful client sdks for popular languages like [Python](<a class="reference external" href="https://pypi.org/project/uxly-1shot-client/">https://pypi.org/project/uxly-1shot-client/</a>), [Typescript](<a class="reference external" href="https://www.npmjs.com/package/&#64;uxly/1shot-client">https://www.npmjs.com/package/&#64;uxly/1shot-client</a>)
 are available so you can one shot your next app in no time, leaving the complexities of transaction submission and monitoring to us.</p>
+<section id="shot-prompts">
+<h2>1Shot Prompts<a class="headerlink" href="#shot-prompts" title="Link to this heading">#</a></h2>
+<p>The 1Shot API lets AI agent developers consume smart contracts and their functions as fully annotated tools that can be consumed by any agent programming framework. You can
+find and publish smart contract tool prompts to <a class="reference external" href="https://app.1shotapi.com/1shotprompts">1Shot Prompts</a>. This provides detailed prompts for the contract, function,
+input and output parameter level which allow LLMs to better reason about how to plan transaction execution chains and what to expect from the behavior of a transaction
+before planning or execution.</p>
+</section>
 <section id="getting-started">
 <h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h2>
 <p>You can start using 1Shot by making an account at <a class="reference external" href="https://app.1shotapi.com">app.1shotapi.com</a>. Here are the main features you can use to get started:</p>
@@ -521,6 +527,7 @@ are available so you can one shot your next app in no time, leaving the complexi
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shot-prompts">1Shot Prompts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a></li>
 </ul>
   </nav></div>

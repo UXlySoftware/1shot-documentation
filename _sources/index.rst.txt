@@ -3,15 +3,19 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. image:: ./_static/light-banner.png
-   :alt: 1Shot
-   :align: center
-   :class: only-light
+.. .. image:: ./_static/light-banner.png
+..    :alt: 1Shot
+..    :align: center
+..    :class: only-light
 
-.. image:: ./_static/dark-banner.png
+.. .. image:: ./_static/dark-banner.png
+..    :alt: 1Shot
+..    :align: center
+..    :class: only-dark
+
+.. image:: ./_static/smart-tools-for-smart-contracts.png
    :alt: 1Shot
    :align: center
-   :class: only-dark
 
 .. raw:: html
 
@@ -26,7 +30,7 @@ a single POST call.
 
 1Shot is not an RPC provider, but an abstraction layer on top of typical RPC providers (like Infura or Alchemy). In fact, depending on your use case you may not even 
 need an RPC provider as we handle the full transaction lifecycle with real-time webhook callbacks on the final state of your transactions. 1Shot API allows you to read from 
-and write to smart contracts without the need of importing web3 clients like ethers.js into your source code. This lets you focus on the logic specific to your application
+and write to smart contracts without the need of importing web3 clients like viem or ethers.js into your source code. This lets you focus on the logic specific to your application
 while 1Shot API handles the complexities of data types, contract ABIs, signers and private key security, and nonce cohesion for you.
 
 The 1Shot API service is designed to handle heavy user traffic. If your product has many users generating on-chain mechanics all at once, 1Shot API ensures all of your 
@@ -35,6 +39,14 @@ any application, bot, or agent, regardless of the language your application is w
 
 Several helpful client sdks for popular languages like [Python](https://pypi.org/project/uxly-1shot-client/), [Typescript](https://www.npmjs.com/package/@uxly/1shot-client) 
 are available so you can one shot your next app in no time, leaving the complexities of transaction submission and monitoring to us.
+
+1Shot Prompts
+-------------
+
+The 1Shot API lets AI agent developers consume smart contracts and their functions as fully annotated tools that can be consumed by any agent programming framework. You can 
+find and publish smart contract tool prompts to `1Shot Prompts <https://app.1shotapi.com/1shotprompts>`_. This provides detailed prompts for the contract, function,
+input and output parameter level which allow LLMs to better reason about how to plan transaction execution chains and what to expect from the behavior of a transaction
+before planning or execution.
 
 Getting Started
 ----------------------------------
