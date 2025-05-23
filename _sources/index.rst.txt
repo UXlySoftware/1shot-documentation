@@ -4,17 +4,17 @@
    contain the root `toctree` directive.
 
 .. .. image:: ./_static/light-banner.png
-..    :alt: 1Shot
+..    :alt: 1Shot API
 ..    :align: center
 ..    :class: only-light
 
 .. .. image:: ./_static/dark-banner.png
-..    :alt: 1Shot
+..    :alt: 1Shot API
 ..    :align: center
 ..    :class: only-dark
 
-.. image:: ./_static/smart-tools-for-smart-contracts.png
-   :alt: 1Shot
+.. image:: ./_static/smart-tools-for-smart-contracts.jpg
+   :alt: 1Shot API
    :align: center
 
 .. raw:: html
