@@ -1,5 +1,5 @@
-TX Configs
-==========
+Endpoints
+=========
 
 .. note::
 
@@ -110,6 +110,66 @@ The payload used to `call the API <api.html#triggering-a-transaction>`_ endpoint
             }
         }
     }
+
+Authorization Lists: EIP-7702
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1Shot API supports `EIP-7702 <https://eips.ethereum.org/EIPS/eip-7702>`_ authorization lists for transaction endpoints. This allows you to use 1Shot API as 
+relayer for user transactions without requiring users to front gas costs themselves. Any ``write`` endpoint can be passed an ``authorizationList`` parameter
+to automatically turn the resulting transaction into an EIP-7702 transaction. Here is an example in Typescript:
+
+.. code:: javascript
+
+    const wallet = new ethers.Wallet(process.env.DEPLOYER_PRIVATE_KEY, ethers.provider);
+    const chainId = (await ethers.provider.getNetwork()).chainId;
+
+    // Get the contract instance
+    const WALLET_CORE = process.env.WALLET_CORE;
+    const WalletCore = await ethers.getContractAt("WalletCore", WALLET_CORE);
+
+    const authorizationData: {
+        chainId: any;
+        address: string | undefined;
+        nonce: any;
+        yParity?: string;
+        r?: string;
+        s?: string;
+    } = {
+        chainId: ethers.toBeHex(chainId.toString()),
+        address: WALLET_CORE,
+        nonce: ethers.toBeHex(currentNonce + 1),
+    };
+
+    // Encode authorization data according to EIP-712 standard
+    const encodedAuthorizationData = ethers.concat([
+        '0x05', // MAGIC code for EIP7702
+        ethers.encodeRlp([
+            authorizationData.chainId,
+            authorizationData.address,
+            authorizationData.nonce,
+        ])
+    ]);
+
+    // Generate and sign authorization data hash
+    const authorizationDataHash = ethers.keccak256(encodedAuthorizationData);
+    const authorizationSignature = wallet.signingKey.sign(authorizationDataHash);
+
+    // Now we execute the transaction using the authorizationData and Signature
+    // we created above. 
+    const execution = await oneshotClient.transactions.execute(
+        transactionEndpoint, // transaction endpoint id
+        {}, // initialize doesn't require any parameters
+        undefined, // use default escrow wallet id
+        'relayed 7702 transaction', // transaction memo
+        [ // authorization list
+            {
+                address: authorizationData.address!,
+                nonce: authorizationData.nonce,
+                chainId: Number(authorizationData.chainId),
+                signature: authorizationSignature.serialized
+            }
+        ]
+    )
 
 Webhooks
 ---------
