@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>EIP-7702 Transaction Example: OKX Core Wallet &#8212; 1Shot Docs</title>
+    <title>EIP-7702 Transaction Relayer: OKX Core Wallet &#8212; 1Shot Docs</title>
   
   
   
@@ -398,7 +398,7 @@
 <li class="toctree-l2"><a class="reference internal" href="discord.html">Onchain Actions for Discord Bots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="telegram.html">Onchain Actions for Telegram Bots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="x402.html">Easy x402 Payments with 1Shot API</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">EIP-7702 Transaction Example: OKX Core Wallet</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">EIP-7702 Transaction Relayer: OKX Core Wallet</a></li>
 </ul>
 </details></li>
 </ul>
@@ -447,7 +447,7 @@
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">Examples</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">EIP-7702 Transaction Example: OKX Core Wallet</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">EIP-7702 Transaction Relayer: OKX Core Wallet</span></li>
   </ul>
 </nav>
 </div>
@@ -464,11 +464,11 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="eip-7702-transaction-example-okx-core-wallet">
-<h1>EIP-7702 Transaction Example: OKX Core Wallet<a class="headerlink" href="#eip-7702-transaction-example-okx-core-wallet" title="Link to this heading">#</a></h1>
+  <section id="eip-7702-transaction-relayer-okx-core-wallet">
+<h1>EIP-7702 Transaction Relayer: OKX Core Wallet<a class="headerlink" href="#eip-7702-transaction-relayer-okx-core-wallet" title="Link to this heading">#</a></h1>
 <p>On May 7, 2025, the Ethereum network completed the Pectra update, bringing with it a substantial enhancement for Externally Owned Accounts (EOAs).
-Thanks to <cite>EIP-7702 &lt;https://eips.ethereum.org/EIPS/eip-7702&gt;`_</cite> EOAs now possess polymorphic capabilities that allow them to function as if they were native smart contracts. This shift opens up an exciting new design space for EVM application developers.</p>
-<p>This representative example uses the OKX Core Wallet to demonstrate how EIP-7702 transaction can be executed in 1Shot API by passing an <cite>authorizationList</cite> to any write function endpoint. This example illustrates how developers can leverage the new features of EOAs to enhance user experience and streamline interactions with smart contracts.</p>
+Thanks to <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-7702">EIP-7702</a> EOAs now possess polymorphic capabilities that allow them to function as if they were native smart contracts. This shift opens up an exciting new design space for EVM application developers.</p>
+<p>This representative example uses a fork of the <a class="reference external" href="https://github.com/okx/wallet-core">OKX Core Wallet</a> to demonstrate how EIP-7702 transactions can be executed in 1Shot API simply by passing an <a class="reference external" href="https://github.com/UXlySoftware/okx-wallet-core-with-1shot/blob/main/scripts/1shot_demo/1-setCodeAndInitialize.ts#L130">authorizationList</a> when calling <code class="docutils literal notranslate"><span class="pre">execute</span></code>. This example illustrates how developers can leverage the new features of EOAs to enhance user experience and streamline interactions with smart contracts.</p>
 <div class="video_wrapper align-center" style="text-align: center">
 <iframe allowfullscreen="true" src="https://www.youtube.com/embed/m0ZrWnOVSco" style="border: 0; height: 345px; width: 560px">
 </iframe></div><p>A fork of the official Core-Wallet repository with 1Shot API-specific demonstrations can be found <a class="reference external" href="https://github.com/UXlySoftware/okx-wallet-core-with-1shot/tree/main/scripts/1shot_demo">here</a>.</p>
