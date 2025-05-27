@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>TX Configs &#8212; 1Shot Docs</title>
+    <title>Endpoints &#8212; 1Shot Docs</title>
   
   
   
@@ -153,7 +153,7 @@
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="#">
-    TX Configs
+    Endpoints
   </a>
 </li>
 
@@ -305,7 +305,7 @@
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="#">
-    TX Configs
+    Endpoints
   </a>
 </li>
 
@@ -434,7 +434,7 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">TX Configs</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Endpoints</span></li>
   </ul>
 </nav>
 </div>
@@ -451,8 +451,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="tx-configs">
-<h1>TX Configs<a class="headerlink" href="#tx-configs" title="Link to this heading">#</a></h1>
+  <section id="endpoints">
+<h1>Endpoints<a class="headerlink" href="#endpoints" title="Link to this heading">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Before you can configure a transaction endpoint, you’ll need to provision and fund an <a class="reference external" href="escrow-wallets.html">escrow wallet</a>.</p>
@@ -533,6 +533,64 @@ endpoint builder. Take the following example in which the input parameter is a s
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="authorization-lists-eip-7702">
+<h3>Authorization Lists: EIP-7702<a class="headerlink" href="#authorization-lists-eip-7702" title="Link to this heading">#</a></h3>
+<p>1Shot API supports <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-7702">EIP-7702</a> authorization lists for transaction endpoints. This allows you to use 1Shot API as
+relayer for user transactions without requiring users to front gas costs themselves. Any <code class="docutils literal notranslate"><span class="pre">write</span></code> endpoint can be passed an <code class="docutils literal notranslate"><span class="pre">authorizationList</span></code> parameter
+to automatically turn the resulting transaction into an EIP-7702 transaction. Here is an example in Typescript:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">wallet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">Wallet</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DEPLOYER_PRIVATE_KEY</span><span class="p">,</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">provider</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">chainId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">await</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">provider</span><span class="p">.</span><span class="nx">getNetwork</span><span class="p">()).</span><span class="nx">chainId</span><span class="p">;</span>
+
+<span class="c1">// Get the contract instance</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">WALLET_CORE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">WALLET_CORE</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">WalletCore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">getContractAt</span><span class="p">(</span><span class="s2">&quot;WalletCore&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">WALLET_CORE</span><span class="p">);</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">authorizationData</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">chainId</span><span class="o">:</span><span class="w"> </span><span class="nx">any</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">address</span><span class="o">:</span><span class="w"> </span><span class="nx">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">nonce</span><span class="o">:</span><span class="w"> </span><span class="nx">any</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">yParity</span><span class="o">?:</span><span class="w"> </span><span class="nx">string</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">r</span><span class="o">?:</span><span class="w"> </span><span class="nx">string</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">s</span><span class="o">?:</span><span class="w"> </span><span class="nx">string</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">chainId</span><span class="o">:</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">toBeHex</span><span class="p">(</span><span class="nx">chainId</span><span class="p">.</span><span class="nx">toString</span><span class="p">()),</span>
+<span class="w">    </span><span class="nx">address</span><span class="o">:</span><span class="w"> </span><span class="nx">WALLET_CORE</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">nonce</span><span class="o">:</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">toBeHex</span><span class="p">(</span><span class="nx">currentNonce</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">),</span>
+<span class="p">};</span>
+
+<span class="c1">// Encode authorization data according to EIP-712 standard</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">encodedAuthorizationData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">concat</span><span class="p">([</span>
+<span class="w">    </span><span class="s1">&#39;0x05&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// MAGIC code for EIP7702</span>
+<span class="w">    </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">encodeRlp</span><span class="p">([</span>
+<span class="w">        </span><span class="nx">authorizationData</span><span class="p">.</span><span class="nx">chainId</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">authorizationData</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">authorizationData</span><span class="p">.</span><span class="nx">nonce</span><span class="p">,</span>
+<span class="w">    </span><span class="p">])</span>
+<span class="p">]);</span>
+
+<span class="c1">// Generate and sign authorization data hash</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">authorizationDataHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">keccak256</span><span class="p">(</span><span class="nx">encodedAuthorizationData</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">authorizationSignature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wallet</span><span class="p">.</span><span class="nx">signingKey</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">authorizationDataHash</span><span class="p">);</span>
+
+<span class="c1">// Now we execute the transaction using the authorizationData and Signature</span>
+<span class="c1">// we created above.</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">execution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">oneshotClient</span><span class="p">.</span><span class="nx">transactions</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">transactionEndpoint</span><span class="p">,</span><span class="w"> </span><span class="c1">// transaction endpoint id</span>
+<span class="w">    </span><span class="p">{},</span><span class="w"> </span><span class="c1">// initialize doesn&#39;t require any parameters</span>
+<span class="w">    </span><span class="kc">undefined</span><span class="p">,</span><span class="w"> </span><span class="c1">// use default escrow wallet id</span>
+<span class="w">    </span><span class="s1">&#39;relayed 7702 transaction&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// transaction memo</span>
+<span class="w">    </span><span class="p">[</span><span class="w"> </span><span class="c1">// authorization list</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">address</span><span class="o">:</span><span class="w"> </span><span class="nx">authorizationData</span><span class="p">.</span><span class="nx">address</span><span class="o">!</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">nonce</span><span class="o">:</span><span class="w"> </span><span class="nx">authorizationData</span><span class="p">.</span><span class="nx">nonce</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">chainId</span><span class="o">:</span><span class="w"> </span><span class="nb">Number</span><span class="p">(</span><span class="nx">authorizationData</span><span class="p">.</span><span class="nx">chainId</span><span class="p">),</span>
+<span class="w">            </span><span class="nx">signature</span><span class="o">:</span><span class="w"> </span><span class="nx">authorizationSignature</span><span class="p">.</span><span class="nx">serialized</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -885,6 +943,7 @@ found <a class="reference external" href="https://github.com/UXlySoftware/webhoo
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transaction-parameters">Transaction Parameters</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-vs-dynamic-parameters">Static vs Dynamic Parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struct-and-array-inputs">Struct and Array Inputs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authorization-lists-eip-7702">Authorization Lists: EIP-7702</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#webhooks">Webhooks</a><ul class="nav section-nav flex-column">
