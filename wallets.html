@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Escrow Wallets &#8212; 1Shot Docs</title>
+    <title>Wallets &#8212; 1Shot Docs</title>
   
   
   
@@ -146,7 +146,7 @@
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="#">
-    Escrow Wallets
+    Wallets
   </a>
 </li>
 
@@ -298,7 +298,7 @@
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="#">
-    Escrow Wallets
+    Wallets
   </a>
 </li>
 
@@ -434,7 +434,7 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Escrow Wallets</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Wallets</span></li>
   </ul>
 </nav>
 </div>
@@ -451,41 +451,41 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="escrow-wallets">
-<h1>Escrow Wallets<a class="headerlink" href="#escrow-wallets" title="Link to this heading">#</a></h1>
+  <section id="wallets">
+<h1>Wallets<a class="headerlink" href="#wallets" title="Link to this heading">#</a></h1>
 <img alt="Escrow Flow" class="only-light align-center" src="_images/escrow-flow-light.png" />
 <img alt="Escrow Flow" class="only-dark align-center" src="_images/escrow-flow-dark.png" />
-<br /><p>Escrow wallets are Ethereum-compatible signing keys managed by 1Shot to submit transactions on your behalf when you make a REST
-call to one of your configured <a class="reference external" href="transactions.html">transaction endpoints</a>. Each of your escrow wallets can be linked to one or
-more transaction endpoints (but each endpoint can only have a single default escrow wallet which can be overridden when the endpoint
-is called from the api). In order to submit a transaction from any of your 1Shot-managed escrow wallets, you must first deposit gas tokens.</p>
-<p>1Shot’s hot wallet infrastructure keeps your keys secure and encrypted at rest, but it is still good practice to only deposit
-the amount of gas tokens you need for a given period of time. When your wallet runs low on funds, 1Shot will automatically send
-you an email notification. You can <a class="reference external" href="#funding-your-escrow-wallet">deposit additional gas funds</a> into your escrow wallet
-at anytime which will trigger a confirmation email when 1Shot detects the deposit.</p>
-<section id="creating-an-escrow-wallet">
-<h2>Creating an Escrow Wallet<a class="headerlink" href="#creating-an-escrow-wallet" title="Link to this heading">#</a></h2>
-<img alt="Creating an escrow wallet" class="align-center" src="_images/create-escrow-wallet.gif" />
-<br /><p>To create an escrow wallet, navigate to the <a class="reference external" href="https://app.1shotapi.com/escrow-wallets">Escrow Wallets</a> page in the 1Shot dashboard
+<br /><p>1Shot API wallets are Ethereum-compatible signing keys managed by 1Shot API to submit transactions on your behalf when you make a REST
+call to one of your configured <a class="reference external" href="transactions.html">contract methods</a>. Each of your wallets can be linked to one or
+more smart contract methods (but each contract method can only have a single default). The default wallet of a contract method can be overridden when the endpoint
+is called from the api. In order to submit a transaction from any of your 1Shot API-managed wallets, you must first deposit gas tokens.</p>
+<p>1Shot API’s wallet infrastructure keeps your keys secure and encrypted at rest, but it is still good practice to only deposit
+the amount of gas tokens you need for a given period of time. When your wallet runs low on funds, 1Shot API will automatically send
+you an email notification. You can <a class="reference external" href="#funding-your-escrow-wallet">deposit additional gas funds</a> into your wallet
+at anytime which will trigger a confirmation email when the service detects the deposit.</p>
+<section id="creating-an-wallet">
+<h2>Creating an Wallet<a class="headerlink" href="#creating-an-wallet" title="Link to this heading">#</a></h2>
+<img alt="Creating a wallet" class="align-center" src="_images/create-escrow-wallet.gif" />
+<br /><p>To create a wallet, navigate to the <a class="reference external" href="https://app.1shotapi.com/escrow-wallets">Wallets</a> page in the 1Shot API dashboard
 and click the “Create Wallet” button. You will be prompted to enter a name and description for your new wallet and the target blockchain
 the wallet will operate on.</p>
 </section>
-<section id="funding-your-escrow-wallet">
-<span id="id2"></span><h2>Funding Your Escrow Wallet<a class="headerlink" href="#funding-your-escrow-wallet" title="Link to this heading">#</a></h2>
-<p>You must deposit native tokens into your escrow wallet to pay for transactions signed by its key. Only fund your escrow wallet with
+<section id="funding-your-wallet">
+<span id="id2"></span><h2>Funding Your Wallet<a class="headerlink" href="#funding-your-wallet" title="Link to this heading">#</a></h2>
+<p>You must deposit native tokens into your wallet to pay for transactions signed by its key. Only fund your wallet with
 assets on the target blockchain the wallet is configured for.</p>
-<p>For example, if you are setting up an escrow wallet for the Ethereum mainnet, you should only deposit ETH to pay for gas into the
+<p>For example, if you are setting up a wallet for the Ethereum mainnet, you should only deposit ETH to pay for gas into the
 wallet. If you are configuring a wallet for the Polygon network, you should only deposit Polygon gas tokens into the wallet.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>You can deposit ERC-20 tokens, ERC-721 NFTs or other similar assets into an escrow wallet to make it easier to perform airdrops or DeFi trades. Another strategy would be to leave
+<p>You can deposit ERC-20 tokens, ERC-721 NFTs or other similar assets into a wallet to make it easier to perform airdrops or DeFi trades. Another strategy would be to leave
 the tokens in a cold (or soft wallet) that you personally control and <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-20#approve">approve</a> the 1Shot escrow wallet to spend them when needed.</p>
 </div>
 </section>
 <section id="withdrawing-funds">
 <h2>Withdrawing funds<a class="headerlink" href="#withdrawing-funds" title="Link to this heading">#</a></h2>
 <img alt="Initiate funds withdrawal" class="align-center" src="_images/withdraw.png" />
-<br /><p>You can withdraw funds from your escrow wallet at any time by clicking the “Withdraw” button on the wallet’s detail page. Enter the amount of gas (native)
+<br /><p>You can withdraw funds from your wallet at any time by clicking the “Withdraw” button on the wallet’s detail page. Enter the amount of gas (native)
 tokens you want to withdraw and click “Send”. You’ll be prompted to confirm the withdrawal details before the transaction is submitted.</p>
 <img alt="Confirming funds withdrawal" class="align-center" src="_images/withdraw-confirmation.png" />
 </section>
@@ -538,8 +538,8 @@ tokens you want to withdraw and click “Send”. You’ll be prompted to confir
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-an-escrow-wallet">Creating an Escrow Wallet</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funding-your-escrow-wallet">Funding Your Escrow Wallet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-an-wallet">Creating an Wallet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funding-your-wallet">Funding Your Wallet</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#withdrawing-funds">Withdrawing funds</a></li>
 </ul>
   </nav></div>
