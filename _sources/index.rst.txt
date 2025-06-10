@@ -75,7 +75,7 @@ You can start using 1Shot by making an account at `app.1shotapi.com <https://app
         Provision and fund 1Shot API wallets for submitting transactions.
    
     .. grid-item-card:: 3. Calling Smart Contracts 📝
-        :link: transactions.html
+        :link: contract-methods.html
         :link-alt: Calling Smart Contracts
 
         Read from and write to smart contracts by importing their methods into your business's API.
