@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Endpoints &#8212; 1Shot Docs</title>
+    <title>Smart Contract Methods &#8212; 1Shot Docs</title>
   
   
   
@@ -46,8 +46,8 @@
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=18a8d5f5"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'transactions';</script>
-    <link rel="canonical" href="https://docs.1shotapi.com/transactions.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contract-methods';</script>
+    <link rel="canonical" href="https://docs.1shotapi.com/contract-methods.html" />
     <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -153,7 +153,7 @@
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="#">
-    Endpoints
+    Smart Contract Methods
   </a>
 </li>
 
@@ -305,7 +305,7 @@
 
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="#">
-    Endpoints
+    Smart Contract Methods
   </a>
 </li>
 
@@ -434,7 +434,7 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Endpoints</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Smart Contract Methods</span></li>
   </ul>
 </nav>
 </div>
@@ -451,24 +451,24 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="endpoints">
-<h1>Endpoints<a class="headerlink" href="#endpoints" title="Link to this heading">#</a></h1>
+  <section id="smart-contract-methods">
+<h1>Smart Contract Methods<a class="headerlink" href="#smart-contract-methods" title="Link to this heading">#</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Before you can configure a transaction endpoint, you’ll need to provision and fund an <a class="reference external" href="escrow-wallets.html">escrow wallet</a>.</p>
+<p>Before you can configure endpoints to call contract methods, you’ll need to provision and fund a <a class="reference external" href="wallets.html">wallet</a>.</p>
 </div>
-<p>Transaction endpoints are the core of the 1Shot API. They are the RESTful endpoints you configure to call smart contract functions on the blockchain.
-Each transaction endpoint is linked to a single escrow wallet and can be configured to accept a specific set of input parameters. In order to
-configure a transaction endpoint, you’ll need to provide the following information:</p>
+<p>Contract method endpoints are the core of the 1Shot API. They are the RESTful endpoints you configure to read from and write to smart contracts on the blockchain.
+Each contract method endpoint is linked to a single default wallet and can be configured to accept a specific set of input parameters. In order to
+configure a contract method, you’ll need to provide the following information:</p>
 <ol class="arabic simple">
 <li><p>A target blockchain network (Ethereum mainnet, Binance Smart Chain, Avalanche, etc.)</p></li>
 <li><p>The contract address of the smart contract you want to interact with</p></li>
-<li><p>The name of the function you want to call on the contract</p></li>
-<li><p>Input parameters the function expects</p></li>
-<li><p>(optional) A webhook URL to receive real-time feedback on the transaction status</p></li>
+<li><p>The name of the method you want to call on the contract</p></li>
+<li><p>Input parameters the method expects</p></li>
+<li><p>(optional) A webhook URL to receive real-time feedback on the status of transactions created from calling the method</p></li>
 </ol>
-<p>Once you’ve configured a transaction endpoint, you can trigger the transaction by making a POST request to the 1Shot API with
-your <a class="reference external" href="api.html">API key and secret</a>. You’ll need to grab the <code class="docutils literal notranslate"><span class="pre">TRANSACTION_ENDPOINT_ID</span></code> of the endpoint from the 1Shot dashboard.</p>
+<p>Once you’ve configured an endpoint, you can trigger the transaction by making a POST request to the 1Shot API with
+your <a class="reference external" href="api.html">API key and secret</a>. You’ll need to grab the <code class="docutils literal notranslate"><span class="pre">CONTRACT_METHOD_ENDPOINT_ID</span></code> of the endpoint from the 1Shot API dashboard.</p>
 <section id="example-base-usdc-transfer">
 <h2>Example: Base USDC Transfer<a class="headerlink" href="#example-base-usdc-transfer" title="Link to this heading">#</a></h2>
 <img alt="USDC Transfer Example" class="align-center" src="_images/usdc-example.gif" />
@@ -489,15 +489,15 @@ Base L2 network from the dropdown. Fill in the webhook URL if you want to receiv
 if you always want to transfer the same amount of tokens every time but to different addresses.</p>
 </div>
 </section>
-<section id="transaction-parameters">
-<h2>Transaction Parameters<a class="headerlink" href="#transaction-parameters" title="Link to this heading">#</a></h2>
+<section id="contract-method-parameters">
+<h2>Contract Method Parameters<a class="headerlink" href="#contract-method-parameters" title="Link to this heading">#</a></h2>
 <p>At the highest configuration level, input paramerters can be either <code class="docutils literal notranslate"><span class="pre">primitive</span></code>, <code class="docutils literal notranslate"><span class="pre">array</span></code>, or <code class="docutils literal notranslate"><span class="pre">struct</span></code> types. A <code class="docutils literal notranslate"><span class="pre">primitive</span></code> is a type like
 <code class="docutils literal notranslate"><span class="pre">uint</span></code> or <code class="docutils literal notranslate"><span class="pre">bool</span></code> that is not composed of other types and is likely the most common input type. An <code class="docutils literal notranslate"><span class="pre">array</span></code> is a collection
 of the same type of elements, and a <code class="docutils literal notranslate"><span class="pre">struct</span></code> is a collection of different types of elements.</p>
 <section id="static-vs-dynamic-parameters">
 <h3>Static vs Dynamic Parameters<a class="headerlink" href="#static-vs-dynamic-parameters" title="Link to this heading">#</a></h3>
-<p>When configuring a transaction endpoint, input parameters can be either <code class="docutils literal notranslate"><span class="pre">Static</span></code> or <code class="docutils literal notranslate"><span class="pre">Dynamic</span></code>. Parameters set to <code class="docutils literal notranslate"><span class="pre">Static</span></code> will be hardcoded in the
-transaction endpoint configuration and are not specified in the request payload when calling the API. Parameters set to <code class="docutils literal notranslate"><span class="pre">Dynamic</span></code> will be passed as
+<p>When configuring a method endpoint, input parameters can be either <code class="docutils literal notranslate"><span class="pre">Static</span></code> or <code class="docutils literal notranslate"><span class="pre">Dynamic</span></code>. Parameters set to <code class="docutils literal notranslate"><span class="pre">Static</span></code> will be hardcoded in the
+method endpoint configuration and are not specified in the request payload when calling the API. Parameters set to <code class="docutils literal notranslate"><span class="pre">Dynamic</span></code> will be passed as
 input parameters when calling the API and can be different for each transaction. See <a class="reference external" href="api.html">Calling the 1Shot API</a> for more information on how
 to trigger a transaction.</p>
 <div class="admonition important">
@@ -538,7 +538,7 @@ endpoint builder. Take the following example in which the input parameter is a s
 </section>
 <section id="authorization-lists-eip-7702">
 <h3>Authorization Lists: EIP-7702<a class="headerlink" href="#authorization-lists-eip-7702" title="Link to this heading">#</a></h3>
-<p>1Shot API supports <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-7702">EIP-7702</a> authorization lists for transaction endpoints. This allows you to use 1Shot API as
+<p>1Shot API supports <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-7702">EIP-7702</a> authorization lists for contract method endpoints. This allows you to use 1Shot API as
 relayer for user transactions without requiring users to front gas costs themselves. Any <code class="docutils literal notranslate"><span class="pre">write</span></code> endpoint can be passed an <code class="docutils literal notranslate"><span class="pre">authorizationList</span></code> parameter
 to automatically turn the resulting transaction into an EIP-7702 transaction. Here is an example in Typescript:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">wallet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">Wallet</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DEPLOYER_PRIVATE_KEY</span><span class="p">,</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">provider</span><span class="p">);</span>
@@ -577,8 +577,8 @@ to automatically turn the resulting transaction into an EIP-7702 transaction. He
 
 <span class="c1">// Now we execute the transaction using the authorizationData and Signature</span>
 <span class="c1">// we created above.</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">execution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">oneshotClient</span><span class="p">.</span><span class="nx">transactions</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span>
-<span class="w">    </span><span class="nx">transactionEndpoint</span><span class="p">,</span><span class="w"> </span><span class="c1">// transaction endpoint id</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">execution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">oneshotClient</span><span class="p">.</span><span class="nx">contract_methods</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">contractMethodId</span><span class="p">,</span><span class="w"> </span><span class="c1">// contract method endpoint id</span>
 <span class="w">    </span><span class="p">{},</span><span class="w"> </span><span class="c1">// initialize doesn&#39;t require any parameters</span>
 <span class="w">    </span><span class="kc">undefined</span><span class="p">,</span><span class="w"> </span><span class="c1">// use default escrow wallet id</span>
 <span class="w">    </span><span class="s1">&#39;relayed 7702 transaction&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// transaction memo</span>
@@ -940,7 +940,7 @@ found <a class="reference external" href="https://github.com/UXlySoftware/webhoo
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-base-usdc-transfer">Example: Base USDC Transfer</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transaction-parameters">Transaction Parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contract-method-parameters">Contract Method Parameters</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-vs-dynamic-parameters">Static vs Dynamic Parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#struct-and-array-inputs">Struct and Array Inputs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authorization-lists-eip-7702">Authorization Lists: EIP-7702</a></li>

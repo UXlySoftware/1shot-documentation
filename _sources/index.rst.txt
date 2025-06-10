@@ -62,23 +62,23 @@ You can start using 1Shot by making an account at `app.1shotapi.com <https://app
 .. grid:: 2 2 2 2
     :gutter: 4
 
-    .. grid-item-card:: 1. Organization Management 🏢
-        :link: org-creation.html
-        :link-alt: Organization Management 
+    .. grid-item-card:: 1. Businesses and Teams 🏢
+        :link: businesses-and-teams.html
+        :link-alt: Businesses and Teams 
 
-        Create an organization, add team members, and manage billing.
+        Create a business, add team members, and manage billing.
 
     .. grid-item-card:: 2. Wallets 👛
         :link: wallets.html
         :link-alt: Wallets
 
-        Provision and fund escrow wallets for submitting transactions.
+        Provision and fund 1Shot API wallets for submitting transactions.
    
-    .. grid-item-card:: 3. Transaction Configuration 📝
+    .. grid-item-card:: 3. Calling Smart Contracts 📝
         :link: transactions.html
-        :link-alt: Transaction Configuration
+        :link-alt: Calling Smart Contracts
 
-        Build transaction endpoints to call smart contracts and configure webhooks.
+        Read from and write to smart contracts by importing their methods into your business's API.
 
     .. grid-item-card:: 4. Calling the 1Shot API 💻🐀
         :link: api/api.html
@@ -92,5 +92,5 @@ You can start using 1Shot by making an account at `app.1shotapi.com <https://app
 
    businesses-and-teams
    wallets
-   transactions
+   contract-methods
    api/index.rst
