@@ -68,9 +68,9 @@ You can start using 1Shot by making an account at `app.1shotapi.com <https://app
 
         Create an organization, add team members, and manage billing.
 
-    .. grid-item-card:: 2. Escrow Wallets 👛
-        :link: escrow-wallets.html
-        :link-alt: Escrow Wallets
+    .. grid-item-card:: 2. Wallets 👛
+        :link: wallets.html
+        :link-alt: Wallets
 
         Provision and fund escrow wallets for submitting transactions.
    
