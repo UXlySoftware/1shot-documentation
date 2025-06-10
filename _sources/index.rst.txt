@@ -24,13 +24,13 @@ The `1Shot API <https://1shotapi.com>`_ is the first fully managed, enterprise-g
 (Binance and Avalanche supported as well). It provides a simple REST API to trigger state-changing smart contract transactions on a target blockchain network with 
 a single POST call. 
 
-1Shot is not an RPC provider, but an abstraction layer on top of typical RPC providers (like Infura or Alchemy). In fact, depending on your use case you may not even 
+1Shot API is not an RPC provider, but an abstraction layer on top of typical RPC providers (like Infura or Alchemy). In fact, depending on your use case you may not even 
 need an RPC provider as we handle the full transaction lifecycle with real-time webhook callbacks on the final state of your transactions. 1Shot API allows you to read from 
 and write to smart contracts without the need of importing web3 clients like viem or ethers.js into your source code. This lets you focus on the logic specific to your application
 while 1Shot API handles the complexities of data types, contract ABIs, signers and private key security, and nonce cohesion for you.
 
-The 1Shot API service is designed to handle heavy user traffic. If your product has many users generating on-chain mechanics all at once, 1Shot API ensures all of your 
-transactions will make it to the chain quickly and gas efficiently. 1Shot greatly simplifies the technical overhead of adding digital assets or on-chain logic to 
+The 1Shot API service is designed to handle heavy user traffic. If your product has many users generating onchain actions all at once, 1Shot API ensures all of your 
+transactions will make it to the chain quickly and gas efficiently. 1Shot API greatly simplifies the technical overhead of adding digital assets or on-chain logic to 
 any application, bot, or agent, regardless of the language your application is written in.
 
 Several helpful client sdks for popular languages like `Python <https://pypi.org/project/uxly-1shot-client/>`_, `Typescript <https://www.npmjs.com/package/@uxly/1shot-client>`_ 
@@ -43,6 +43,16 @@ The 1Shot API lets AI agent developers consume smart contracts and their functio
 find and publish smart contract tool prompts to `1Shot Prompts <https://app.1shotapi.com/1shotprompts>`_. This provides detailed prompts for the contract, function,
 input and output parameter level which allow LLMs to better reason about how to plan transaction execution chains and what to expect from the behavior of a transaction
 before planning or execution.
+
+Onchain Automation
+------------------
+
+1Shot API is the best place to start for automating onchain workflows. We have integrations with the most popular automation platforms including:
+
+- `n8n <https://github.com/uxlysoftware/n8n-nodes-1shot>`_
+- `IFTTT <https://ifttt.com>`_
+- `make <https://www.make.com>`_
+- `Zapier <https://zapier.com>`_
 
 Getting Started
 ----------------------------------
