@@ -1,22 +1,22 @@
-Endpoints
-=========
+Smart Contract Methods
+=======================
 
 .. note::
 
-    Before you can configure a transaction endpoint, you'll need to provision and fund an `escrow wallet <escrow-wallets.html>`_. 
+    Before you can configure endpoints to call contract methods, you'll need to provision and fund a `wallet <wallets.html>`_. 
 
-Transaction endpoints are the core of the 1Shot API. They are the RESTful endpoints you configure to call smart contract functions on the blockchain. 
-Each transaction endpoint is linked to a single escrow wallet and can be configured to accept a specific set of input parameters. In order to 
-configure a transaction endpoint, you'll need to provide the following information:
+Contract method endpoints are the core of the 1Shot API. They are the RESTful endpoints you configure to read from and write to smart contracts on the blockchain. 
+Each contract method endpoint is linked to a single default wallet and can be configured to accept a specific set of input parameters. In order to 
+configure a contract method, you'll need to provide the following information:
 
 1. A target blockchain network (Ethereum mainnet, Binance Smart Chain, Avalanche, etc.)
 2. The contract address of the smart contract you want to interact with
-3. The name of the function you want to call on the contract
-4. Input parameters the function expects
-5. (optional) A webhook URL to receive real-time feedback on the transaction status
+3. The name of the method you want to call on the contract
+4. Input parameters the method expects
+5. (optional) A webhook URL to receive real-time feedback on the status of transactions created from calling the method
 
-Once you've configured a transaction endpoint, you can trigger the transaction by making a POST request to the 1Shot API with 
-your `API key and secret <api.html>`_. You'll need to grab the ``TRANSACTION_ENDPOINT_ID`` of the endpoint from the 1Shot dashboard.
+Once you've configured an endpoint, you can trigger the transaction by making a POST request to the 1Shot API with 
+your `API key and secret <api.html>`_. You'll need to grab the ``CONTRACT_METHOD_ENDPOINT_ID`` of the endpoint from the 1Shot API dashboard.
 
 Example: Base USDC Transfer
 ---------------------------
@@ -49,7 +49,7 @@ We'll set both of these parameters to be ``Dynamic`` so because we will pass bot
     You can also set parameters to be ``Static`` if you want to hardcode them in the transaction endpoint configuration. This is useful, for example, 
     if you always want to transfer the same amount of tokens every time but to different addresses.
 
-Transaction Parameters
+Contract Method Parameters
 ----------------------
 
 At the highest configuration level, input paramerters can be either ``primitive``, ``array``, or ``struct`` types. A ``primitive`` is a type like
@@ -59,8 +59,8 @@ of the same type of elements, and a ``struct`` is a collection of different type
 Static vs Dynamic Parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When configuring a transaction endpoint, input parameters can be either ``Static`` or ``Dynamic``. Parameters set to ``Static`` will be hardcoded in the
-transaction endpoint configuration and are not specified in the request payload when calling the API. Parameters set to ``Dynamic`` will be passed as 
+When configuring a method endpoint, input parameters can be either ``Static`` or ``Dynamic``. Parameters set to ``Static`` will be hardcoded in the
+method endpoint configuration and are not specified in the request payload when calling the API. Parameters set to ``Dynamic`` will be passed as 
 input parameters when calling the API and can be different for each transaction. See `Calling the 1Shot API <api.html>`_ for more information on how 
 to trigger a transaction.
 
@@ -114,7 +114,7 @@ The payload used to `call the API <api.html#triggering-a-transaction>`_ endpoint
 Authorization Lists: EIP-7702
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1Shot API supports `EIP-7702 <https://eips.ethereum.org/EIPS/eip-7702>`_ authorization lists for transaction endpoints. This allows you to use 1Shot API as 
+1Shot API supports `EIP-7702 <https://eips.ethereum.org/EIPS/eip-7702>`_ authorization lists for contract method endpoints. This allows you to use 1Shot API as 
 relayer for user transactions without requiring users to front gas costs themselves. Any ``write`` endpoint can be passed an ``authorizationList`` parameter
 to automatically turn the resulting transaction into an EIP-7702 transaction. Here is an example in Typescript:
 
@@ -156,8 +156,8 @@ to automatically turn the resulting transaction into an EIP-7702 transaction. He
 
     // Now we execute the transaction using the authorizationData and Signature
     // we created above. 
-    const execution = await oneshotClient.transactions.execute(
-        transactionEndpoint, // transaction endpoint id
+    const execution = await oneshotClient.contract_methods.execute(
+        contractMethodId, // contract method endpoint id
         {}, // initialize doesn't require any parameters
         undefined, // use default escrow wallet id
         'relayed 7702 transaction', // transaction memo
