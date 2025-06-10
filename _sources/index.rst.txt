@@ -90,7 +90,7 @@ You can start using 1Shot by making an account at `app.1shotapi.com <https://app
    :hidden:
    :maxdepth: 2
 
-   org-creation
+   businesses-and-teams
    wallets
    transactions
    api/index.rst
