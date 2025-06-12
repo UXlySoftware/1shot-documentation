@@ -36,6 +36,44 @@ any application, bot, or agent, regardless of the language your application is w
 Several helpful client sdks for popular languages like `Python <https://pypi.org/project/uxly-1shot-client/>`_, `Typescript <https://www.npmjs.com/package/@uxly/1shot-client>`_ 
 are available so you can one shot your next app in no time, leaving the complexities of transaction submission and monitoring to us.
 
+Onchain Automation
+------------------
+
+1Shot API is the best place to start for automating onchain workflows. We have integrations with the most popular automation platforms including:
+
+.. grid:: 2
+    :gutter: 2
+
+    .. grid-item-card:: 1. n8n
+        :link: /automation/n8n.html
+        :link-alt: n8n
+        :columns: 12
+
+        .. image:: ./_static/automation/n8n.png
+           :alt: n8n Logo
+           :align: center
+           :width: 400px
+
+    .. grid-item-card:: 2. IFTTT 
+        :link: /automation/ifttt.html
+        :link-alt: If This Then That
+        :columns: 6
+
+        .. image:: ./_static/automation/ifttt.png
+           :alt: IFTTT Logo
+           :align: center
+           :width: 300px
+
+    .. grid-item-card:: 4. Make (formerly Integromat)
+        :link: /automation/integromat.html
+        :link-alt: Make (formerly Integromat)
+        :columns: 6
+
+        .. image:: ./_static/automation/integromat.png
+           :alt: Make Logo
+           :align: center
+           :width: 300px
+
 1Shot Prompts
 -------------
 
@@ -44,38 +82,28 @@ find and publish smart contract tool prompts to `1Shot Prompts <https://app.1sho
 input and output parameter level which allow LLMs to better reason about how to plan transaction execution chains and what to expect from the behavior of a transaction
 before planning or execution.
 
-Onchain Automation
-------------------
-
-1Shot API is the best place to start for automating onchain workflows. We have integrations with the most popular automation platforms including:
-
-- `n8n <https://github.com/uxlysoftware/n8n-nodes-1shot>`_
-- `IFTTT <https://ifttt.com>`_
-- `make <https://www.make.com>`_
-- `Zapier <https://zapier.com>`_
-
 Getting Started
 ----------------------------------
 
-You can start using 1Shot by making an account at `app.1shotapi.com <https://app.1shotapi.com>`_. Here are the main features you can use to get started:
+Make a free 1Shot API account at `app.1shotapi.com <https://app.1shotapi.com>`_. Here are the core features you will use to get started with the 1Shot API:
 
 .. grid:: 2 2 2 2
-    :gutter: 4
+    :gutter: 2
 
     .. grid-item-card:: 1. Businesses and Teams 🏢
-        :link: businesses-and-teams.html
+        :link: /basics/businesses-and-teams.html
         :link-alt: Businesses and Teams 
 
         Create a business, add team members, and manage billing.
 
     .. grid-item-card:: 2. Wallets 👛
-        :link: wallets.html
+        :link: /basics/wallets.html
         :link-alt: Wallets
 
         Provision and fund 1Shot API wallets for submitting transactions.
    
     .. grid-item-card:: 3. Calling Smart Contracts 📝
-        :link: contract-methods.html
+        :link: /basics/contract-methods.html
         :link-alt: Calling Smart Contracts
 
         Read from and write to smart contracts by importing their methods into your business's API.
@@ -90,7 +118,7 @@ You can start using 1Shot by making an account at `app.1shotapi.com <https://app
    :hidden:
    :maxdepth: 2
 
-   businesses-and-teams
-   wallets
-   contract-methods
+   basics/index.rst
+   automation/index.rst
+   prompts/index.rst
    api/index.rst

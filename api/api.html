@@ -138,22 +138,22 @@
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../businesses-and-teams.html">
-    Businesses and Teams
+  <a class="nav-link nav-internal" href="../basics/index.html">
+    The Basics
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../wallets.html">
-    Wallets
+  <a class="nav-link nav-internal" href="../automation/index.html">
+    Onchain Automation
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../contract-methods.html">
-    Smart Contract Methods
+  <a class="nav-link nav-internal" href="../prompts/index.html">
+    1Shot Prompts
   </a>
 </li>
 
@@ -290,22 +290,22 @@
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../businesses-and-teams.html">
-    Businesses and Teams
+  <a class="nav-link nav-internal" href="../basics/index.html">
+    The Basics
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../wallets.html">
-    Wallets
+  <a class="nav-link nav-internal" href="../automation/index.html">
+    Onchain Automation
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../contract-methods.html">
-    Smart Contract Methods
+  <a class="nav-link nav-internal" href="../prompts/index.html">
+    1Shot Prompts
   </a>
 </li>
 
@@ -468,8 +468,7 @@
                   
   <section id="calling-the-1shot-api">
 <h1>Calling the 1Shot API<a class="headerlink" href="#calling-the-1shot-api" title="Link to this heading">#</a></h1>
-<p>Once you have funded an <a class="reference external" href="escrow-wallets.html">escrow wallet</a> and configured a <a class="reference external" href="transactions.html">transaction</a>, you can trigger the transaction
-by making a POST request to the 1Shot API. To do this you’ll need to generate a bearer token using your API key and secret.</p>
+<p>Once you have funded a <a class="reference external" href="/basics/wallets.html">wallet</a> and configured a <a class="reference external" href="/basics/contract-methods.html">contract method</a>, you can create an onchain transaction from it by making a POST request to the 1Shot API. To do this you’ll first need to generate a bearer token using your API key and secret.</p>
 <p>Create an API key and secret by clicking the “API Keys” on the left-hand navigation bar in the 1Shot console. Click “Create New Key” and give it a name.
 This key will be active immediately and can be used to generate a bearer token. If you delete it, it will be permanently deactivated.</p>
 <section id="generating-a-bearer-token">
@@ -497,26 +496,34 @@ generate a bearer token to authenticate your requests.</p>
 </section>
 <section id="triggering-a-transaction">
 <h2>Triggering a Transaction<a class="headerlink" href="#triggering-a-transaction" title="Link to this heading">#</a></h2>
-<p>It is now time to hit the chain! You will trigger a transaction by making a POST request to <code class="docutils literal notranslate"><span class="pre">https://api.1shotapi.com/v0/transactions/{TRANSACTION_ENDPOINT_ID}/execute</span></code> with your JWT.
+<p>It is now time to hit the chain! You will trigger a transaction by making a POST request to <code class="docutils literal notranslate"><span class="pre">https://api.1shotapi.com/v0/methods/{CONTRACT_METHOD_ID}/execute</span></code> with your JWT.
 The call will look like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transfer 1 ERC-20 token to address 0xE936e8FAf4A5655469182A49a505055B71C17604 would look something like this</span>
-curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.1shotapi.com/v0/transactions/<span class="o">{</span>TRANSACTION_ENDPOINT_ID<span class="o">}</span>/execute<span class="w"> </span><span class="se">\</span>
+curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://api.1shotapi.com/v0/methods/<span class="o">{</span>CONTRACT_METHOD_ID<span class="o">}</span>/execute<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_BEARER_TOKEN&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;params&quot;: {&quot;to&quot;: &quot;0xE936e8FAf4A5655469182A49a505055B71C17604&quot;, &quot;value&quot;: &quot;1000000000000000000&quot;}}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.
 </pre></div>
 </div>
-<p>where the JSON object under <code class="docutils literal notranslate"><span class="pre">params</span></code> is the input data you configured your <a class="reference external" href="transactions.html">transaction</a> endpoint to accept and <code class="docutils literal notranslate"><span class="pre">TRANSACTION_ENDPOINT_ID</span></code>
-is the ID of the transaction endpoint you want to call. The <a class="reference external" href="transactions.html#example-base-usdc-transfer">USDC example</a> from the
+<p>where the JSON object under <code class="docutils literal notranslate"><span class="pre">params</span></code> is the input data you configured your <a class="reference external" href="/basics/contract-methods.html">contract method</a> endpoint to accept and <code class="docutils literal notranslate"><span class="pre">CONTRACT_METHOD_ID</span></code> is the ID of the contract method endpoint you want to call. The <a class="reference external" href="/basics/contract-methods.html#example-base-usdc-transfer">USDC example</a> from the
 transactions page would have the same payload structure as this.</p>
 </section>
-<section id="list-available-transaction-endpoints">
-<h2>List Available Transaction Endpoints<a class="headerlink" href="#list-available-transaction-endpoints" title="Link to this heading">#</a></h2>
+<section id="list-available-contract-methods">
+<h2>List Available Contract Methods<a class="headerlink" href="#list-available-contract-methods" title="Link to this heading">#</a></h2>
 <p>Get a JSON list of all transactions currently configured under your organization.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span>https://api.1shotapi.com/v0/business/<span class="o">{</span>ORGANIZATION_ID<span class="o">}</span>/transactions<span class="w"> </span><span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span>https://api.1shotapi.com/v0/business/<span class="o">{</span>BUSINESS_ID<span class="o">}</span>/methods<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer YOUR_BEARER_TOKEN&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.
 </pre></div>
 </div>
+<p>See our <a class="reference external" href="/api/openapi.html">OpenAPI specification</a> for a complete reference of all 1Shot API endpoints.</p>
+</section>
+<section id="client-sdks">
+<h2>Client SDKs<a class="headerlink" href="#client-sdks" title="Link to this heading">#</a></h2>
+<p>You can use the official 1Shot API client SDKs to interact with the API rather than making raw HTTP requests:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pypi.org/project/uxly-1shot-client/">Python</a></p></li>
+<li><p><a class="reference external" href="https://www.npmjs.com/package/&#64;uxly/1shot-client">Typescript</a></p></li>
+</ul>
 </section>
 </section>
 
@@ -569,7 +576,8 @@ transactions page would have the same payload structure as this.</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-a-bearer-token">Generating a Bearer Token</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#triggering-a-transaction">Triggering a Transaction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-available-transaction-endpoints">List Available Transaction Endpoints</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-available-contract-methods">List Available Contract Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#client-sdks">Client SDKs</a></li>
 </ul>
   </nav></div>
 

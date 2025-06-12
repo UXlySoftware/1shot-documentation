@@ -3,7 +3,7 @@ Businesses and Teams
 
 Onboarding
 -----------
-.. image:: ./_static/org-creation/signup.png
+.. image:: /_static/org-creation/signup.png
    :alt: Sign up
    :align: center
 
@@ -17,7 +17,7 @@ An business is a container for your smart contract methods, wallets, prompts and
 Creating New Businesses
 --------------------------------
 
-.. image:: ./_static/org-creation/create-org-recording.gif
+.. image:: /_static/org-creation/create-org-recording.gif
    :alt: Creating a new business
    :align: center
 
@@ -35,7 +35,7 @@ Once you have created an business, you can add team members to it. Team members 
 right of the console and selecting "Businesses". This will take you to a page showing all businesses of which you are currently a member.
 Click "Details" on the target business you want to add a new member to. 
 
-.. image:: ./_static/org-creation/manage-members.gif
+.. image:: /_static/org-creation/manage-members.gif
    :alt: Team member management
    :align: center
 

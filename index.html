@@ -51,7 +51,7 @@
     <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Businesses and Teams" href="businesses-and-teams.html" />
+    <link rel="next" title="The Basics" href="basics/index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -137,22 +137,22 @@
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="businesses-and-teams.html">
-    Businesses and Teams
+  <a class="nav-link nav-internal" href="basics/index.html">
+    The Basics
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="wallets.html">
-    Wallets
+  <a class="nav-link nav-internal" href="automation/index.html">
+    Onchain Automation
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="contract-methods.html">
-    Smart Contract Methods
+  <a class="nav-link nav-internal" href="prompts/index.html">
+    1Shot Prompts
   </a>
 </li>
 
@@ -291,22 +291,22 @@
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="businesses-and-teams.html">
-    Businesses and Teams
+  <a class="nav-link nav-internal" href="basics/index.html">
+    The Basics
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="wallets.html">
-    Wallets
+  <a class="nav-link nav-internal" href="automation/index.html">
+    Onchain Automation
   </a>
 </li>
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="contract-methods.html">
-    Smart Contract Methods
+  <a class="nav-link nav-internal" href="prompts/index.html">
+    1Shot Prompts
   </a>
 </li>
 
@@ -435,6 +435,44 @@ transactions will make it to the chain quickly and gas efficiently. 1Shot API gr
 any application, bot, or agent, regardless of the language your application is written in.</p>
 <p>Several helpful client sdks for popular languages like <a class="reference external" href="https://pypi.org/project/uxly-1shot-client/">Python</a>, <a class="reference external" href="https://www.npmjs.com/package/&#64;uxly/1shot-client">Typescript</a>
 are available so you can one shot your next app in no time, leaving the complexities of transaction submission and monitoring to us.</p>
+<section id="onchain-automation">
+<h2>Onchain Automation<a class="headerlink" href="#onchain-automation" title="Link to this heading">#</a></h2>
+<p>1Shot API is the best place to start for automating onchain workflows. We have integrations with the most popular automation platforms including:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row sd-col-12 sd-col-xs-12 sd-col-sm-12 sd-col-md-12 sd-col-lg-12 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+1. n8n</div>
+<a class="reference internal image-reference" href="_images/n8n.png"><img alt="n8n Logo" class="align-center" src="_images/n8n.png" style="width: 400px;" />
+</a>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference external" href="/automation/n8n.html"><span>n8n</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+2. IFTTT</div>
+<a class="reference internal image-reference" href="_images/ifttt.png"><img alt="IFTTT Logo" class="align-center" src="_images/ifttt.png" style="width: 300px;" />
+</a>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference external" href="/automation/ifttt.html"><span>If This Then That</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row sd-col-6 sd-col-xs-6 sd-col-sm-6 sd-col-md-6 sd-col-lg-6 docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+4. Make (formerly Integromat)</div>
+<a class="reference internal image-reference" href="_images/integromat.png"><img alt="Make Logo" class="align-center" src="_images/integromat.png" style="width: 300px;" />
+</a>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference external" href="/automation/integromat.html"><span>Make (formerly Integromat)</span></a></div>
+</div>
+</div>
+</div>
+</section>
 <section id="shot-prompts">
 <h2>1Shot Prompts<a class="headerlink" href="#shot-prompts" title="Link to this heading">#</a></h2>
 <p>The 1Shot API lets AI agent developers consume smart contracts and their functions as fully annotated tools that can be consumed by any agent programming framework. You can
@@ -442,21 +480,11 @@ find and publish smart contract tool prompts to <a class="reference external" hr
 input and output parameter level which allow LLMs to better reason about how to plan transaction execution chains and what to expect from the behavior of a transaction
 before planning or execution.</p>
 </section>
-<section id="onchain-automation">
-<h2>Onchain Automation<a class="headerlink" href="#onchain-automation" title="Link to this heading">#</a></h2>
-<p>1Shot API is the best place to start for automating onchain workflows. We have integrations with the most popular automation platforms including:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/uxlysoftware/n8n-nodes-1shot">n8n</a></p></li>
-<li><p><a class="reference external" href="https://ifttt.com">IFTTT</a></p></li>
-<li><p><a class="reference external" href="https://www.make.com">make</a></p></li>
-<li><p><a class="reference external" href="https://zapier.com">Zapier</a></p></li>
-</ul>
-</section>
 <section id="getting-started">
 <h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h2>
-<p>You can start using 1Shot by making an account at <a class="reference external" href="https://app.1shotapi.com">app.1shotapi.com</a>. Here are the main features you can use to get started:</p>
+<p>Make a free 1Shot API account at <a class="reference external" href="https://app.1shotapi.com">app.1shotapi.com</a>. Here are the core features you will use to get started with the 1Shot API:</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-4 sd-g-xs-4 sd-g-sm-4 sd-g-md-4 sd-g-lg-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
 <div class="sd-card-body docutils">
@@ -464,7 +492,7 @@ before planning or execution.</p>
 1. Businesses and Teams 🏢</div>
 <p class="sd-card-text">Create a business, add team members, and manage billing.</p>
 </div>
-<a class="sd-stretched-link sd-hide-link-text reference external" href="businesses-and-teams.html"><span>Businesses and Teams</span></a></div>
+<a class="sd-stretched-link sd-hide-link-text reference external" href="/basics/businesses-and-teams.html"><span>Businesses and Teams</span></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
@@ -473,7 +501,7 @@ before planning or execution.</p>
 2. Wallets 👛</div>
 <p class="sd-card-text">Provision and fund 1Shot API wallets for submitting transactions.</p>
 </div>
-<a class="sd-stretched-link sd-hide-link-text reference external" href="wallets.html"><span>Wallets</span></a></div>
+<a class="sd-stretched-link sd-hide-link-text reference external" href="/basics/wallets.html"><span>Wallets</span></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
@@ -482,7 +510,7 @@ before planning or execution.</p>
 3. Calling Smart Contracts 📝</div>
 <p class="sd-card-text">Read from and write to smart contracts by importing their methods into your business’s API.</p>
 </div>
-<a class="sd-stretched-link sd-hide-link-text reference external" href="contract-methods.html"><span>Calling Smart Contracts</span></a></div>
+<a class="sd-stretched-link sd-hide-link-text reference external" href="/basics/contract-methods.html"><span>Calling Smart Contracts</span></a></div>
 </div>
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
@@ -511,11 +539,11 @@ before planning or execution.</p>
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="businesses-and-teams.html"
+       href="basics/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Businesses and Teams</p>
+        <p class="prev-next-title">The Basics</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -538,8 +566,8 @@ before planning or execution.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shot-prompts">1Shot Prompts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#onchain-automation">Onchain Automation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shot-prompts">1Shot Prompts</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a></li>
 </ul>
   </nav></div>
