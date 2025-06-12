@@ -21,7 +21,7 @@ your `API key and secret <api.html>`_. You'll need to grab the ``CONTRACT_METHOD
 Example: Base USDC Transfer
 ---------------------------
 
-.. image:: ./_static/transactions/usdc-example.gif
+.. image:: /_static/transactions/usdc-example.gif
    :alt: USDC Transfer Example
    :align: center
 
@@ -30,7 +30,7 @@ Example: Base USDC Transfer
    <br />
 
 In this example, we'll configure a transaction endpoint to transfer USDC tokens from our escrow wallet to a recipient. We'll assume you've 
-already created and funded an `escrow wallet <escrow-wallets.html>`_ for the Base L2 network with BaseETH and that it contains some USDC tokens. 
+already created and funded a `wallet </basics/wallets.html>`_ for the Base L2 network with BaseETH and that it contains some USDC tokens. 
 
 We'll start by clicking the "Create a New Endpoint" button on the Transactions page. Give the endpoint a name and description, then select the
 Base L2 network from the dropdown. Fill in the webhook URL if you want to receive real-time feedback on the transaction status.
@@ -89,7 +89,7 @@ endpoint builder. Take the following example in which the input parameter is a s
 
 The configuration for the input struct parameter, ``foo``, would look like this:
 
-.. image:: ./_static/transactions/struct-example.png
+.. image:: /_static/transactions/struct-example.png
    :alt: Struct configuration example
    :align: center
 
@@ -420,10 +420,9 @@ When you configure a webhook, 1Shot will send a POST request to the URL you prov
 Webhook Signatures
 ~~~~~~~~~~~~~~~~~~
 
-1Shot API signs the webhook payload using the `ed25519 <https://en.wikipedia.org/wiki/EdDSA#Ed25519>`_ signature scheme. Each transaction
-endpoint generates its own public-private keypair. As shown in the example above, the signature is included in the JSON payload under the 
-key ``signature``. You should verify the signature using the public key provided in the transaction details page. The public key is a 
-base64 encoded ed25519 public key that you can use to verify the signature.
+1Shot API signs the webhook payload using the `ed25519 <https://en.wikipedia.org/wiki/EdDSA#Ed25519>`_ signature scheme. A unique public-private keypair is generated for each URL assigned to a contract method (if you have two different contract methods that are each configured with the same callback URL, they will share the same signing keypair for authentication). 
+
+As shown in the example above, the signature is included in the JSON payload under the ``signature`` key. You should verify the signature using the public key provided in the contract method's details page. The public key is a base64 encoded ed25519 public key that you can use to verify the signature.
 
 Here is an example of a `FastAPI <https://fastapi.tiangolo.com/tutorial/>`_ server that verifies authenticates callbacks from 1Shot API:
 
@@ -472,3 +471,5 @@ Here is an example of a `FastAPI <https://fastapi.tiangolo.com/tutorial/>`_ serv
 
 A complete example you can run from your local machine using `ngrok <https://ngrok.com/>`_ tunnels can be 
 found `here <https://github.com/UXlySoftware/webhook-sinker>`_. 
+
+Additionally, our `client SDKs </api/api.html#client-sdks>`_ provide helper functions to verify webhook signatures. 

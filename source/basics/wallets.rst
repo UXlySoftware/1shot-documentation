@@ -1,12 +1,12 @@
 Wallets
 =======
 
-.. image:: ./_static/escrow-wallet/escrow-flow-light.png
+.. image:: /_static/escrow-wallet/escrow-flow-light.png
    :alt: Escrow Flow
    :align: center
    :class: only-light
 
-.. image:: ./_static/escrow-wallet/escrow-flow-dark.png
+.. image:: /_static/escrow-wallet/escrow-flow-dark.png
    :alt: Escrow Flow
    :align: center
    :class: only-dark
@@ -28,7 +28,7 @@ at anytime which will trigger a confirmation email when the service detects the 
 Creating an Wallet
 ------------------
 
-.. image:: ./_static/escrow-wallet/create-escrow-wallet.gif
+.. image:: /_static/escrow-wallet/create-escrow-wallet.gif
    :alt: Creating a wallet
    :align: center
 
@@ -59,7 +59,7 @@ wallet. If you are configuring a wallet for the Polygon network, you should only
 Withdrawing funds
 -----------------
 
-.. image:: ./_static/escrow-wallet/withdraw.png
+.. image:: /_static/escrow-wallet/withdraw.png
    :alt: Initiate funds withdrawal
    :align: center
 
@@ -70,6 +70,6 @@ Withdrawing funds
 You can withdraw funds from your wallet at any time by clicking the "Withdraw" button on the wallet's detail page. Enter the amount of gas (native)
 tokens you want to withdraw and click "Send". You'll be prompted to confirm the withdrawal details before the transaction is submitted.
 
-.. image:: ./_static/escrow-wallet/withdraw-confirmation.png
+.. image:: /_static/escrow-wallet/withdraw-confirmation.png
    :alt: Confirming funds withdrawal
    :align: center
