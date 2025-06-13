@@ -259,6 +259,10 @@
   
 
   
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
 </div>
 
     </header>
@@ -457,7 +461,16 @@
                   
   <section id="ifttt">
 <h1>IFTTT<a class="headerlink" href="#ifttt" title="Link to this heading">#</a></h1>
-<p>Coming soon!</p>
+<p><a class="reference external" href="https://ifttt.com/">If This Then That</a> (IFTTT) is a web-based service that allows users to create chains of simple conditional statements, called applets. These applets can connect various web services and devices, enabling automation of tasks across different platforms. For example, with 1Shot API’s IFTTT service, you can create an applet that automatically sends ERC-20 tokens to users whenever they follow your company’s social media account.</p>
+<section id="triggers-actions-and-queries">
+<h2>Triggers, Actions, and Queries<a class="headerlink" href="#triggers-actions-and-queries" title="Link to this heading">#</a></h2>
+<p>1Shot API has three types of IFTTT services: Triggers, Queries, and Actions.</p>
+<ul class="simple">
+<li><p><strong>Triggers</strong>: These are events that can initiate an action. 1Shot API currently provides two triggers: <em>On Successful Transaction</em> and <em>On Failed Transaction</em>. These triggers function as a virtual webhook callback; they allow you to trigger new IFTTT workflows based on the outcome of a transaction submitted from 1Shot API in a different context or workflow.</p></li>
+<li><p><strong>Actions</strong>: These are tasks that are performed in response to a trigger. 1Shot API lets you execute any contract method you have imported into your business.</p></li>
+<li><p><strong>Queries</strong>: These allow you to retrieve additional data from triggers and feed this into the subsequent action. 1Shot API lets you call any smart contract read method as a query and pass this information on as an <em>ingredient</em>.</p></li>
+</ul>
+</section>
 </section>
 
 
@@ -494,6 +507,24 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#triggers-actions-and-queries">Triggers, Actions, and Queries</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
