@@ -19,7 +19,7 @@ Triggers, Actions, and Queries
 
     You can mix and match the 1Shot API triggers, actions, and queries with any other IFTTT service. For example, you can trigger on a user sending a message to a Discord channel, then execute a token transfer to send ERC-20 tokens to their wallet address, and finally query the balance of that wallet to send a confirmation message back to the Discord channel.
 
-Telegram applets
+Telegram Applets
 ----------------
 
 ..  youtube:: 6vTXujMI3k4
