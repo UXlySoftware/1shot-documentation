@@ -461,15 +461,21 @@
                   
   <section id="ifttt">
 <h1>IFTTT<a class="headerlink" href="#ifttt" title="Link to this heading">#</a></h1>
-<p><a class="reference external" href="https://ifttt.com/">If This Then That</a> (IFTTT) is a web-based service that allows users to create chains of simple conditional statements, called applets. These applets can connect various web services and devices, enabling automation of tasks across different platforms. For example, with 1Shot API’s IFTTT service, you can create an applet that automatically sends ERC-20 tokens to users whenever they follow your company’s social media account.</p>
+<div class="video_wrapper align-center" style="text-align: center">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/2rZ81sR4eEg" style="border: 0; height: 345px; width: 560px">
+</iframe></div><p><a class="reference external" href="https://ifttt.com/">If This Then That</a> (IFTTT) is a web-based service that allows users to create chains of simple conditional statements, called applets. These applets can connect various web services and devices, enabling automation of tasks across different platforms. For example, with 1Shot API’s IFTTT service, you can create an applet that automatically sends ERC-20 tokens to users whenever they follow your company’s social media account.</p>
 <section id="triggers-actions-and-queries">
 <h2>Triggers, Actions, and Queries<a class="headerlink" href="#triggers-actions-and-queries" title="Link to this heading">#</a></h2>
-<p>1Shot API has three types of IFTTT services: Triggers, Queries, and Actions.</p>
+<p>1Shot API has three components with which you can build IFTTT applets: Triggers, Queries, and Actions.</p>
 <ul class="simple">
-<li><p><strong>Triggers</strong>: These are events that can initiate an action. 1Shot API currently provides two triggers: <em>On Successful Transaction</em> and <em>On Failed Transaction</em>. These triggers function as a virtual webhook callback; they allow you to trigger new IFTTT workflows based on the outcome of a transaction submitted from 1Shot API in a different context or workflow.</p></li>
+<li><p><strong>Triggers</strong>: These are events that can initiate an applet. 1Shot API currently provides two triggers: <em>On Successful Transaction</em> and <em>On Failed Transaction</em>. These triggers function as a virtual webhook callback; they allow you to trigger new IFTTT workflows based on the outcome of a transaction submitted from 1Shot API in a different context or workflow.</p></li>
 <li><p><strong>Actions</strong>: These are tasks that are performed in response to a trigger. 1Shot API lets you execute any contract method you have imported into your business.</p></li>
 <li><p><strong>Queries</strong>: These allow you to retrieve additional data from triggers and feed this into the subsequent action. 1Shot API lets you call any smart contract read method as a query and pass this information on as an <em>ingredient</em>.</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can mix and match the 1Shot API triggers, actions, and queries with any other IFTTT service. For example, you can trigger on a user sending a message to a Discord channel, then execute a token transfer to send ERC-20 tokens to their wallet address, and finally query the balance of that wallet to send a confirmation message back to the Discord channel.</p>
+</div>
 </section>
 </section>
 
