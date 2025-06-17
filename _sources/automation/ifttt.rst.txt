@@ -18,3 +18,11 @@ Triggers, Actions, and Queries
 .. note::
 
     You can mix and match the 1Shot API triggers, actions, and queries with any other IFTTT service. For example, you can trigger on a user sending a message to a Discord channel, then execute a token transfer to send ERC-20 tokens to their wallet address, and finally query the balance of that wallet to send a confirmation message back to the Discord channel.
+
+Telegram applets
+----------------
+
+..  youtube:: 6vTXujMI3k4
+   :align: center
+
+Check out our Telegram applet tutorial that shows step-by-step how to create a token faucet in a Telegram group. The tutorial covers how to authenticate Telegram, set up the group, and create the applet that sends tokens to users who send a specific command in the group chat. Besides acting as a faucet, this applet could also be used to distribute creator tokens with `Star Messages <https://telegram.org/blog/star-messages-gateway-2-0-and-more>`_. 
