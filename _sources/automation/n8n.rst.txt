@@ -1,8 +1,8 @@
-n8n
-===
-
 ..  youtube:: WLkwqC4B2r4
    :align: center
+
+n8n
+===
 
 `n8n <https://n8n.io/>`_ is a workflow automation platform designed to empower users to create complex, agentic workflows with minimal technical knowledge. Its intuitive drag-and-drop interface and robust functionality have made it a favorite among developers, businesses, and tech enthusiasts alike. With an ever-expanding library of official and community-built nodes, n8n enables seamless integrations across countless tools and platforms.
 
