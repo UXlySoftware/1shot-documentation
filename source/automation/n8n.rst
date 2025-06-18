@@ -28,7 +28,7 @@ The 1Shot API n8n node supports three node types:
 Monetize n8n Workflows with x402
 ---------------------------------
 
-..  youtube:: RYfPKSb6GFY
+..  youtube:: m3ThthLtj3g
    :align: center
 
 Using the *1Shot API* in series with the *1Shot API Submit & Wait* node, you can monetize any workflow that you can build in n8n using the x402 payment protocol. 
