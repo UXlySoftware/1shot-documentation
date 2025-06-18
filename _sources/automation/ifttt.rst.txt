@@ -1,8 +1,8 @@
-IFTTT
-=====
-
 ..  youtube:: 2rZ81sR4eEg
    :align: center
+   
+IFTTT
+=====
 
 `If This Then That <https://ifttt.com/>`_ (IFTTT) is a web-based service that allows users to create chains of simple conditional statements, called applets. These applets can connect various web services and devices, enabling automation of tasks across different platforms. For example, with 1Shot API's IFTTT service, you can create an applet that automatically sends ERC-20 tokens to users whenever they follow your company's social media account. 
 
