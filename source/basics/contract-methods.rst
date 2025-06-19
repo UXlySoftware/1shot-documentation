@@ -9,11 +9,11 @@ Contract method endpoints are the core of the 1Shot API. They are the RESTful en
 Each contract method endpoint is linked to a single default wallet and can be configured to accept a specific set of input parameters. In order to 
 configure a contract method, you'll need to provide the following information:
 
-1. A target blockchain network (Ethereum mainnet, Binance Smart Chain, Avalanche, etc.)
-2. The contract address of the smart contract you want to interact with
-3. The name of the method you want to call on the contract
-4. Input parameters the method expects
-5. (optional) A webhook URL to receive real-time feedback on the status of transactions created from calling the method
+#. A target blockchain network (Ethereum mainnet, Binance Smart Chain, Avalanche, etc.)
+#. The contract address of the smart contract you want to interact with
+#. The name of the method you want to call on the contract
+#. Input parameters the method expects
+#. (optional) A webhook URL to receive real-time feedback on the status of transactions created from calling the method
 
 Once you've configured an endpoint, you can trigger the transaction by making a POST request to the 1Shot API with 
 your `API key and secret <api.html>`_. You'll need to grab the ``CONTRACT_METHOD_ENDPOINT_ID`` of the endpoint from the 1Shot API dashboard.
