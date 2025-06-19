@@ -1,22 +1,22 @@
 Supported Blockchain Networks
 ===================
 
-* Ethereum Mainnet
-  * Ethereum Sepolia
+* Ethereum Mainnet 
+    * Ethereum Sepolia
 * Polygon
-  * Polygon Amoy
+    * Polygon Amoy
 * Binance Smart Chain
-  * Binance Smart Chain Testnet
+    * Binance Smart Chain Testnet
 * Avalanche
-  * Avalanche Fuji
+    * Avalanche Fuji
 * Arbitrum
 * Optimism
 * Base
-  * Base Sepolia
+    * Base Sepolia
 * Gnosis
 * Moonbeam
 * Astar 
-  * Astar Shibuya
+    * Astar Shibuya
 * zkSync Era
 * Chiliz
 * Palm 
