@@ -31,6 +31,6 @@ Monetize n8n Workflows with x402
 ..  youtube:: m3ThthLtj3g
    :align: center
 
-Using the *1Shot API* in series with the *1Shot API Submit & Wait* node, you can monetize any workflow that you can build in n8n using the x402 payment protocol. 
+Using the *1Shot API* node in series with the *1Shot API Submit & Wait* node, you can monetize any workflow that you can build in n8n using the x402 payment protocol. 
 
 The workflow template is available `here <https://github.com/UXlySoftware/n8n-nodes-1shot/blob/master/x402.json>`_. Download the JSON file and import it into your n8n workflow instance. 
