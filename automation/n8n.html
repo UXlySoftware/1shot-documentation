@@ -487,17 +487,17 @@
 <div class="video_wrapper align-center" style="text-align: center">
 <iframe allowfullscreen="true" src="https://www.youtube.com/embed/m3ThthLtj3g" style="border: 0; height: 345px; width: 560px">
 </iframe></div><p>Using the <em>1Shot API</em> node in series with the <em>1Shot API Submit &amp; Wait</em> node, you can monetize any workflow that you can build in n8n using the x402 payment protocol.</p>
-<p>The workflow template is available <a class="reference external" href="https://github.com/UXlySoftware/n8n-nodes-1shot/blob/master/x402.json">here</a>. Download the JSON file and import it into your n8n workflow instance.</p>
+<p>The workflow template is available <a class="reference external" href="https://n8n.io/workflows/5389-monetize-workflows-with-x402-payment-protocol-and-1shot-api/">here</a>. Copy the JSON file and import it into your n8n workflow instance.</p>
 <section id="x402-workflow-installation">
 <h3>x402 Workflow Installation<a class="headerlink" href="#x402-workflow-installation" title="Link to this heading">#</a></h3>
-<p>You can import the x402 workflow into your n8n instance by copying the JSON from the <a class="reference external" href="https://github.com/UXlySoftware/n8n-nodes-1shot/blob/master/x402.json">x402.json</a> file and clicking <cite>import</cite> in the n8n workflow editor.</p>
-<p>Once you have imported the workflow, configure a credential so that the 1Shot API nodes can communicate with your 1Shot API account.</p>
+<p>You can import the x402 template into your n8n instance by copying the JSON from the published <a class="reference external" href="https://n8n.io/workflows/5389-monetize-workflows-with-x402-payment-protocol-and-1shot-api/">x402</a> workflow and clicking <cite>import</cite> in the n8n workflow editor.</p>
+<p>Once you have imported the workflow, be sure to configure a credential so that the 1Shot API nodes can communicate with your 1Shot API account.</p>
 </section>
 <section id="payment-configuration">
 <h3>Payment Configuration<a class="headerlink" href="#payment-configuration" title="Link to this heading">#</a></h3>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Be sure to provision a 1Shot API wallet on the target blockchain network where you want to accept payments and put sufficient gas funds into it to cover the transaction costs of your payment transactions.</p>
+<p>Don’t forget to provision a 1Shot API wallet on the target blockchain network where you want to accept payments. Put sufficient gas funds into the wallet to cover the transaction costs of your payment transactions.</p>
 </div>
 <p>You will need to click on both the <em>Simulate Payment</em> and the <em>1Shot API Submit &amp; Wait</em> nodes in the workflow and point them at the <cite>transferWithAuthorization</cite> method belonging to the token you want to accept as payment. The ERC-20 token you choose <strong>must</strong> expose a <cite>transferWithAuthorization</cite> method (as is the case for the USDC token) to be compatible with x402. Import the appropriate smart contract method in “My Smart Contracts” in the 1Shot API dashboard, and then select it in both of the 1Shot API nodes.</p>
 </section>
