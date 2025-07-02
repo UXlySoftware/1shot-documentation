@@ -16,6 +16,8 @@ Installing the 1Shot API n8n Node
 
 You can install the 1Shot API n8n node by searching for `n8n-nodes-1shot` in the community nodes package manager. Click install, then you should be able to find the 1Shot API node in your n8n workflow search bar.
 
+The first time you import a 1Shot API node into your workflow, you will need to create a credential to authenticate against your 1Shot API account. Click on the node, then click "Create new credential" under "Credential to connect with" at the top of the view. You will enter an `API key and and secret <https://app.1shotapi.com/api-keys>`_ as well as your business ID (located at the top right corner of your 1Shot API dashboard) and then click "Save".
+
 Node Types 
 ----------
 
