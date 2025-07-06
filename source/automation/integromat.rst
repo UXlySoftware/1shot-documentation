@@ -18,7 +18,7 @@ Add 1Shot API nodes to your Make scenarios or templates to manage wallets and tr
 Authentication 
 ~~~~~~~~~~~~~~
 
-.. image:: /_static/automation/make-authentication.gif
+.. image:: /_static/automation/make-authenticate.gif
    :alt: Authentication with 1Shot API in Make
    :width: 600px
    :align: center
