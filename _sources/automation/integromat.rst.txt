@@ -18,4 +18,14 @@ Add 1Shot API nodes to your Make scenarios or templates to manage wallets and tr
 Authentication 
 ~~~~~~~~~~~~~~
 
+.. image:: /_static/automation/make-authentication.gif
+   :alt: Authentication with 1Shot API in Make
+   :width: 600px
+   :align: center
+
 The first time you add a 1Shot API node to a Make scenario, you will need to authenticate it against your 1Shot API account. Click on the node, then click "Add" under the "Connection" field. You will enter an `API key and secret <https://app.1shotapi.com/api-keys>`_ as well as your business ID (located at the top right corner of your 1Shot API dashboard) and then click "Save".
+
+Monetize Make Scenarios with x402
+----------------------------------
+
+Using 1Shot API's x402 Gateway template, you can monetize any Make scenario uxing the x402 payment protocol. 
