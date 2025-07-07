@@ -31,4 +31,4 @@ The first time you add a 1Shot API node to a Make scenario, you will need to aut
 Monetize Make Scenarios with x402
 ----------------------------------
 
-Using 1Shot API's `x402 Gateway for Make template </_static/automated/x402-Gateway-for-Make.blueprint.json>`_, you can monetize any Make scenario uxing the x402 payment protocol. 
+Using 1Shot API's `x402 Gateway for Make template </_static/automation/x402-Gateway-for-Make.blueprint.json>`_, you can monetize any Make scenario uxing the x402 payment protocol. 
