@@ -1,5 +1,5 @@
 {
-    "name": "x402 Gateway for Make",
+    "name": "x402 Gateway with 1Shot API",
     "flow": [
         {
             "id": 13,
@@ -13,8 +13,7 @@
             "metadata": {
                 "designer": {
                     "x": 0,
-                    "y": 750,
-                    "name": "x402 Gateway"
+                    "y": 750
                 },
                 "restore": {
                     "parameters": {
@@ -1333,7 +1332,7 @@
                 "moduleIds": [
                     13
                 ],
-                "content": "<p>This is your x402 payment gateway that receives HTTP calls to trigger your premium service. Connect your service downstream of this workflow to serve the premium content to your users.</p><p></p><p>Be sure to enable HTTP Headers and JSON passthrough. </p>",
+                "content": "<p>This is your x402 payment gateway that receives HTTP calls to trigger your premium service. Connect your service downstream of this workflow to serve the premium content to your users.</p><p></p><p>Be sure to enable HTTP Headers and JSON passthrough. </p><p></p><p>Here is an example curl request you can use to test your webhook:</p><p></p><p>curl -X GET \\</p><p>https://hook.us2.make.com/l3xny9dsd26dd67hd1bkp3sxsej2nnla \\</p><p>  -H &quot;x-payment: YOUR-BASE64-ENCODED-PAYMENT-PAYLOAD&quot; \\</p><p>  -H &quot;User-Agent: CustomUserAgent/1.0&quot; \\</p><p>  -H &quot;Accept: application/json&quot;</p>",
                 "isFilterNote": false,
                 "metadata": {
                     "color": "#9138FE"
