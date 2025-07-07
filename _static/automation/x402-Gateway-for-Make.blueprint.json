@@ -29,7 +29,7 @@
                     {
                         "name": "hook",
                         "type": "hook:gateway-webhook",
-                        "label": "Webhook",
+                        "label": "x402 Webhook Gateway",
                         "required": true
                     },
                     {
