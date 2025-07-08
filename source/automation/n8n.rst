@@ -49,6 +49,6 @@ Payment Configuration
 
 .. important::
 
-    Don't forget to provision a 1Shot API wallet on the target blockchain network where you want to accept payments. Put sufficient gas funds into the wallet to cover the transaction costs of your payment transactions.
+    Don't forget to provision a `1Shot API wallet </basics/wallets.html>`_ on the target blockchain network where you want to accept payments. Put sufficient gas funds into the wallet to cover the transaction costs of your payment transactions.
 
-You will need to click on both the *Simulate Payment* and the *1Shot API Submit & Wait* nodes in the workflow and point them at the `transferWithAuthorization` method belonging to the token you want to accept as payment. The ERC-20 token you choose **must** expose a `transferWithAuthorization` method (as is the case for the USDC token) to be compatible with x402. Import the appropriate smart contract method in "My Smart Contracts" in the 1Shot API dashboard, and then select it in both of the 1Shot API nodes. 
+You will need to click on both the *Simulate Payment* and the *1Shot API Submit & Wait* nodes in the workflow and point them at the `transferWithAuthorization` method belonging to the token you want to accept as payment. The ERC-20 token you choose **must** expose a `**transferWithAuthorization** <https://eips.ethereum.org/EIPS/eip-3009>`_ method (as is the case for the USDC token) to be compatible with x402. Import the appropriate smart contract method in "My Smart Contracts" in the 1Shot API dashboard, and then select it in both of the 1Shot API nodes. 
