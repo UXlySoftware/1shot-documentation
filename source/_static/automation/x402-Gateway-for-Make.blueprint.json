@@ -6,14 +6,15 @@
             "module": "gateway:CustomWebHook",
             "version": 1,
             "parameters": {
-                "hook": 1027570,
+                "hook": 1038395,
                 "maxResults": 1
             },
             "mapper": {},
             "metadata": {
                 "designer": {
                     "x": 0,
-                    "y": 750
+                    "y": 750,
+                    "name": "x402 Gateway"
                 },
                 "restore": {
                     "parameters": {
@@ -29,7 +30,7 @@
                     {
                         "name": "hook",
                         "type": "hook:gateway-webhook",
-                        "label": "x402 Webhook Gateway",
+                        "label": "Webhook",
                         "required": true
                     },
                     {
@@ -55,11 +56,6 @@
                         ],
                         "type": "array",
                         "label": "Headers"
-                    },
-                    {
-                        "name": "__IMTMETHOD__",
-                        "type": "text",
-                        "label": "Method"
                     }
                 ],
                 "advanced": true
@@ -302,7 +298,7 @@
                                             "module": "oneshot:SimulateContractMethod",
                                             "version": 1,
                                             "parameters": {
-                                                "__IMTCONN__": 4192018
+                                                "__IMTCONN__": 4261171
                                             },
                                             "filter": {
                                                 "name": "Check for signature & value field",
@@ -313,16 +309,16 @@
                                                             "o": "exist"
                                                         },
                                                         {
-                                                            "a": "{{26.payload.authorization.value}}",
-                                                            "b": "50000",
-                                                            "o": "text:equal"
+                                                            "a": "{{parseNumber(26.payload.authorization.value)}}",
+                                                            "o": "number:greaterorequal",
+                                                            "b": "50000"
                                                         }
                                                     ]
                                                 ]
                                             },
                                             "mapper": {
-                                                "params": "{\n  \"from\": \"{{26.payload.authorization.from}}\",\n  \"to\": \"{{26.payload.authorization.to}}\",\n  \"value\": \"{{26.payload.authorization.value}}\",\n  \"validAfter\": \"{{26.payload.authorization.validAfter}}\",\n  \"validBefore\": \"{{26.payload.authorization.validBefore}}\",\n  \"nonce\": \"{{26.payload.authorization.nonce}}\",\n  \"signature\": \"{{26.payload.signature}}\"\n}",
-                                                "contractMethodId": "e1c510ef-65b6-4c56-a4a5-a0fc957a76c8"
+                                                "contractMethodId": "a4561f0f-4fd6-4957-84c9-052bb2ef728d",
+                                                "params": "{\n  \"from\": \"{{26.payload.authorization.from}}\",\n  \"to\": \"{{26.payload.authorization.to}}\",\n  \"value\": \"{{26.payload.authorization.value}}\",\n  \"validAfter\": \"{{26.payload.authorization.validAfter}}\",\n  \"validBefore\": \"{{26.payload.authorization.validBefore}}\",\n  \"nonce\": \"{{26.payload.authorization.nonce}}\",\n  \"signature\": \"{{26.payload.signature}}\"\n}"
                                             },
                                             "metadata": {
                                                 "designer": {
@@ -331,19 +327,19 @@
                                                     "name": "Simulate Payment"
                                                 },
                                                 "restore": {
-                                                    "expect": {
-                                                        "contractMethodId": {
-                                                            "mode": "chose",
-                                                            "label": "transferWithAuthorization for Make Demo"
-                                                        }
-                                                    },
                                                     "parameters": {
                                                         "__IMTCONN__": {
+                                                            "label": "My 1Shot API Credential connection",
                                                             "data": {
                                                                 "scoped": "true",
                                                                 "connection": "oneshot"
-                                                            },
-                                                            "label": "My 1Shot API Credential connection"
+                                                            }
+                                                        }
+                                                    },
+                                                    "expect": {
+                                                        "contractMethodId": {
+                                                            "mode": "chose",
+                                                            "label": "Make Demo transferWithAuthorization"
                                                         }
                                                     }
                                                 },
@@ -394,7 +390,7 @@
                                                             "module": "oneshot:ExecuteContractMethod",
                                                             "version": 1,
                                                             "parameters": {
-                                                                "__IMTCONN__": 4192018
+                                                                "__IMTCONN__": 4261171
                                                             },
                                                             "filter": {
                                                                 "name": "",
@@ -411,7 +407,7 @@
                                                             "mapper": {
                                                                 "memo": "x402 Payment from {{26.payload.authorization.from}}",
                                                                 "params": "{\n  \"from\": \"{{26.payload.authorization.from}}\",\n  \"to\": \"{{26.payload.authorization.to}}\",\n  \"value\": \"{{26.payload.authorization.value}}\",\n  \"validAfter\": \"{{26.payload.authorization.validAfter}}\",\n  \"validBefore\": \"{{26.payload.authorization.validBefore}}\",\n  \"nonce\": \"{{26.payload.authorization.nonce}}\",\n  \"signature\": \"{{26.payload.signature}}\"\n}",
-                                                                "contractMethodId": "e1c510ef-65b6-4c56-a4a5-a0fc957a76c8"
+                                                                "contractMethodId": "97694be0-3098-48a3-a854-c24ac9f4667a"
                                                             },
                                                             "metadata": {
                                                                 "designer": {
@@ -423,7 +419,7 @@
                                                                     "expect": {
                                                                         "contractMethodId": {
                                                                             "mode": "chose",
-                                                                            "label": "transferWithAuthorization for Make Demo"
+                                                                            "label": "Make Scenario Tutorial transferWithAuthorization"
                                                                         }
                                                                     },
                                                                     "parameters": {
@@ -641,7 +637,7 @@
                                                             "module": "oneshot:GetTransaction",
                                                             "version": 1,
                                                             "parameters": {
-                                                                "__IMTCONN__": 4192018
+                                                                "__IMTCONN__": 4261171
                                                             },
                                                             "mapper": {
                                                                 "transactionId": "{{41.id}}"
@@ -1170,149 +1166,9 @@
         "notes": [
             {
                 "moduleIds": [
-                    36
+                    13
                 ],
-                "content": "<p>If there is a data format error, return a 402 error code.</p>",
-                "isFilterNote": false,
-                "metadata": {
-                    "color": "#9138FE"
-                }
-            },
-            {
-                "moduleIds": [
-                    49
-                ],
-                "content": "<p>In the scenario where the onchain payment transaction failed, we will return a 402 error code. </p>",
-                "isFilterNote": false,
-                "metadata": {
-                    "color": "#9138FE"
-                }
-            },
-            {
-                "moduleIds": [
-                    48
-                ],
-                "content": "<p>Switch on the final transaction status, Completed or Failed. </p>",
-                "isFilterNote": false,
-                "metadata": {
-                    "color": "#9138FE"
-                }
-            },
-            {
-                "moduleIds": [
-                    47
-                ],
-                "content": "<p>Check the status of our payment transaction.</p>",
-                "isFilterNote": false,
-                "metadata": {
-                    "color": "#9138FE"
-                }
-            },
-            {
-                "moduleIds": [
-                    46
-                ],
-                "content": "<p>A 1 second delay to wait for transaction confirmation.</p>",
-                "isFilterNote": false,
-                "metadata": {
-                    "color": "#9138FE"
-                }
-            },
-            {
-                "moduleIds": [
-                    43
-                ],
-                "content": "<p>We want to ensure the transaction is mined before we give the caller access to premium content so we will poll on the status of our transaction until we know if it has succeeded or failed. </p>",
-                "isFilterNote": false,
-                "metadata": {
-                    "color": "#9138FE"
-                }
-            },
-            {
-                "moduleIds": [
-                    42
-                ],
-                "content": "<p>Replace this node with the Make workflow you wish to monetize with x402. As is, this node will return a 200 code to the caller with a success message. </p>",
-                "isFilterNote": false,
-                "metadata": {
-                    "color": "#9138FE"
-                }
-            },
-            {
-                "moduleIds": [
-                    41
-                ],
-                "content": "<p>If the simulation succeeded, we will submit the transaction to the blockchain. Be sure to configure this node to point at an instance of 'transferWithAuthorization` on the token you want to receive as payment. </p>",
-                "isFilterNote": false,
-                "metadata": {
-                    "color": "#9138FE"
-                }
-            },
-            {
-                "moduleIds": [
-                    40
-                ],
-                "content": "<p>If the transaction simulation failed, we return a 402 error code. </p>",
-                "isFilterNote": false,
-                "metadata": {
-                    "color": "#9138FE"
-                }
-            },
-            {
-                "moduleIds": [
-                    39
-                ],
-                "content": "<p>The simulation step will return 'true' if the transaction data is well formed and valid and 'false' otherwise. </p>",
-                "isFilterNote": false,
-                "metadata": {
-                    "color": "#9138FE"
-                }
-            },
-            {
-                "moduleIds": [
-                    37
-                ],
-                "content": "<p>Now that we have validated the x-payment header, we attempt to simulate the transaction to ensure it will succeed. Be sure to configure the node to point to a 'transferWithAuthorization' method belonging to the token you wish to receive as payment for your workflow. </p>",
-                "isFilterNote": false,
-                "metadata": {
-                    "color": "#9138FE"
-                }
-            },
-            {
-                "moduleIds": [
-                    32
-                ],
-                "content": "<p>If we don't find the signature field we return a 402 error code.</p>",
-                "isFilterNote": false,
-                "metadata": {
-                    "color": "#9138FE"
-                }
-            },
-            {
-                "moduleIds": [
-                    30
-                ],
-                "content": "<p>Once we have decoded the x-payment header value, we check for the presence of the required signature field. Configure the filter to check for the required payment value. </p>",
-                "isFilterNote": false,
-                "metadata": {
-                    "color": "#9138FE"
-                }
-            },
-            {
-                "moduleIds": [
-                    26
-                ],
-                "content": "<p>Here we docode the base64 encoded x-payment header value. The resulting payment object must contain a signature field as well as the other fields necessary to call the transferWithAuthorization function. </p>",
-                "isFilterNote": false,
-                "metadata": {
-                    "color": "#9138FE"
-                }
-            },
-            {
-                "moduleIds": [
-                    23
-                ],
-                "content": "<p>If we didn't find an x-payment header field, then we return a 402 error code. </p>",
+                "content": "<p>This is your x402 payment gateway that receives HTTP calls to trigger your premium service. Connect your service downstream of this workflow to serve the premium content to your users.</p><p></p><p>Be sure to enable HTTP Headers and JSON passthrough. </p><p></p><p>Here is an example curl request you can use to test your webhook:</p><p></p><p>curl -X GET \\</p><p>https://hook.us2.make.com/l3xny9dsd26dd67hd1bkp3sxsej2nnla \\</p><p>  -H \"x-payment: YOUR-BASE64-ENCODED-PAYMENT-PAYLOAD\" \\</p><p>  -H \"User-Agent: CustomUserAgent/1.0\" \\</p><p>  -H \"Accept: application/json\"</p>",
                 "isFilterNote": false,
                 "metadata": {
                     "color": "#9138FE"
@@ -1330,9 +1186,149 @@
             },
             {
                 "moduleIds": [
-                    13
+                    23
                 ],
-                "content": "<p>This is your x402 payment gateway that receives HTTP calls to trigger your premium service. Connect your service downstream of this workflow to serve the premium content to your users.</p><p></p><p>Be sure to enable HTTP Headers and JSON passthrough. </p><p></p><p>Here is an example curl request you can use to test your webhook:</p><p></p><p>curl -X GET \\</p><p>https://hook.us2.make.com/l3xny9dsd26dd67hd1bkp3sxsej2nnla \\</p><p>  -H &quot;x-payment: YOUR-BASE64-ENCODED-PAYMENT-PAYLOAD&quot; \\</p><p>  -H &quot;User-Agent: CustomUserAgent/1.0&quot; \\</p><p>  -H &quot;Accept: application/json&quot;</p>",
+                "content": "<p>If we didn't find an x-payment header field, then we return a 402 error code. </p>",
+                "isFilterNote": false,
+                "metadata": {
+                    "color": "#9138FE"
+                }
+            },
+            {
+                "moduleIds": [
+                    26
+                ],
+                "content": "<p>Here we docode the base64 encoded x-payment header value. The resulting payment object must contain a signature field as well as the other fields necessary to call the transferWithAuthorization function. </p>",
+                "isFilterNote": false,
+                "metadata": {
+                    "color": "#9138FE"
+                }
+            },
+            {
+                "moduleIds": [
+                    30
+                ],
+                "content": "<p>Once we have decoded the x-payment header value, we check for the presence of the required signature field. Configure the filter to check for the required payment value. </p>",
+                "isFilterNote": false,
+                "metadata": {
+                    "color": "#9138FE"
+                }
+            },
+            {
+                "moduleIds": [
+                    32
+                ],
+                "content": "<p>If we don't find the signature field we return a 402 error code.</p>",
+                "isFilterNote": false,
+                "metadata": {
+                    "color": "#9138FE"
+                }
+            },
+            {
+                "moduleIds": [
+                    37
+                ],
+                "content": "<p>Now that we have validated the x-payment header, we attempt to simulate the transaction to ensure it will succeed. Be sure to configure the node to point to a 'transferWithAuthorization' method belonging to the token you wish to receive as payment for your workflow. </p>",
+                "isFilterNote": false,
+                "metadata": {
+                    "color": "#9138FE"
+                }
+            },
+            {
+                "moduleIds": [
+                    39
+                ],
+                "content": "<p>The simulation step will return 'true' if the transaction data is well formed and valid and 'false' otherwise. </p>",
+                "isFilterNote": false,
+                "metadata": {
+                    "color": "#9138FE"
+                }
+            },
+            {
+                "moduleIds": [
+                    40
+                ],
+                "content": "<p>If the transaction simulation failed, we return a 402 error code. </p>",
+                "isFilterNote": false,
+                "metadata": {
+                    "color": "#9138FE"
+                }
+            },
+            {
+                "moduleIds": [
+                    41
+                ],
+                "content": "<p>If the simulation succeeded, we will submit the transaction to the blockchain. Be sure to configure this node to point at an instance of 'transferWithAuthorization` on the token you want to receive as payment. </p>",
+                "isFilterNote": false,
+                "metadata": {
+                    "color": "#9138FE"
+                }
+            },
+            {
+                "moduleIds": [
+                    42
+                ],
+                "content": "<p>Replace this node with the Make workflow you wish to monetize with x402. As is, this node will return a 200 code to the caller with a success message. </p>",
+                "isFilterNote": false,
+                "metadata": {
+                    "color": "#9138FE"
+                }
+            },
+            {
+                "moduleIds": [
+                    43
+                ],
+                "content": "<p>We want to ensure the transaction is mined before we give the caller access to premium content so we will poll on the status of our transaction until we know if it has succeeded or failed. </p>",
+                "isFilterNote": false,
+                "metadata": {
+                    "color": "#9138FE"
+                }
+            },
+            {
+                "moduleIds": [
+                    46
+                ],
+                "content": "<p>A 1 second delay to wait for transaction confirmation.</p>",
+                "isFilterNote": false,
+                "metadata": {
+                    "color": "#9138FE"
+                }
+            },
+            {
+                "moduleIds": [
+                    47
+                ],
+                "content": "<p>Check the status of our payment transaction.</p>",
+                "isFilterNote": false,
+                "metadata": {
+                    "color": "#9138FE"
+                }
+            },
+            {
+                "moduleIds": [
+                    48
+                ],
+                "content": "<p>Switch on the final transaction status, Completed or Failed. </p>",
+                "isFilterNote": false,
+                "metadata": {
+                    "color": "#9138FE"
+                }
+            },
+            {
+                "moduleIds": [
+                    49
+                ],
+                "content": "<p>In the scenario where the onchain payment transaction failed, we will return a 402 error code. </p>",
+                "isFilterNote": false,
+                "metadata": {
+                    "color": "#9138FE"
+                }
+            },
+            {
+                "moduleIds": [
+                    36
+                ],
+                "content": "<p>If there is a data format error, return a 402 error code.</p>",
                 "isFilterNote": false,
                 "metadata": {
                     "color": "#9138FE"
