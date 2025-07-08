@@ -1,6 +1,10 @@
 ..  youtube:: _UAgcH6sTvU
    :align: center
 
+.. raw:: html
+
+   <br />
+   
 Make (Formerly Integromat)
 ==========================
 
@@ -29,7 +33,7 @@ Authentication
 .. raw:: html
 
    <br />
-   
+
 The first time you add a 1Shot API node to a Make scenario, you will need to authenticate it against your 1Shot API account. Click on the node, then click "Add" under the "Connection" field. You will enter an `API key and secret <https://app.1shotapi.com/api-keys>`_ as well as your business ID (located at the top right corner of your 1Shot API dashboard) and then click "Save".
 
 Monetize Make Scenarios with x402
