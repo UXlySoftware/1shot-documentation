@@ -476,7 +476,7 @@
 <h3>Authentication<a class="headerlink" href="#authentication" title="Link to this heading">#</a></h3>
 <a class="reference internal image-reference" href="../_images/make-authenticate.gif"><img alt="Authentication with 1Shot API in Make" class="align-center" src="../_images/make-authenticate.gif" style="width: 600px;" />
 </a>
-<p>The first time you add a 1Shot API node to a Make scenario, you will need to authenticate it against your 1Shot API account. Click on the node, then click “Add” under the “Connection” field. You will enter an <a class="reference external" href="https://app.1shotapi.com/api-keys">API key and secret</a> as well as your business ID (located at the top right corner of your 1Shot API dashboard) and then click “Save”.</p>
+<br /><p>The first time you add a 1Shot API node to a Make scenario, you will need to authenticate it against your 1Shot API account. Click on the node, then click “Add” under the “Connection” field. You will enter an <a class="reference external" href="https://app.1shotapi.com/api-keys">API key and secret</a> as well as your business ID (located at the top right corner of your 1Shot API dashboard) and then click “Save”.</p>
 </section>
 </section>
 <section id="monetize-make-scenarios-with-x402">
@@ -490,7 +490,9 @@
 <p class="admonition-title">Important</p>
 <p>Don’t forget to provision a <a class="reference external" href="/basics/wallets.html">1Shot API wallet</a> on the target blockchain network where you want to accept payments. Put sufficient gas funds into the wallet to cover the transaction costs of your payment transactions.</p>
 </div>
-<p>There are two configurable quantities for you x402 Gateway: the payment token and the price of the service. You can change the price enforced by the gateway by clicking the filter just before the payment simulation node and changing the <em>value</em> condition. In the <em>Simulate</em> and <em>Execute</em> nodes, select the appropriate smart contract method id for the token you are trying to accept as payment. The ERC-20 must implement a <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-3009">transferWithAuthorization</a> method (as is the case for the USDC token) to be compatible with x402. Import the appropriate smart contract method in “My Smart Contracts” in the 1Shot API dashboard, and then select it in both of the 1Shot API nodes.</p>
+<a class="reference internal image-reference" href="../_images/x402-make-price.gif"><img alt="Set the price of your service in the x402 Gateway for Make" class="align-center" src="../_images/x402-make-price.gif" style="width: 600px;" />
+</a>
+<br /><p>There are two configurable quantities for you x402 Gateway: the payment token and the price of the service. You can change the price enforced by the gateway by clicking the filter just before the payment simulation node and changing the <em>value</em> condition. In the <em>Simulate</em> and <em>Execute</em> nodes, select the appropriate smart contract method id for the token you are trying to accept as payment. The ERC-20 must implement a <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-3009">transferWithAuthorization</a> method (as is the case for the USDC token) to be compatible with x402. Import the appropriate smart contract method in “My Smart Contracts” in the 1Shot API dashboard, and then select it in both of the 1Shot API nodes.</p>
 </section>
 </section>
 </section>
