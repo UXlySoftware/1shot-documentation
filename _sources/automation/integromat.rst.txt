@@ -36,4 +36,11 @@ Monetize Make Scenarios with x402
 
 Using 1Shot API's `x402 Gateway for Make template </_static/automation/x402-Gateway-for-Make.blueprint.json>`_, you can monetize any Make scenario using the `x402 payment protocol <https://x402.org>`_. Start by importing the blueprint into a new scenario in Make. Then create a webhook to receive x402 payment requests (give the webhook a unique name so you can remember what it was for). Once you have imported the blueprint, be sure to configure an authentication connection so that the 1Shot API nodes can communicate with your 1Shot API account. 
 
+Payment Configuration
+~~~~~~~~~~~~~~~~~~~~~
+
+.. important::
+
+    Don't forget to provision a `1Shot API wallet </basics/wallets.html>`_ on the target blockchain network where you want to accept payments. Put sufficient gas funds into the wallet to cover the transaction costs of your payment transactions.
+
 There are two configurable quantities for you x402 Gateway: the payment token and the price of the service. You can change the price enforced by the gateway by clicking the filter just before the payment simulation node and changing the *value* condition. In the *Simulate* and *Execute* nodes, select the appropriate smart contract method id for the token you are trying to accept as payment. The ERC-20 must implement a `**transferWithAuthorization** <https://eips.ethereum.org/EIPS/eip-3009>`_ method (as is the case for the USDC token) to be compatible with x402. Import the appropriate smart contract method in "My Smart Contracts" in the 1Shot API dashboard, and then select it in both of the 1Shot API nodes.

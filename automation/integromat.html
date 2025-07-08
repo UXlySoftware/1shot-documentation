@@ -484,7 +484,14 @@
 <div class="video_wrapper align-center" style="text-align: center">
 <iframe allowfullscreen="true" src="https://www.youtube.com/embed/ELDH09ufWgM" style="border: 0; height: 345px; width: 560px">
 </iframe></div><p>Using 1Shot API’s <a class="reference external" href="/_static/automation/x402-Gateway-for-Make.blueprint.json">x402 Gateway for Make template</a>, you can monetize any Make scenario using the <a class="reference external" href="https://x402.org">x402 payment protocol</a>. Start by importing the blueprint into a new scenario in Make. Then create a webhook to receive x402 payment requests (give the webhook a unique name so you can remember what it was for). Once you have imported the blueprint, be sure to configure an authentication connection so that the 1Shot API nodes can communicate with your 1Shot API account.</p>
+<section id="payment-configuration">
+<h3>Payment Configuration<a class="headerlink" href="#payment-configuration" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Don’t forget to provision a <a class="reference external" href="/basics/wallets.html">1Shot API wallet</a> on the target blockchain network where you want to accept payments. Put sufficient gas funds into the wallet to cover the transaction costs of your payment transactions.</p>
+</div>
 <p>There are two configurable quantities for you x402 Gateway: the payment token and the price of the service. You can change the price enforced by the gateway by clicking the filter just before the payment simulation node and changing the <em>value</em> condition. In the <em>Simulate</em> and <em>Execute</em> nodes, select the appropriate smart contract method id for the token you are trying to accept as payment. The ERC-20 must implement a <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-3009">**transferWithAuthorization**</a> method (as is the case for the USDC token) to be compatible with x402. Import the appropriate smart contract method in “My Smart Contracts” in the 1Shot API dashboard, and then select it in both of the 1Shot API nodes.</p>
+</section>
 </section>
 </section>
 
@@ -540,7 +547,10 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication">Authentication</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monetize-make-scenarios-with-x402">Monetize Make Scenarios with x402</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monetize-make-scenarios-with-x402">Monetize Make Scenarios with x402</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#payment-configuration">Payment Configuration</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
