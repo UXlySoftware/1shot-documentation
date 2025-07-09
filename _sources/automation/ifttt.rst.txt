@@ -40,3 +40,7 @@ Telegram ERC-20 Token Faucet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 `This applet <https://ift.tt/2B98sNi>`_ allows you to create a token faucet within a Telegram group. Users can request tokens by sending a specific message like `/ifttt #mywallet 0x55680c6b69d598c0b42f93cd53dff3d20e069b5b` and the applet will automatically send the configured amount of tokens to the specified wallet address. The applet also implements a *cool-down* period to prevent abuse, ensuring that users can only request tokens once in the configured time period. 
+
+.. hint::
+
+    This applet uses a `Telegram trigger <https://ifttt.com/telegram>`_, so you will need to initiate a converation with the `IFTTT Telegram bot <https://t.me/IFTTT>`_ and use its `/connect_group` command to connect your Telegram group to the applet.
