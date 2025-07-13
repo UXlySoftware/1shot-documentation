@@ -114,9 +114,7 @@ The payload used to `call the API <api.html#triggering-a-transaction>`_ endpoint
 Authorization Lists: EIP-7702
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1Shot API supports `EIP-7702 <https://eips.ethereum.org/EIPS/eip-7702>`_ authorization lists for contract method endpoints. This allows you to use 1Shot API as 
-relayer for user transactions without requiring users to front gas costs themselves. Any ``write`` endpoint can be passed an ``authorizationList`` parameter
-to automatically turn the resulting transaction into an EIP-7702 transaction. Here is an example in Typescript:
+1Shot API supports `EIP-7702 <https://eips.ethereum.org/EIPS/eip-7702>`_ authorization lists for contract method endpoints. This allows you to use 1Shot API as relayer for user transactions without requiring users to front gas costs themselves. Any ``write`` endpoint can be passed an ``authorizationList`` parameter to automatically turn the resulting transaction into an EIP-7702 Type 4 transaction. Here is an example in Typescript:
 
 .. code:: javascript
 
@@ -137,7 +135,7 @@ to automatically turn the resulting transaction into an EIP-7702 transaction. He
     } = {
         chainId: ethers.toBeHex(chainId.toString()),
         address: WALLET_CORE,
-        nonce: ethers.toBeHex(currentNonce + 1),
+        nonce: ethers.toBeHex(currentNonce),
     };
 
     // Encode authorization data according to EIP-712 standard
@@ -156,20 +154,21 @@ to automatically turn the resulting transaction into an EIP-7702 transaction. He
 
     // Now we execute the transaction using the authorizationData and Signature
     // we created above. 
-    const execution = await oneshotClient.contract_methods.execute(
-        contractMethodId, // contract method endpoint id
-        {}, // initialize doesn't require any parameters
-        undefined, // use default escrow wallet id
-        'relayed 7702 transaction', // transaction memo
-        [ // authorization list
-            {
-                address: authorizationData.address!,
-                nonce: authorizationData.nonce,
-                chainId: Number(authorizationData.chainId),
-                signature: authorizationSignature.serialized
-            }
-        ]
-    )
+    const execution = await oneshotClient.contractMethods.execute(
+      contractMethodId, // the ID of the contract method endpoint
+      {}, // input parameters
+      {
+        memo: "Sponsored 7702 upgrade transaction", // optional memo for the transaction
+        authorizationList: [ // EIP-7702 authorization list
+          {
+            address: authorizationData.address!,
+            nonce: authorizationData.nonce,
+            chainId: Number(authorizationData.chainId),
+            signature: authorizationSignature.serialized,
+          },
+        ],
+      }
+    );
 
 Webhooks
 ---------
