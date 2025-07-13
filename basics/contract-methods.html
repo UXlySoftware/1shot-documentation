@@ -547,9 +547,7 @@ endpoint builder. Take the following example in which the input parameter is a s
 </section>
 <section id="authorization-lists-eip-7702">
 <h3>Authorization Lists: EIP-7702<a class="headerlink" href="#authorization-lists-eip-7702" title="Link to this heading">#</a></h3>
-<p>1Shot API supports <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-7702">EIP-7702</a> authorization lists for contract method endpoints. This allows you to use 1Shot API as
-relayer for user transactions without requiring users to front gas costs themselves. Any <code class="docutils literal notranslate"><span class="pre">write</span></code> endpoint can be passed an <code class="docutils literal notranslate"><span class="pre">authorizationList</span></code> parameter
-to automatically turn the resulting transaction into an EIP-7702 transaction. Here is an example in Typescript:</p>
+<p>1Shot API supports <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-7702">EIP-7702</a> authorization lists for contract method endpoints. This allows you to use 1Shot API as relayer for user transactions without requiring users to front gas costs themselves. Any <code class="docutils literal notranslate"><span class="pre">write</span></code> endpoint can be passed an <code class="docutils literal notranslate"><span class="pre">authorizationList</span></code> parameter to automatically turn the resulting transaction into an EIP-7702 Type 4 transaction. Here is an example in Typescript:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">wallet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">Wallet</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DEPLOYER_PRIVATE_KEY</span><span class="p">,</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">provider</span><span class="p">);</span>
 <span class="kd">const</span><span class="w"> </span><span class="nx">chainId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">await</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">provider</span><span class="p">.</span><span class="nx">getNetwork</span><span class="p">()).</span><span class="nx">chainId</span><span class="p">;</span>
 
@@ -567,7 +565,7 @@ to automatically turn the resulting transaction into an EIP-7702 transaction. He
 <span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">chainId</span><span class="o">:</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">toBeHex</span><span class="p">(</span><span class="nx">chainId</span><span class="p">.</span><span class="nx">toString</span><span class="p">()),</span>
 <span class="w">    </span><span class="nx">address</span><span class="o">:</span><span class="w"> </span><span class="nx">WALLET_CORE</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">nonce</span><span class="o">:</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">toBeHex</span><span class="p">(</span><span class="nx">currentNonce</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">),</span>
+<span class="w">    </span><span class="nx">nonce</span><span class="o">:</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">toBeHex</span><span class="p">(</span><span class="nx">currentNonce</span><span class="p">),</span>
 <span class="p">};</span>
 
 <span class="c1">// Encode authorization data according to EIP-712 standard</span>
@@ -586,20 +584,21 @@ to automatically turn the resulting transaction into an EIP-7702 transaction. He
 
 <span class="c1">// Now we execute the transaction using the authorizationData and Signature</span>
 <span class="c1">// we created above.</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">execution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">oneshotClient</span><span class="p">.</span><span class="nx">contract_methods</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span>
-<span class="w">    </span><span class="nx">contractMethodId</span><span class="p">,</span><span class="w"> </span><span class="c1">// contract method endpoint id</span>
-<span class="w">    </span><span class="p">{},</span><span class="w"> </span><span class="c1">// initialize doesn&#39;t require any parameters</span>
-<span class="w">    </span><span class="kc">undefined</span><span class="p">,</span><span class="w"> </span><span class="c1">// use default escrow wallet id</span>
-<span class="w">    </span><span class="s1">&#39;relayed 7702 transaction&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// transaction memo</span>
-<span class="w">    </span><span class="p">[</span><span class="w"> </span><span class="c1">// authorization list</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">address</span><span class="o">:</span><span class="w"> </span><span class="nx">authorizationData</span><span class="p">.</span><span class="nx">address</span><span class="o">!</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">nonce</span><span class="o">:</span><span class="w"> </span><span class="nx">authorizationData</span><span class="p">.</span><span class="nx">nonce</span><span class="p">,</span>
-<span class="w">            </span><span class="nx">chainId</span><span class="o">:</span><span class="w"> </span><span class="nb">Number</span><span class="p">(</span><span class="nx">authorizationData</span><span class="p">.</span><span class="nx">chainId</span><span class="p">),</span>
-<span class="w">            </span><span class="nx">signature</span><span class="o">:</span><span class="w"> </span><span class="nx">authorizationSignature</span><span class="p">.</span><span class="nx">serialized</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">]</span>
-<span class="p">)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">execution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">oneshotClient</span><span class="p">.</span><span class="nx">contractMethods</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span>
+<span class="w">  </span><span class="nx">contractMethodId</span><span class="p">,</span><span class="w"> </span><span class="c1">// the ID of the contract method endpoint</span>
+<span class="w">  </span><span class="p">{},</span><span class="w"> </span><span class="c1">// input parameters</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">memo</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Sponsored 7702 upgrade transaction&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// optional memo for the transaction</span>
+<span class="w">    </span><span class="nx">authorizationList</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="c1">// EIP-7702 authorization list</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">address</span><span class="o">:</span><span class="w"> </span><span class="nx">authorizationData</span><span class="p">.</span><span class="nx">address</span><span class="o">!</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">nonce</span><span class="o">:</span><span class="w"> </span><span class="nx">authorizationData</span><span class="p">.</span><span class="nx">nonce</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">chainId</span><span class="o">:</span><span class="w"> </span><span class="nb">Number</span><span class="p">(</span><span class="nx">authorizationData</span><span class="p">.</span><span class="nx">chainId</span><span class="p">),</span>
+<span class="w">        </span><span class="nx">signature</span><span class="o">:</span><span class="w"> </span><span class="nx">authorizationSignature</span><span class="p">.</span><span class="nx">serialized</span><span class="p">,</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">);</span>
 </pre></div>
 </div>
 </section>
