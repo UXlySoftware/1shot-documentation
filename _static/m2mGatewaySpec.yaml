@@ -71,6 +71,44 @@ paths:
           description: Invalid client credentials
         403:
           $ref: "#/components/responses/PermissionError"
+
+  /chains:
+    get:
+      tags:
+        - Chains
+        - List
+      description: Returns a listing of all chains supported by 1Shot API
+      parameters:
+        - name: pageSize
+          in: query
+          required: false
+          schema:
+            $ref: "#/components/schemas/PageSize"
+        - name: page
+          in: query
+          required: false
+          schema:
+            $ref: "#/components/schemas/Page"
+      security:
+        - OAuth2ClientCredentials:
+          - read:api
+      responses:
+        200:
+          description: Returns a list of Contract Method objects.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - type: object
+                    properties:
+                      response:
+                        type: array
+                        items:
+                          $ref: "#/components/schemas/ChainInfo"
+                  - $ref: "#/components/schemas/PagedResponse"
+
+        500:
+          $ref: "#/components/responses/DatabaseError"
   
   /methods/{contractMethodId}/test:  
     post:
@@ -96,6 +134,21 @@ paths:
               properties:
                 params:
                   $ref: '#/components/schemas/JSONValue'
+                walletId:
+                  $ref: "#/components/schemas/WalletId"
+                authorizationList:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/ERC7702Authorization"
+                  description: A list of authorizations for the Contract Method. If you are using ERC-7702, you must provide at least one authorization.
+                  example: [{"address": "0x1234567890abcdef", "nonce": "1", "chainId": "1", "signature": "0x1234567890abcdef"}]
+                value:
+                  type: string
+                  format: big-number-string
+                  description: The amount of native token to send along with the Contract Method. This is only applicable for Contract Methods that are payable. Including this value for a nonpayable method will result in an error.
+                  example: "123400000000000000000"
+                contractAddress:
+                  $ref: "#/components/schemas/ContractAddress"
       responses:
         200:
           description: "Success"
@@ -103,6 +156,51 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ContractMethodTestResult'
+        500:
+          $ref: "#/components/responses/DatabaseError"
+
+  /methods/{contractMethodId}/encode:  
+    post:
+      tags:
+        - Contract Methods
+      description: This method encodes the transaction data for a Contract Method. It returns a hex string of the bytes of the encoded data. This can be used to call the Contract Method directly on the blockchain.
+      parameters:
+        - name: contractMethodId
+          in: path
+          required: true
+          schema:
+            $ref: "#/components/schemas/ContractMethodId"
+      security:
+        - OAuth2ClientCredentials:
+          - read:api
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: You need to provide a value for every parameter in the Contract Method via the name of the parameter
+              properties:
+                params:
+                  $ref: '#/components/schemas/JSONValue'
+                authorizationList:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/ERC7702Authorization"
+                  description: A list of authorizations for the Contract Method. If you are using ERC-7702, you must provide at least one authorization.
+                  example: [{"address": "0x1234567890abcdef", "nonce": "1", "chainId": "1", "signature": "0x1234567890abcdef"}]
+                value:
+                  type: string
+                  format: big-number-string
+                  description: The amount of native token to send along with the Contract Method. This is only applicable for Contract Methods that are payable. Including this value for a nonpayable method will result in an error.
+                  example: "123400000000000000000"
+      responses:
+        200:
+          description: "Success"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContractMethodEncodeResult'
         500:
           $ref: "#/components/responses/DatabaseError"
 
@@ -128,6 +226,17 @@ paths:
               properties:
                 params:
                   $ref: '#/components/schemas/JSONValue'
+                authorizationList:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/ERC7702Authorization"
+                  description: A list of authorizations for the Contract Method. If you are using ERC-7702, you must provide at least one authorization.
+                  example: [{"address": "0x1234567890abcdef", "nonce": "1", "chainId": "1", "signature": "0x1234567890abcdef"}]
+                value:
+                  type: string
+                  format: big-number-string
+                  description: The amount of native token to send along with the Contract Method. This is only applicable for Contract Methods that are payable. Including this value for a nonpayable method will result in an error.
+                  example: "123400000000000000000"
       responses:
         200:
           description: "Success"
@@ -173,6 +282,62 @@ paths:
                     $ref: "#/components/schemas/ERC7702Authorization"
                   description: A list of authorizations for the Contract Method. If you are using ERC-7702, you must provide at least one authorization.
                   example: [{"address": "0x1234567890abcdef", "nonce": "1", "chainId": "1", "signature": "0x1234567890abcdef"}]
+                value:
+                  type: string
+                  format: big-number-string
+                  description: The amount of native token to send along with the Contract Method. This is only applicable for Contract Methods that are payable. Including this value for a nonpayable method will result in an error.
+                  example: "123400000000000000000"
+                contractAddress:
+                  $ref: "#/components/schemas/ContractAddress"
+      responses:
+        200:
+          description: "Success"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Transaction"
+        500:
+          $ref: "#/components/responses/DatabaseError"
+
+  /methods/{contractMethodId}/executeAsDelegator:  
+    post:
+      tags:
+        - Contract Methods
+      description: Starts the execution of the Contract Method as a delegator, and returns a Transaction. You can only execute Contract Methods that are payable or nonpayable. Use /read for view and pure Contract Methods. This method executes the transaction on behalf of the specified delegator address.
+      parameters:
+        - name: contractMethodId
+          in: path
+          required: true
+          schema:
+            $ref: "#/components/schemas/ContractMethodId"
+      security:
+        - OAuth2ClientCredentials:
+          - read:api
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: You need to provide a value for every parameter in the Contract Method via the name of the parameter
+              properties:
+                params:
+                  $ref: '#/components/schemas/JSONValue'
+                walletId:
+                  $ref: "#/components/schemas/WalletId"
+                memo:
+                  type: string
+                  description: You may include any text you like when you execute a Contract Method, as a note to yourself about why it was done. This text can be JSON or similar if you want to store formatted data.
+                delegatorAddress:
+                  $ref: "#/components/schemas/AccountAddress"
+                  description: The address of the delegator on whose behalf the transaction will be executed.
+                value:
+                  type: string
+                  format: big-number-string
+                  description: The amount of native token to send along with the Contract Method. This is only applicable for Contract Methods that are payable. Including this value for a nonpayable method will result in an error.
+                  example: "123400000000000000000"
+              required:
+                - delegatorAddress
       responses:
         200:
           description: "Success"
@@ -552,12 +717,8 @@ paths:
                 functionName:
                   type: string
                   description: The name of the function on the contract. This is case-sensitive, so be sure to check your ABI.
-                payable:
-                  type: boolean
-                  description: Some Contract Methods can move tokens with them. Check your ABI.
-                nativeTransaction:
-                  type: boolean
-                  description: It is possible to create a "native" Contract Method, one that is part of the EVM and not a smart contract. Set this to true to enable native Contract Method handling.
+                stateMutability:
+                  $ref: "#/components/schemas/ESolidityStateMutability"
                 callbackUrl:
                   type: string
                   format: URL
@@ -662,6 +823,26 @@ paths:
             type: string
             format: uuid
             example: 8a6e0804-2bd0-4672-b79d-d97027f90720
+        - name: memo
+          in: query
+          required: false
+          schema:
+            type: string
+            example: "Illicit Activities"
+        - name: createdAfter
+          in: query
+          required: false
+          schema:
+            type: number
+            format: unix-timestamp
+            example: 1659485172
+        - name: createdBefore
+          in: query
+          required: false
+          schema:
+            type: number
+            format: unix-timestamp
+            example: 1659485172
       security:
         - OAuth2ClientCredentials:
           - read:api
@@ -902,6 +1083,156 @@ paths:
                 $ref: "#/components/schemas/Wallet"
         403:
           $ref: "#/components/responses/PermissionError"
+          
+  /wallets/{walletId}/transfer:
+    post:
+      tags:
+        - Wallets
+      description: Initiates a tranfer of the chains' native token from the Wallet. This is almost the same as executing a Contract Method except there is no contract involved.
+      parameters:
+        - name: walletId
+          in: path
+          description: The internal uuid of the Wallet you are transfering funds from
+          required: true
+          schema:
+            $ref: "#/components/schemas/WalletId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                destinationAccountAddress:
+                  $ref: "#/components/schemas/AccountAddress"
+                transferAmount:
+                  type: string
+                  format: big-number-string
+                  description: the amount of native token to transfer. This is the "value" parameter in the actual transaction. If you omit this parameter, 1Shot API will calculate the maximum amount of token that you can transfer, getting as close to zeroing out the Wallet as possible.
+                  example: "123400000000000000000"
+                memo:
+                  type: string
+                  description: An optional memo for the transfer
+              required:
+                - destinationAccountAddress
+      security:
+        - OAuth2ClientCredentials:
+          - read:api
+      responses:
+        200:
+          description: Returns a Transaction object, which will not be mined yet. You'll need to poll to see when the Transaction completes, because there are no available webhook notifications for native transfers.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Transaction"
+
+        500:
+          $ref: "#/components/responses/DatabaseError"
+
+  /wallets/{walletId}/delegations:
+    get:
+      tags:
+        - Wallets
+        - Delegations
+        - List
+      description: Lists delegations for a wallet. Returns a paged response of delegations associated with the specified wallet.
+      parameters:
+        - name: walletId
+          in: path
+          description: The internal uuid of the Wallet to list delegations for
+          required: true
+          schema:
+            $ref: "#/components/schemas/WalletId"
+        - name: pageSize
+          in: query
+          required: false
+          schema:
+            $ref: "#/components/schemas/PageSize"
+        - name: page
+          in: query
+          required: false
+          schema:
+            $ref: "#/components/schemas/Page"
+      security:
+        - OAuth2ClientCredentials:
+          - read:api
+      responses:
+        200:
+          description: Returns a paged response of delegation objects.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - type: object
+                    properties:
+                      response:
+                        type: array
+                        items:
+                          $ref: "#/components/schemas/Delegation"
+                  - $ref: "#/components/schemas/PagedResponse"
+        500:
+          $ref: "#/components/responses/DatabaseError"
+
+    post:
+      tags:
+        - Wallets
+        - Delegations
+      description: Creates a new delegation for a wallet. A delegation allows the wallet to execute transactions on behalf of specified contract addresses and methods.
+      parameters:
+        - name: walletId
+          in: path
+          description: The internal uuid of the Wallet to create the delegation for
+          required: true
+          schema:
+            $ref: "#/components/schemas/WalletId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                startTime:
+                  type: number
+                  format: unix-timestamp
+                  description: The start time for the delegation. If not provided, the delegation starts immediately.
+                  example: 1659485172
+                endTime:
+                  type: number
+                  format: unix-timestamp
+                  description: The end time for the delegation. If not provided, the delegation has no expiration.
+                  example: 1659485172
+                contractAddresses:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/ContractAddress"
+                  description: Array of contract addresses that the wallet can execute transactions for.
+                  example: ["0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9"]
+                methods:
+                  type: array
+                  items:
+                    type: string
+                  description: Array of method names that the wallet can execute. If empty, all methods are allowed.
+                  example: ["mint", "transfer"]
+                delegationData:
+                  type: string
+                  format: json-string
+                  description: The actual Delegation object serialized as a JSON string. BigInts must be encoded as strings.
+                  example: {"authority":"0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","caveats":[],"delegate":"0x74847c451c3745fcdf4fd447a9fa5eef8a6791a9","delegator":"0x3e6a2f0CBA03d293B54c9fCF354948903007a798","salt":"0x","signature":"0x000007dc509f5f440bd07e2a51cb8dd135f170bc8886ccf24c35652d256d4f06501537e663fbb3b6e51ca640ad4791fb605ba7434d4d8a0a0a24bfd4d841e88f1c"}
+              required:
+                - delegationData
+      security:
+        - OAuth2ClientCredentials:
+          - read:api
+      responses:
+        200:
+          description: Returns the created delegation.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Delegation"
+        500:
+          $ref: "#/components/responses/DatabaseError"
   
   /structs/{structId}:
     put:
@@ -1262,14 +1593,23 @@ components:
       enum:
         - 0
 
+    EChainType:
+      type: string
+      enum:
+        - Mainnet
+        - Testnet
+        - Hardhat
+
     ContractAddress:
       type: string
       description: string address of contract
+      format: evm-address
       example: "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9"
       
-    WalletAddress:
+    AccountAddress:
       type: string
-      description: string address of a wallet insight platform holds keys for
+      description: An EVM address that designates an Externally Owned Account (EOA). Wallets are an example of an EOA.
+      format: evm-address
       example: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
       
     Wallet:
@@ -1280,7 +1620,7 @@ components:
             id:
               $ref: "#/components/schemas/WalletId"
             accountAddress:
-              $ref: "#/components/schemas/WalletAddress"
+              $ref: "#/components/schemas/AccountAddress"
             businessId:
               allOf:
                 - $ref: "#/components/schemas/BusinessId"
@@ -1332,12 +1672,12 @@ components:
         tokenAddress:
           $ref: "#/components/schemas/ContractAddress"
         accountAddress:
-          $ref: "#/components/schemas/WalletAddress"
+          $ref: "#/components/schemas/AccountAddress"
         balance:
           type: string
           format: big-number-string
           description: The balance of the token as a Big Number String
-          example: 123400000000000000000
+          example: "123400000000000000000"
         decimals:
           type: integer
           description: The number of decimals in the balance. Determined by the token type.
@@ -1574,6 +1914,8 @@ components:
               type: string
               nullable: true
               description: The hash of the Transaction. Only calculated once the status is Submitted. This is an immutable value and can be looked up on the appropriate block scanner.
+            contractAddress:
+              $ref: "#/components/schemas/ContractAddress"
             name:
               type: string
               description: the name of the associated Contract Method. Included as a convienience.
@@ -1592,6 +1934,43 @@ components:
               nullable: true
               format: unix-timestamp
               example: 1659485172
+            walletId:
+              $ref: "#/components/schemas/WalletId"
+            failureReason:
+              type: string
+              nullable: true
+              description: The reason the transaction failed. This is only set if the transaction failed.
+              example: "Transaction reverted"
+            from:
+              type: string
+              format: evm-address
+              description: The address of the account that sent the transaction.
+              example: "0x1234567890123456789012345678901234567890"
+            to:
+              type: string
+              format: evm-address
+              description: The address of the account that received the transaction.
+              example: "0x1234567890123456789012345678901234567890"
+            gasPrice:
+              type: string
+              format: big-number-string
+              description: The gas price of the transaction.
+              example: "123400000000000000000"
+            gasLimit:
+              type: string
+              format: big-number-string
+              description: The gas limit of the transaction.
+              example: "123400000000000000000"
+            maxFeePerGas:
+              type: string
+              format: big-number-string
+              description: The max fee per gas of the transaction.
+              example: "123400000000000000000"
+            maxPriorityFeePerGas:
+              type: string
+              format: big-number-string
+              description: The max priority fee per gas of the transaction.
+              example: "123400000000000000000"
           required:
             - id
             - contractMethodId
@@ -1600,11 +1979,19 @@ components:
             - userId
             - status
             - transactionHash
+            - contractAddress
             - name
             - functionName
             - chainId
             - memo
             - completed
+            - walletId
+            - from
+            - to
+            - gasPrice
+            - gasLimit
+            - maxFeePerGas
+            - maxPriorityFeePerGas
         - $ref: "#/components/schemas/EntityBookKeeping"
         
     JSONValue:
@@ -1633,17 +2020,21 @@ components:
           type: string
           format: big-number-string
           description: The amount of gas units it will use. This is a stringified bigint.
+          example: "123400000000000000000"
         maxFeePerGas:
           type: string
           format: big-number-string
+          example: "123400000000000000000"
           nullable: true
         maxPriorityFeePerGas:
           type: string
           format: big-number-string
+          example: "123400000000000000000"
           nullable: true
         gasPrice:
           type: string
           format: big-number-string
+          example: "123400000000000000000"
           nullable: true
       required:
         - chainId
@@ -1814,6 +2205,11 @@ components:
               description: An array of tag names provided to the contract
               items:
                 type: string
+            image:
+              type: string
+              nullable: true
+              description: The URL of the image for the contract description.
+              example: https://storage.googleapis.com/uxly-public-bucket/contract-descriptions/100d2e83-dddd-480d-88ad-74a71c214912/image.png
           required:
             - id
             - userId
@@ -1822,6 +2218,7 @@ components:
             - name
             - description
             - tags
+            - image
         - $ref: "#/components/schemas/EntityBookKeepingWithoutDeleted"
   
     FullPrompt:
@@ -1914,6 +2311,16 @@ components:
         - result
         - error
 
+    ContractMethodEncodeResult:
+      description: The result of running /encode on a contract method.
+      type: object
+      properties:
+        data:
+          type: string
+          format: hex-string
+          description: The hex string of the encoded data.
+          example: "0x1234567890abcdef"
+
     ERC7702Authorization:
       description: A single authorization for an ERC-7702 transaction. It represents a single potential delegation from an EOA to a contract. The EOA must sign a message with the contract address, the chain ID, and a nonce. Authorizations are sticky, once a Contract Method has been executed with an authorization, future Contract Methods may be executed for the EOA using the authorized contract without a new authorization being submitted.
       type: object
@@ -1924,6 +2331,7 @@ components:
           type: string
           format: big-number-string
           description: The delegation nonce. This starts at 0 and must be positive. The EOA must keep track of this nonce itself.
+          example: "123400000000000000000"
         chainId:
           $ref: "#/components/schemas/EChain"
         signature:
@@ -1936,3 +2344,93 @@ components:
         - nonce
         - chainId
         - signature
+
+    Delegation:
+      description: A delegation allows a wallet to execute transactions on behalf of specified contract addresses and methods.
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+              description: Internal ID of the delegation
+              example: 8a6e0804-2bd0-4672-b79d-d97027f90720
+            businessId:
+              $ref: "#/components/schemas/BusinessId"
+            escrowWalletId:
+              $ref: "#/components/schemas/WalletId"
+            delegatorAddress:
+              type: string
+              format: evm-address
+              description: The address of the delegator account.
+              example: "0x3e6a2f0CBA03d293B54c9fCF354948903007a798"
+            startTime:
+              type: number
+              format: unix-timestamp
+              description: The start time for the delegation. If null, the delegation starts immediately.
+              example: 1659485172
+              nullable: true
+            endTime:
+              type: number
+              format: unix-timestamp
+              description: The end time for the delegation. If null, the delegation has no expiration.
+              example: 1659485172
+              nullable: true
+            contractAddresses:
+              type: array
+              items:
+                $ref: "#/components/schemas/ContractAddress"
+              description: Array of contract addresses that the wallet can execute transactions for.
+              example: ["0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9"]
+            methods:
+              type: array
+              items:
+                type: string
+              description: Array of method names that the wallet can execute. If empty, all methods are allowed.
+              example: ["mint", "transfer"]
+            delegationData:
+              type: string
+              format: json-string
+              description: The actual Delegation object serialized as a JSON string. BigInts must be encoded as strings.
+              example: {"authority":"0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","caveats":[],"delegate":"0x74847c451c3745fcdf4fd447a9fa5eef8a6791a9","delegator":"0x3e6a2f0CBA03d293B54c9fCF354948903007a798","salt":"0x","signature":"0x000007dc509f5f440bd07e2a51cb8dd135f170bc8886ccf24c35652d256d4f06501537e663fbb3b6e51ca640ad4791fb605ba7434d4d8a0a0a24bfd4d841e88f1c"}
+          required:
+            - id
+            - businessId
+            - escrowWalletId
+            - startTime
+            - endTime
+            - contractAddresses
+            - methods
+            - delegationData
+        - $ref: "#/components/schemas/EntityBookKeepingWithoutDeleted"
+
+    ChainInfo:
+      description: Information about a chain supported by 1Shot API
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the chain
+        chainId: 
+          $ref: "#/components/schemas/EChain"
+        averageBlockMiningTime:
+          type: number
+          description: The average time it takes to mine a block on the chain
+        nativeCurrency:
+          $ref: "#/components/schemas/NativeCurrencyInformation"
+        type:
+          $ref: "#/components/schemas/EChainType"
+
+    NativeCurrencyInformation:
+      description: Information about the native currency of a chain
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the currency
+        symbol:
+          type: string
+          description: The symbol of the currency
+        decimals:
+          type: number
+          description: The number of decimals of the currency
