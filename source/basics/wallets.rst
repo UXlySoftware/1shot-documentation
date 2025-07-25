@@ -104,3 +104,11 @@ Once you have submitted a 7702 transaction mounting the ``7702StatelessDelegator
 You can create a delegation with a script using the `MetaMask Delegation Toolkit <https://docs.metamask.io/delegation-toolkit/how-to/create-delegation/>`_ using the caveat building set appropriate restrictions for your use case (like time and spend limits or specific contract methods). Once the delegation has been singed by your EOA, store the delegation in 1Shot API by making a PUT request to the ``/wallets/{walletId}/delegation`` endpoint with the delegation payload in the request body (see the `OpenAPI spec <https://docs.1shotapi.com/api/openapi.html>`_). This method is usefull for implementing user-friendly onboarding flows for users in your dApp. 
 
 Alternatively, if you are using 1Shot API to create and run your own automation workflows in n8n, Make, or IFTTT, you can create a delegation directly on the Wallets details page. Connect your wallet to the Wallets details page then click the ``Add Delegation`` button. You'll have the option to set a start and end date for the delegation as well as restrict the delegation to specific contract methods that you have imported into your `Smart Conctracts <https://app.1shotapi.com/smart-contracts>`_ library. Once you have chosen your desired rules, click ``Create Delegation`` which will open your browser wallet to sign the EIP-712 delegation payload. Once signed, the delegation will be stored in 1Shot API and can be used with the ``/methods/{contractMethodId>/executeAsDelegator`` REST endpoint to relay transactions on your behalf.
+
+.. image:: /_static/escrow-wallet/portal-delegation.gif
+   :alt: Create a delegation in the 1Shot API portal
+   :align: center
+
+.. raw:: html
+
+   <br />
