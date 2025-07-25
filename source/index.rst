@@ -21,10 +21,10 @@ Welcome to 1Shot API!
 =====================
 
 The `1Shot API <https://1shotapi.com>`_ is an automation-focused and enterprise-grade hot wallet and transaction service for the Ethereum mainnet and L2 ecosystem 
-(Binance and Avalanche supported as well). It provides a simple REST API to trigger state-changing smart contract transactions on a target blockchain network with 
-a single POST call. 
+(Binance and Avalanche supported as well). It provides a simple REST API to trigger state-changing smart contract transactions (as well as smart contract reads) on a target blockchain network with 
+a single POST call. 1Shot API can also be used in a completely non-custodial fashion by using its `delegation feature </basics/wallets.html#account-delegation>`_, allowing you to connect your self-custodied wallet to the 1Shot API service while retaining control over your private keys.
 
-1Shot API is not an RPC provider, but an abstraction layer on top of typical RPC providers (like Infura or Alchemy). In fact, depending on your use case you may not even 
+1Shot API is not an RPC provider, but an abstraction layer on top of typical RPC providers (like Infura, Alchemy or Ankr). In fact, depending on your use case you may not even 
 need an RPC provider as we handle the full transaction lifecycle with real-time webhook callbacks on the final state of your transactions. 1Shot API allows you to read from 
 and write to smart contracts without the need of importing web3 clients like viem or ethers.js into your source code. This lets you focus on the logic specific to your application
 while 1Shot API handles the complexities of data types, contract ABIs, signers and private key security, and nonce cohesion for you.
