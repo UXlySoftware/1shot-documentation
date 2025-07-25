@@ -88,7 +88,7 @@ With delegation, you can benefit from the full power of 1Shot API's automation i
    
    While you can easily upgrade an account to the ``7702StatelessDelegator`` in the MetaMask extension, MetaMask currently `disallows EIP-712 delegation signatures <https://github.com/MetaMask/core/blob/main/packages/signature-controller/src/utils/validation.ts#L249>`_ in their browser and mobile wallets. You will need to import your account into another browser wallet like `OKX Wallet <https://web3.okx.com/>`_ in order to sign and store delegations in the 1Shot API portal. 
 
-Create a delegation
+Create a Delegation
 ~~~~~~~~~~~~~~~~~~~
 
 Once you have submitted a 7702 transaction mounting the ``7702StatelessDelegator`` wallet to your EOA, navigate to the `Wallets <https://app.1shotapi.com/escrow-wallets>`_ page and click on an existing wallet or create a new one. Delegations are linked to a specific 1Shot API wallet, when you delegate to a 1Shot API Wallet, the delegation payload will be stored by 1Shot API so that it can be used on-demand to relay transactions on your behalf.
