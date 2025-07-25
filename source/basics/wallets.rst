@@ -84,6 +84,14 @@ Upgrade to MetaMask's 7702 Stateless Delegator
 
 With delegation, you can benefit from the full power of 1Shot API's automation integrations with `n8n, IFTTT, and Make </automation>`_ to fully automate onchain workflows while retaining complete control over your keys and assets. Before you can create a delegation, you must first upgrade your EOA to use MetaMask's `7702StatelessDelegator <https://github.com/MetaMask/delegation-framework/blob/main/src/EIP7702/EIP7702StatelessDeleGator.sol>`_. There are two ways to do this: in a `script <https://docs.metamask.io/delegation-toolkit/get-started/eip7702-quickstart/>`_ or through the MetaMask browser extension.
 
+.. image:: /_static/escrow-wallet/browser-wallet-upgrade.png
+   :alt: Upgrade to 7702StatelessDelegator in MetaMask
+   :align: center
+
+.. raw:: html
+
+   <br />
+
 .. Note:: 
    
    While you can easily upgrade an account to the ``7702StatelessDelegator`` in the MetaMask extension, MetaMask currently `disallows EIP-712 delegation signatures <https://github.com/MetaMask/core/blob/main/packages/signature-controller/src/utils/validation.ts#L249>`_ in their browser and mobile wallets. You will need to import your account into another browser wallet like `OKX Wallet <https://web3.okx.com/>`_ in order to sign and store delegations in the 1Shot API portal or sign a delegation in a script. 
