@@ -77,7 +77,7 @@ tokens you want to withdraw and click "Send". You'll be prompted to confirm the 
 Account Delegation
 ------------------
 
-1Shot API allows you to delegate your self-custodied wallet to the 1Shot API service, enabling you to use your own keys while still benefiting from 1Shot API's extensive automation features. This is particularly useful for users who want to maintain control over their private keys while leveraging the convenience of 1Shot API's transaction management. Delegation is accomplished via `MetaMask's Delegation Toolkit <https://docs.metamask.io/delegation-toolkit/>`_; when you sign a delegation, you can specify which contract methods you want to allow the 1Shot API service to execute on your behalf, cryptographically ensuring that only the specified methods can be called.
+1Shot API allows you to delegate your self-custodied wallet to the 1Shot API service, enabling you to use your own keys while still benefiting from 1Shot API's extensive automation features. This is particularly useful for users who want to maintain control over their private keys while leveraging the convenience of 1Shot API's transaction management. Delegation is accomplished via `MetaMask's Delegation Toolkit <https://docs.metamask.io/delegation-toolkit/>`_; when you sign a delegation, you can specify time bounds as well as which contract methods you want to allow the 1Shot API service to execute on your behalf, cryptographically ensuring that only the specified methods can be called.
 
 Upgrade to MetaMask's 7702 Stateless Delegator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -86,7 +86,7 @@ With delegation, you can benefit from the full power of 1Shot API's automation i
 
 .. Note:: 
    
-   While you can easily upgrade an account to the ``7702StatelessDelegator`` in the MetaMask extension, MetaMask currently `disallows EIP-712 delegation signatures <https://github.com/MetaMask/core/blob/main/packages/signature-controller/src/utils/validation.ts#L249>`_ in their browser and mobile wallets. You will need to import your account into another browser wallet like `OKX Wallet <https://web3.okx.com/>`_ in order to sign and store delegations in the 1Shot API portal. 
+   While you can easily upgrade an account to the ``7702StatelessDelegator`` in the MetaMask extension, MetaMask currently `disallows EIP-712 delegation signatures <https://github.com/MetaMask/core/blob/main/packages/signature-controller/src/utils/validation.ts#L249>`_ in their browser and mobile wallets. You will need to import your account into another browser wallet like `OKX Wallet <https://web3.okx.com/>`_ in order to sign and store delegations in the 1Shot API portal or sign a delegation in a script. 
 
 Create a Delegation
 ~~~~~~~~~~~~~~~~~~~
