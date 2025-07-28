@@ -77,6 +77,13 @@ tokens you want to withdraw and click "Send". You'll be prompted to confirm the 
 Account Delegation
 ------------------
 
+..  youtube:: IcJBHr3BbCI
+   :align: center
+
+.. raw:: html
+
+   <br />
+
 1Shot API allows you to delegate your self-custodied wallet to the 1Shot API service, enabling you to use your own keys while still benefiting from 1Shot API's extensive automation features. This is particularly useful for users who want to maintain control over their private keys while leveraging the convenience of 1Shot API's transaction management. Delegation is accomplished via `MetaMask's Delegation Toolkit <https://docs.metamask.io/delegation-toolkit/>`_; when you sign a delegation, you can specify time bounds as well as which contract methods you want to allow the 1Shot API service to execute on your behalf, cryptographically ensuring that only the specified methods can be called.
 
 Upgrade to MetaMask's 7702 Stateless Delegator
