@@ -1,5 +1,5 @@
-Wallets & Delegations
-=====================
+Wallets
+=======
 
 .. image:: /_static/escrow-wallet/escrow-flow-light.png
    :alt: Escrow Flow
