@@ -1,4 +1,4 @@
-Easy x402 Payments with 1Shot API
+Fast x402 Payments with 1Shot API
 =================================
 
 x402 is a payment standard proposed by Coinbase that enables API services to charge for access by piggybacking on top 

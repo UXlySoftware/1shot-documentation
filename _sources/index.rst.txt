@@ -74,6 +74,13 @@ Onchain Automation
            :align: center
            :width: 300px
 
+Facilitating x402 Payments
+---------------------------
+
+The `x402 <https://x402.org>`_ protocol is a payment scheme built around the `HTTP 402 <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/402>`_ status code that lets requesters pay for resources served by an API without the need for registration or traditional authentication. 1Shot API enables integration of x402 payments into your n8n, Make, or server application to accept any compatible ERC-20 token on any supported blockchain network. 
+
+Check out our documentation for monetizing your `n8n </automation/n8n.html#monetize-n8n-workflows-with-x402>`_ & `Make </automation/integromat.html#monetize-make-scenarios-with-x402>`_ workflows with x402 payments for specific instructions for those platforms. See our `FastAPI example </api/examples/x402.html>`_ for a demonstration of how to put x402 into your server routes. 
+
 1Shot Prompts
 -------------
 
