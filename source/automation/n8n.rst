@@ -13,7 +13,9 @@ n8n
 n8n Nodes
 ---------
 
-Worklows in n8n are built using nodes which allow n8n to make api calls to external services. The 1Shot API n8n node lets your read from and write to smart contracts on any EVM-compatible blockchain in your n8n workflows. You can find our node implementation on `github <https://github.com/uxlySoftware/n8n-nodes-1shot>`_. 
+Worklows in n8n are built using nodes which allow n8n to make api calls to external services. The 1Shot API n8n node lets your read from and write to smart contracts on any EVM-compatible blockchain in your n8n workflows. You can find the source code for our node implementation on `github <https://github.com/uxlySoftware/n8n-nodes-1shot>`_. 
+
+The 1Shot API community node is currently `verified <https://n8n.io/integrations/1shot-api/>`_ and can be used in n8n Cloud workflows. 
 
 Installing the 1Shot API n8n Node
 --------------------------------------
@@ -30,6 +32,11 @@ The 1Shot API n8n node supports three node types:
 - **1Shot API**: This is the primary node you'll likely use. It contains functions for reading and writing to smart contracts, as well as reading your transaction history and wallet states. 
 - **1Shot API Webhook**: This is an entrypoint node; it can trigger workflows in n8n. This node requires you input a `webhook public key </basics/contract-methods.html#webhook-signatures>`_ so that callbacks can be authenticated. 
 - **1Shot API Sumbit & Wait**: This is a specialized instance of the 1Shot API node that can execute contract methods and block the workflow until the transaction is either confirmed or fails. This node will fork into *success* and *error* branches, allowing you to handle the outcome of the transaction in your workflow.
+
+1Shot API Workflow Templates
+----------------------------
+
+You can find a library of pre-created, verified templates from 1Shot API on our `n8n verified creators page <https://n8n.io/creators/oneshotapi/>`_. 
 
 Monetize n8n Workflows with x402
 ---------------------------------
