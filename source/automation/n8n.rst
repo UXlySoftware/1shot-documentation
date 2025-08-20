@@ -67,6 +67,9 @@ You will need to click on both the *Simulate Payment* and the *1Shot API Submit 
 Host Your Own x402 Facilitator
 -------------------------------
 
+..  youtube:: J4ftyV-wz50
+   :align: center
+
 You can run your own x402 facilitator to settle payments for your own products or as a paid service. Copy our `x402 Facilitator workflow <https://n8n.io/workflows/7364-create-a-self-hosted-blockchain-payment-processor-with-x402-and-1shot-api/>`_ into you n8n account. Edit the Payment Configs node to include the token/network pairs you wish to support and then deploy the workflow!
 
 1. Create a 1Shot API account and provision `wallets </basics/wallets.html>`_ on the target blockchain networks and generate an API key & secret.
