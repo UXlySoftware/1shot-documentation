@@ -507,6 +507,10 @@
 <p>You will need to click on both the <em>Simulate Payment</em> and the <em>1Shot API Submit &amp; Wait</em> nodes in the workflow and point them at the <cite>transferWithAuthorization</cite> method belonging to the token you want to accept as payment. The ERC-20 token you choose <strong>must</strong> expose a <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-3009">transferWithAuthorization</a> method (as is the case for the USDC token) to be compatible with x402. Import the appropriate smart contract method in “My Smart Contracts” in the 1Shot API dashboard, and then select it in both of the 1Shot API nodes.</p>
 </section>
 </section>
+<section id="host-your-own-x402-facilitator">
+<h2>Host Your Own x402 Facilitator<a class="headerlink" href="#host-your-own-x402-facilitator" title="Link to this heading">#</a></h2>
+<p>You can run your own x402 facilitator to settle payments for your own products or as a paid service. Copy our <a class="reference external" href="https://n8n.io/workflows/7364-create-a-self-hosted-blockchain-payment-processor-with-x402-and-1shot-api/">x402 Facilitator workflow</a> into you n8n account. Edit the Payment Configs node to include the token/network pairs you wish to support and then deploy the workflow!</p>
+</section>
 </section>
 
 
@@ -565,6 +569,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#payment-configuration">Payment Configuration</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#host-your-own-x402-facilitator">Host Your Own x402 Facilitator</a></li>
 </ul>
   </nav></div>
 
