@@ -68,3 +68,14 @@ Host Your Own x402 Facilitator
 -------------------------------
 
 You can run your own x402 facilitator to settle payments for your own products or as a paid service. Copy our `x402 Facilitator workflow <https://n8n.io/workflows/7364-create-a-self-hosted-blockchain-payment-processor-with-x402-and-1shot-api/>`_ into you n8n account. Edit the Payment Configs node to include the token/network pairs you wish to support and then deploy the workflow!
+
+1. Create a 1Shot API account and provision `wallets </basics/wallets.html>`_ on the target blockchain networks and generate an API key & secret.
+2. Import the `transferWithAuthorization` method for each token you want to support in "My Smart Contracts" in the `1Shot API dashboard <https://app.1shotapi.com/smart-contracts>`_.
+3. Copy the `facilitator workflow <https://n8n.io/workflows/7364-create-a-self-hosted-blockchain-payment-processor-with-x402-and-1shot-api/>`_ into your n8n account & add your API key, secret and business ID to the 1Shot API node.
+4. Configure the Payment Configs node to include the token/network pairs you wish to support with the contract method IDs for the appropriate `transferWithAuthorization` methods.
+5. Activate the workflow and start accepting payments!
+
+Popular Stablecoins that Support x402
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can find x402-compatible tokens to facilitate payments for by filtering on the `x402` tag category in the `1Shot Prompts <https://app.1shotapi.com/1shot-prompts>`_ directory.
