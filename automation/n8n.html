@@ -466,7 +466,8 @@
 <p><a class="reference external" href="https://n8n.io/">n8n</a> is a workflow automation platform designed to empower users to create complex, agentic workflows with minimal technical knowledge. Its intuitive drag-and-drop interface and robust functionality have made it a favorite among developers, businesses, and tech enthusiasts alike. With an ever-expanding library of official and community-built nodes, n8n enables seamless integrations across countless tools and platforms.</p>
 <section id="n8n-nodes">
 <h2>n8n Nodes<a class="headerlink" href="#n8n-nodes" title="Link to this heading">#</a></h2>
-<p>Worklows in n8n are built using nodes which allow n8n to make api calls to external services. The 1Shot API n8n node lets your read from and write to smart contracts on any EVM-compatible blockchain in your n8n workflows. You can find our node implementation on <a class="reference external" href="https://github.com/uxlySoftware/n8n-nodes-1shot">github</a>.</p>
+<p>Worklows in n8n are built using nodes which allow n8n to make api calls to external services. The 1Shot API n8n node lets your read from and write to smart contracts on any EVM-compatible blockchain in your n8n workflows. You can find the source code for our node implementation on <a class="reference external" href="https://github.com/uxlySoftware/n8n-nodes-1shot">github</a>.</p>
+<p>The 1Shot API community node is currently <a class="reference external" href="https://n8n.io/integrations/1shot-api/">verified</a> and can be used in n8n Cloud workflows.</p>
 </section>
 <section id="installing-the-1shot-api-n8n-node">
 <h2>Installing the 1Shot API n8n Node<a class="headerlink" href="#installing-the-1shot-api-n8n-node" title="Link to this heading">#</a></h2>
@@ -481,6 +482,10 @@
 <li><p><strong>1Shot API Webhook</strong>: This is an entrypoint node; it can trigger workflows in n8n. This node requires you input a <a class="reference external" href="/basics/contract-methods.html#webhook-signatures">webhook public key</a> so that callbacks can be authenticated.</p></li>
 <li><p><strong>1Shot API Sumbit &amp; Wait</strong>: This is a specialized instance of the 1Shot API node that can execute contract methods and block the workflow until the transaction is either confirmed or fails. This node will fork into <em>success</em> and <em>error</em> branches, allowing you to handle the outcome of the transaction in your workflow.</p></li>
 </ul>
+</section>
+<section id="shot-api-workflow-templates">
+<h2>1Shot API Workflow Templates<a class="headerlink" href="#shot-api-workflow-templates" title="Link to this heading">#</a></h2>
+<p>You can find a library of pre-created, verified templates from 1Shot API on our <a class="reference external" href="https://n8n.io/creators/oneshotapi/">n8n verified creators page</a>.</p>
 </section>
 <section id="monetize-n8n-workflows-with-x402">
 <h2>Monetize n8n Workflows with x402<a class="headerlink" href="#monetize-n8n-workflows-with-x402" title="Link to this heading">#</a></h2>
@@ -554,6 +559,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n8n-nodes">n8n Nodes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-1shot-api-n8n-node">Installing the 1Shot API n8n Node</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-types">Node Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shot-api-workflow-templates">1Shot API Workflow Templates</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monetize-n8n-workflows-with-x402">Monetize n8n Workflows with x402</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#x402-workflow-installation">x402 Workflow Installation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#payment-configuration">Payment Configuration</a></li>
