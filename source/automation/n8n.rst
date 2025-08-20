@@ -78,4 +78,4 @@ You can run your own x402 facilitator to settle payments for your own products o
 Popular Stablecoins that Support x402
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can find x402-compatible tokens to facilitate payments for by filtering on the `x402` tag category in the `1Shot Prompts <https://app.1shotapi.com/1shot-prompts>`_ directory.
+You can find x402-compatible tokens to facilitate payments for by filtering on the `x402` tag category in the `1Shot Prompts <https://app.1shotapi.com/1shot-prompts>`_ directory. Find the `transferWithAuthorization` method on the smart contract that takes `r`, `s`, and `v` parameters and click "Add to My Contract Methods" to import the method into your account. Once you've imported the method for your target token, go to the method's details page and copy the `Contract Method ID` to use in your n8n workflow configuration.
