@@ -1,7 +1,7 @@
 1Shot Prompts
 =============
 
-..  youtube:: ViNfYVmGM8w
+..  youtube:: WLkwqC4B2r4
    :align: center
 
 .. raw:: html
@@ -15,5 +15,4 @@ Smart contracts must have verified ABI and source code available on Etherscan in
 Smart Contracts as Tools 
 ------------------------
 
-Prompts can be turned into tools you can use from the m2m API by importing them into your `business </basics/businesses-and-teams.thml>`_. You can then list all the tools available in your business by `listing the contract methods </api/api.html#list-available-contract-methods>`_ in your business. The description fields of the contract methods and their inputs and outputs can be passed to an LLM to help it reason about how to use the contract method and what to expect from the transaction execution.
-
+Smart contract prompts can be turned into tools by importing them into your `business </basics/businesses-and-teams.thml>`_. You can then list all the tools available in your business by `listing the contract methods </api/api.html#list-available-contract-methods>`_ in your business. The description fields of the contract methods and their inputs and outputs can be passed to an LLM to help it reason about how to use the contract method and what to expect from the transaction execution.
