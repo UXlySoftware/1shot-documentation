@@ -27,6 +27,10 @@ a single POST call. 1Shot API can also be used in a completely non-custodial fas
 Architecture
 ------------
 
+.. raw:: html
+
+   <br />
+
 .. image:: ./_static/1shot-architecture.png
    :alt: 1Shot API Architecture
    :align: center
