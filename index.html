@@ -428,7 +428,7 @@
 a single POST call. 1Shot API can also be used in a completely non-custodial fashion by using its <a class="reference external" href="/basics/wallets.html#account-delegation">delegation feature</a>, allowing you to connect your self-custodied wallet to the 1Shot API service while retaining control over your private keys.</p>
 <section id="architecture">
 <h2>Architecture<a class="headerlink" href="#architecture" title="Link to this heading">#</a></h2>
-<img alt="1Shot API Architecture" class="align-center" src="_images/1shot-architecture.png" />
+<br /><img alt="1Shot API Architecture" class="align-center" src="_images/1shot-architecture.png" />
 <br /><p>1Shot API is not an RPC provider, but an abstraction layer on top of typical RPC providers (like Infura, Alchemy or Ankr). In fact, depending on your use case you may not even
 need an RPC provider as we handle the full transaction lifecycle with real-time webhook callbacks on the final state of your transactions. 1Shot API allows you to read from
 and write to smart contracts without the need of importing web3 clients like viem or ethers.js into your source code. This lets you focus on the logic specific to your application
