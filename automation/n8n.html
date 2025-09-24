@@ -490,7 +490,7 @@
 <section id="monetize-n8n-workflows-with-x402">
 <h2>Monetize n8n Workflows with x402<a class="headerlink" href="#monetize-n8n-workflows-with-x402" title="Link to this heading">#</a></h2>
 <div class="video_wrapper align-center" style="text-align: center">
-<iframe allowfullscreen="true" src="https://www.youtube.com/embed/m3ThthLtj3g" style="border: 0; height: 345px; width: 560px">
+<iframe allowfullscreen="true" src="https://www.youtube.com/embed/sqLUpR6t--0" style="border: 0; height: 345px; width: 560px">
 </iframe></div><p>Using the <em>1Shot API</em> node in series with the <em>1Shot API Submit &amp; Wait</em> node, you can monetize any workflow that you can build in n8n using the x402 payment protocol.</p>
 <p>The workflow template is available <a class="reference external" href="https://n8n.io/workflows/5389-monetize-workflows-with-x402-payment-protocol-and-1shot-api/">here</a>. Copy the JSON file and import it into your n8n workflow instance.</p>
 <section id="x402-workflow-installation">
@@ -504,14 +504,12 @@
 <p class="admonition-title">Important</p>
 <p>Don’t forget to provision a <a class="reference external" href="/basics/wallets.html">1Shot API wallet</a> on the target blockchain network where you want to accept payments. Put sufficient gas funds into the wallet to cover the transaction costs of your payment transactions.</p>
 </div>
-<p>You will need to click on both the <em>Simulate Payment</em> and the <em>1Shot API Submit &amp; Wait</em> nodes in the workflow and point them at the <cite>transferWithAuthorization</cite> method belonging to the token you want to accept as payment. The ERC-20 token you choose <strong>must</strong> expose a <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-3009">transferWithAuthorization</a> method (as is the case for the USDC token) to be compatible with x402. Import the appropriate smart contract method in “My Smart Contracts” in the 1Shot API dashboard, and then select it in both of the 1Shot API nodes.</p>
+<p>You will need to import the ERC-20 tokens you want to accept as payments into your 1Shot API account. The selected tokens <strong>must</strong> expose a <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-3009">transferWithAuthorization</a> method (as is the case for the USDC, PYUSD or mUSD tokens) that take <cite>r</cite>, <cite>s</cite>, and <cite>v</cite> signature components to be compatible with x402. You can find x402-compatible tokens by filtering on the <cite>x402</cite> tag in the <a class="reference external" href="https://app.1shotapi.com/1shot-prompts">1Shot Prompts</a> directory. Once imported, copy the <cite>Contract Method ID</cite> from the method details page to use in the Payment Token Configs node in the workflow.</p>
 </section>
 </section>
 <section id="host-your-own-x402-facilitator">
 <h2>Host Your Own x402 Facilitator<a class="headerlink" href="#host-your-own-x402-facilitator" title="Link to this heading">#</a></h2>
-<div class="video_wrapper align-center" style="text-align: center">
-<iframe allowfullscreen="true" src="https://www.youtube.com/embed/J4ftyV-wz50" style="border: 0; height: 345px; width: 560px">
-</iframe></div><p>You can run your own x402 facilitator to settle payments for your own products or as a paid service. Copy our <a class="reference external" href="https://n8n.io/workflows/7364-create-a-self-hosted-blockchain-payment-processor-with-x402-and-1shot-api/">x402 Facilitator workflow</a> into you n8n account. Edit the Payment Configs node to include the token/network pairs you wish to support and then deploy the workflow!</p>
+<p>. Copy our <a class="reference external" href="https://n8n.io/workflows/7364-create-a-self-hosted-blockchain-payment-processor-with-x402-and-1shot-api/">x402 Facilitator workflow</a> into you n8n account. Edit the Payment Configs node to include the token/network pairs you wish to support and then deploy the workflow!</p>
 <ol class="arabic simple">
 <li><p>Create a 1Shot API account and provision <a class="reference external" href="/basics/wallets.html">wallets</a> on the target blockchain networks and generate an API key &amp; secret.</p></li>
 <li><p>Import the <cite>transferWithAuthorization</cite> method for each token you want to support in “My Smart Contracts” in the <a class="reference external" href="https://app.1shotapi.com/smart-contracts">1Shot API dashboard</a>.</p></li>
