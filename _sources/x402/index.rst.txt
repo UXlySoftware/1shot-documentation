@@ -12,7 +12,7 @@ You can import any `EIP-3009 <https://eips.ethereum.org/EIPS/eip-3009>`_ compati
 
 .. important::
 
-    The original EIP-3009 specification describes a ``transferWithAuthorization`` method that takes a user signature in the form of `v`, `r`, and `s`. However, some tokens like USDC have an overloaded version that takes a single `signature` bytes string. 1Shot API expects the `v`, `r`, and `s` version of the method to be present in the contract ABI to be compatible with x402. But the `/verify` and `/settle` endpoints take a `signature` as described in the x402 standard; 1Shot API will split the signature into its `v`, `r`, and `s` components before calling the ``transferWithAuthorization`` method automatically. 
+    The original EIP-3009 specification describes a ``transferWithAuthorization`` method that takes a user signature in the form of ``v``, ``r``, and ``s``. However, some tokens like USDC have an overloaded version that takes a single `signature` bytes string. 1Shot API expects the ``v``, ``r``, and ``s`` version of the method to be present in the contract ABI to be compatible with x402. But the ``/verify`` and ``/settle`` endpoints take a ``signature`` as described in the x402 standard; 1Shot API will split the signature into its ``v``, ``r``, and ``s`` components before calling the ``transferWithAuthorization`` method automatically. 
 
 Using 1Shot API to Facilitate x402 Payments
 -------------------------------------------
