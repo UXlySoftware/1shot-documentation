@@ -467,7 +467,7 @@
                   
   <section id="x402-facilitator">
 <h1>x402 Facilitator<a class="headerlink" href="#x402-facilitator" title="Link to this heading">#</a></h1>
-<p>1Shot API offers special API endpoints for facilitating x402 payments, check out the <a class="reference external" href="/api/openapi.html#operations-tag-x402">OpenAPI specification</a> for the x402 tag.</p>
+<p>1Shot API offers special API endpoints for facilitating <a class="reference external" href="https://x402.org">x402</a> payments, check out the <a class="reference external" href="/api/openapi.html#operations-tag-x402">OpenAPI specification</a> for the x402 tag.</p>
 <p>1Shot API can process x402 payments for any EIP-3009 compatible token on any of the supported EVM networks you have a provisioned server wallet on. Be sure to deposit sufficient gas funds into your server wallet to cover the transaction costs of the payment transactions.</p>
 <section id="configuring-x402-payment-tokens">
 <h2>Configuring x402 Payment Tokens<a class="headerlink" href="#configuring-x402-payment-tokens" title="Link to this heading">#</a></h2>
@@ -480,8 +480,55 @@
 <section id="using-1shot-api-to-facilitate-x402-payments">
 <h2>Using 1Shot API to Facilitate x402 Payments<a class="headerlink" href="#using-1shot-api-to-facilitate-x402-payments" title="Link to this heading">#</a></h2>
 <p>1Shot API provides a simple npm package for integrating x402 payments into your node server application that is compatible with the <cite>Coinbase x402 &lt;https://github.com/coinbase/x402&gt;</cite> npm package suite.</p>
-<p>You can install the package with your package manager of choice:</p>
+<p>You can install the facilitator package for node with your package manager of choice:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>install<span class="w"> </span>@1shotapi/x402-facilitator
+</pre></div>
+</div>
+<p>This package exports two components:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">facilitator</span></code>: A <code class="docutils literal notranslate"><span class="pre">FacilitatorConfig</span></code> object used by x402 middleware packages; reads 1Shot API credentials from environment variables.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">createFacilitatorConfig</span></code>: A helper function which creates a <code class="docutils literal notranslate"><span class="pre">FacilitatorConfig</span></code> object and takes 1Shot API credentials as parameters.</p></li>
+</ul>
+<p>Here is an example:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">config</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;dotenv&quot;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;express&quot;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">paymentMiddleware</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;x402-express&quot;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">facilitator</span><span class="p">,</span><span class="w"> </span><span class="nx">createFacilitatorConfig</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;@1shotapi/x402-facilitator&quot;</span><span class="p">;</span>
+<span class="nx">config</span><span class="p">();</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">facilitatorConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createFacilitatorConfig</span><span class="p">(</span>
+<span class="w">  </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">ONESHOT_API_KEY</span><span class="o">!</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">ONESHOT_API_SECRET</span><span class="o">!</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="c1">// Or use environment variables implicitly</span>
+<span class="c1">// const facilitatorConfig = facilitator;</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+<span class="w">  </span><span class="nx">paymentMiddleware</span><span class="p">(</span>
+<span class="w">   </span><span class="nx">payTo</span><span class="p">,</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;GET /weather&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// USDC amount in dollars</span>
+<span class="w">        </span><span class="nx">price</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;$0.001&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="c1">// network: &quot;base&quot; // uncomment for Base mainnet</span>
+<span class="w">        </span><span class="nx">network</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;base-sepolia&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">config</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Access to weather data&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">mimeType</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="p">},</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">        </span><span class="nx">config</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Access to premium content&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">mimeType</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="c1">// network: &quot;base&quot; // uncomment for Base mainnet</span>
+<span class="w">        </span><span class="nx">network</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;base-sepolia&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">facilitatorConfig</span><span class="p">,</span>
+<span class="w">  </span><span class="p">),</span>
+<span class="p">);</span>
 </pre></div>
 </div>
 </section>
