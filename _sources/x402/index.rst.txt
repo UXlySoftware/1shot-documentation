@@ -17,7 +17,7 @@ You can import any `EIP-3009 <https://eips.ethereum.org/EIPS/eip-3009>`_ compati
 Using 1Shot API to Facilitate x402 Payments
 -------------------------------------------
 
-1Shot API provides a simple npm package for integrating x402 payments into your node server application that is compatible with the `Coinbase x402 <https://github.com/coinbase/x402>` npm package suite. 
+1Shot API provides a simple npm package for integrating x402 payments into your node server application that is compatible with the `Coinbase x402 <https://github.com/coinbase/x402>`_ npm package suite. 
 
 You can install the facilitator package for node with your package manager of choice:
 
