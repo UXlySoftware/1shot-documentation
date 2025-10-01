@@ -1,7 +1,7 @@
 x402 Facilitator
 =================
 
-1Shot API offers special API endpoints for facilitating x402 payments, check out the `OpenAPI specification </api/openapi.html#operations-tag-x402>`_ for the x402 tag. 
+1Shot API offers special API endpoints for facilitating `x402 <https://x402.org>`_ payments, check out the `OpenAPI specification </api/openapi.html#operations-tag-x402>`_ for the x402 tag. 
 
 1Shot API can process x402 payments for any EIP-3009 compatible token on any of the supported EVM networks you have a provisioned server wallet on. Be sure to deposit sufficient gas funds into your server wallet to cover the transaction costs of the payment transactions.
 
@@ -19,8 +19,57 @@ Using 1Shot API to Facilitate x402 Payments
 
 1Shot API provides a simple npm package for integrating x402 payments into your node server application that is compatible with the `Coinbase x402 <https://github.com/coinbase/x402>` npm package suite. 
 
-You can install the package with your package manager of choice:
+You can install the facilitator package for node with your package manager of choice:
 
 .. code-block:: bash
 
     npm install @1shotapi/x402-facilitator
+
+This package exports two components: 
+
+* ``facilitator``: A ``FacilitatorConfig`` object used by x402 middleware packages; reads 1Shot API credentials from environment variables.
+* ``createFacilitatorConfig``: A helper function which creates a ``FacilitatorConfig`` object and takes 1Shot API credentials as parameters.
+
+Here is an example:
+
+.. code-block:: javascript
+
+   import { config } from "dotenv";
+   import express from "express";
+   import { paymentMiddleware } from "x402-express";
+   import { facilitator, createFacilitatorConfig } from "@1shotapi/x402-facilitator";
+   config();
+
+   const facilitatorConfig = createFacilitatorConfig(
+     process.env.ONESHOT_API_KEY!,
+     process.env.ONESHOT_API_SECRET!,
+   );
+
+   // Or use environment variables implicitly
+   // const facilitatorConfig = facilitator;
+
+   app.use(
+     paymentMiddleware(
+      payTo,
+       {
+         "GET /weather": {
+           // USDC amount in dollars
+           price: "$0.001",
+           // network: "base" // uncomment for Base mainnet
+           network: "base-sepolia",
+           config: {
+             description: "Access to weather data",
+             mimeType: "application/json",
+          },
+         },
+           config: {
+             description: "Access to premium content",
+             mimeType: "application/json",
+           },
+           // network: "base" // uncomment for Base mainnet
+           network: "base-sepolia",
+         },
+       },
+       facilitatorConfig,
+     ),
+   );
