@@ -50,7 +50,7 @@ We'll set both of these parameters to be ``Dynamic`` so because we will pass bot
     if you always want to transfer the same amount of tokens every time but to different addresses.
 
 Contract Method Parameters
-----------------------
+---------------------------
 
 At the highest configuration level, input paramerters can be either ``primitive``, ``array``, or ``struct`` types. A ``primitive`` is a type like
 ``uint`` or ``bool`` that is not composed of other types and is likely the most common input type. An ``array`` is a collection 

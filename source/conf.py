@@ -18,11 +18,15 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx_design',
     'sphinx_copybutton',
-    'sphinxcontrib.youtube'
+    'sphinxcontrib.youtube',
+    'sphinxcontrib.googleanalytics'
 ]
 
 templates_path = ['_templates']
 exclude_patterns = []
+
+# -- Sphinx Google Analytics options --------------------------------------
+googleanalytics_id = "G-WNFJCLZDV3"
 
 # -- Sphinx-copybutton options ---------------------------------------------
 # Exclude copy button from appearing over notebook cell numbers by using :not()
