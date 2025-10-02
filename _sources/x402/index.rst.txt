@@ -50,7 +50,9 @@ This package exports two components:
 * ``facilitator``: A ``FacilitatorConfig`` object used by x402 middleware packages; reads 1Shot API credentials from environment variables.
 * ``createFacilitatorConfig``: A helper function which creates a ``FacilitatorConfig`` object and takes 1Shot API credentials as parameters.
 
-Here is an example:
+
+
+Try running our `x402-express demo <https://github.com/UXlySoftware/1Shot-API-Examples/tree/main/typescript/x402-server>`_ or check out the code example below:
 
 .. code-block:: javascript
 
