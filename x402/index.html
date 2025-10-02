@@ -462,6 +462,17 @@
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>install<span class="w"> </span>@1shotapi/x402-facilitator
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The canonical <a class="reference external" href="https://www.npmjs.com/package/x402">x402 package</a> from Coinbase Developer Platform is a dependency of middleware packages like <a class="reference external" href="https://www.npmjs.com/package/x402-express">x402-express</a> and may not currently support the chain you want to use for payments. 1Shot API publishes a shim package, <a class="reference external" href="https://www.npmjs.com/package/&#64;1shotapi/x402">&#64;1shotapi/x402</a>, that can be used as an override to add support for additional chains. Install it in your project, <code class="docutils literal notranslate"><span class="pre">pnpm</span> <span class="pre">add</span> <span class="pre">x402&#64;npm:&#64;1shotapi/x402</span></code>, then add the override to you <code class="docutils literal notranslate"><span class="pre">package.json</span></code>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;pnpm&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;overrides&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;x402&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;@1shotapi/x402@^0.1.1&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 <p>This package exports two components:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">facilitator</span></code>: A <code class="docutils literal notranslate"><span class="pre">FacilitatorConfig</span></code> object used by x402 middleware packages; reads 1Shot API credentials from environment variables.</p></li>
