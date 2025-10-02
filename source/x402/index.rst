@@ -15,7 +15,7 @@ x402 Facilitator
 Configuring x402 Payment Tokens
 --------------------------------
 
-You can import any `EIP-3009 <https://eips.ethereum.org/EIPS/eip-3009>`_ compatible token into your 1Shot API account to process payments. The token must expose a ``transferWithAuthorization`` method. This can be done by searching for your desired token in the `1Shot Prompts <https://app.1shotapi.com/1shot-prompts>`_ directory and clicking `import` on the ``transferWithAuthorization`` method or by manually adding the smart contract with its ``transferWithAuthorization`` method from the `My Smart Contracts <https://app.1shotapi.com/smart-contracts>`_ page in the 1Shot API dashboard.
+You can import any `EIP-3009 <https://eips.ethereum.org/EIPS/eip-3009>`_ compatible token into your 1Shot API account to process payments. The token must expose a ``transferWithAuthorization`` method. This can be done by searching for your desired token in the `1Shot Prompts <https://app.1shotapi.com/1shot-prompts>`_ directory, filtering on the ``x402`` category. Click on the token you want, then in the "Write Functions" column, select ``transferWIthAuthorization`` and click "Add to My Contract Methods". Alternatively, simply click the "Create Contract Methods for All Functions" in the top right hand corner. 
 
 .. important::
 
