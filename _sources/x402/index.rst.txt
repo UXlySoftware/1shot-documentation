@@ -10,7 +10,7 @@ x402 Facilitator
 
 1Shot API offers special API endpoints for facilitating `x402 <https://x402.org>`_ payments, check out the `OpenAPI specification </api/openapi.html#operations-tag-x402>`_ for the x402 tag. 
 
-1Shot API can process x402 payments for any EIP-3009 compatible token on any of the supported EVM networks you have a provisioned server wallet on. Be sure to deposit sufficient gas funds into your server wallet to cover the transaction costs of the payment transactions.
+1Shot API can process x402 payments for any EIP-3009 compatible token on any of the supported EVM networks you have a provisioned `server wallet </basics/wallets.html>`_ on. Be sure to deposit sufficient gas funds into your server wallet to cover the transaction costs of the payment transactions (the `1Shot API gas station <https://1shotapi.com/gas-station>`_ is an easy way to convert USDC into gas on any chain you might have a server wallet on).
 
 Configuring x402 Payment Tokens
 --------------------------------
