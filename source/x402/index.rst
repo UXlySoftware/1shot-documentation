@@ -32,6 +32,19 @@ You can install the facilitator package for node with your package manager of ch
 
     npm install @1shotapi/x402-facilitator
 
+.. note::
+
+    The canonical `x402 package <https://www.npmjs.com/package/x402>`_ from Coinbase Developer Platform is a dependency of middleware packages like `x402-express <https://www.npmjs.com/package/x402-express>`_ and may not currently support the chain you want to use for payments. 1Shot API publishes a shim package, `@1shotapi/x402 <https://www.npmjs.com/package/@1shotapi/x402>`_, that can be used as an override to add support for additional chains. Install it in your project, ``pnpm add x402@npm:@1shotapi/x402``, then add the override to you ``package.json``:
+
+    .. code-block:: json
+
+        "pnpm": {
+          "overrides": {
+            "x402": "@1shotapi/x402@^0.1.1"
+          }
+        }
+
+
 This package exports two components: 
 
 * ``facilitator``: A ``FacilitatorConfig`` object used by x402 middleware packages; reads 1Shot API credentials from environment variables.
