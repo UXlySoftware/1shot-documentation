@@ -27,7 +27,7 @@ Before you can import a payment token, you must first provision a `server wallet
 
 .. important::
 
-    The original EIP-3009 specification describes a ``transferWithAuthorization`` method that takes a user signature in the form of ``v``, ``r``, and ``s``. However, some tokens like USDC have an overloaded version that takes a single `signature` bytes string. 1Shot API expects the ``v``, ``r``, and ``s`` version of the method to be present in the contract ABI to be compatible with x402. But the ``/verify`` and ``/settle`` endpoints take a ``signature`` as described in the x402 standard; 1Shot API will split the signature into its ``v``, ``r``, and ``s`` components before calling the ``transferWithAuthorization`` method automatically. 
+    The original EIP-3009 specification describes a ``transferWithAuthorization`` method that takes a user signature in the form of ``v``, ``r``, and ``s``. However, some tokens like USDC have an overloaded version that takes a single ``signature`` bytes string. 1Shot API expects the ``v``, ``r``, and ``s`` version of the method to be present in the token's contract ABI. The ``/verify`` and ``/settle`` endpoints take a ``signature`` as described in the x402 standard specification; 1Shot API will split the signature into its ``v``, ``r``, and ``s`` components before calling the ``transferWithAuthorization`` method automatically. This allows for support for tokens like PYUSD.
 
 Using 1Shot API to Facilitate x402 Payments
 -------------------------------------------
@@ -57,8 +57,6 @@ This package exports two components:
 
 * ``facilitator``: A ``FacilitatorConfig`` object used by x402 middleware packages; reads 1Shot API credentials from environment variables.
 * ``createFacilitatorConfig``: A helper function which creates a ``FacilitatorConfig`` object and takes 1Shot API credentials as parameters.
-
-
 
 Try running our `x402-express demo <https://github.com/UXlySoftware/1Shot-API-Examples/tree/main/typescript/x402-server>`_ or check out the code example below:
 
