@@ -465,7 +465,7 @@
 <img alt="Escrow Flow" class="only-dark align-center" src="../_images/escrow-flow-dark.png" />
 <br /><p>1Shot API wallets are Ethereum-compatible signing keys managed by 1Shot API to submit transactions on your behalf when you make a REST
 call to one of your configured <a class="reference external" href="/basics/contract-methods.html">contract methods</a>. Each of your wallets can be linked to one or
-more smart contract methods (but each contract method can only have a single default). The default wallet of a contract method can be overridden when the endpoint
+more smart contract methods (but each contract method can only have a single default wallet). The default wallet of a contract method can be overridden when the endpoint
 is called from the api. In order to submit a transaction from any of your 1Shot API-managed wallets, you must first deposit gas tokens.</p>
 <p>1Shot API’s wallet infrastructure keeps your keys secure and encrypted at rest, but it is still good practice to only deposit
 the amount of gas tokens you need for a given period of time and use <a class="reference external" href="#account-delegation">delegation</a> to connect self-custodied accounts to 1Shot API’s powerful automation features. When your wallet runs low on funds, 1Shot API will automatically send
