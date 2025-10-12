@@ -16,8 +16,8 @@ Wallets
    <br />
 
 1Shot API wallets are Ethereum-compatible signing keys managed by 1Shot API to submit transactions on your behalf when you make a REST 
-call to one of your configured `contract methods <transactions.html>`_. Each of your wallets can be linked to one or 
-more smart contract methods (but each contract method can only have a single default). The default wallet of a contract method can be overridden when the endpoint
+call to one of your configured `contract methods </basics/contract-methods.html>`_. Each of your wallets can be linked to one or 
+more smart contract methods (but each contract method can only have a single default wallet). The default wallet of a contract method can be overridden when the endpoint
 is called from the api. In order to submit a transaction from any of your 1Shot API-managed wallets, you must first deposit gas tokens.
 
 1Shot API's wallet infrastructure keeps your keys secure and encrypted at rest, but it is still good practice to only deposit 
