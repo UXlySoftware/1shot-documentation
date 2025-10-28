@@ -29,7 +29,7 @@ Node Types
 
 The 1Shot API n8n node supports three node types:
 
-- **1Shot API**: This is the primary node you'll likely use. It contains functions for reading and writing to smart contracts, as well as reading your transaction history and wallet states. 
+- **1Shot API**: This is the primary node you'll likely use. It contains functions for reading and writing to smart contracts, as well as reading your transaction history and wallet states. Importantly, this node lets you execute `delegated transactions </basics/wallets.html#account-delegation>`_ - without exporting your private keys from your wallet or giving up control of your onchain assets, you can execute transactions from your self-custodied wallet using delegations from an n8n workflow.
 - **1Shot API Webhook**: This is an entrypoint node; it can trigger workflows in n8n. There are two options: an x402 gateway which lets you monetize n8n workflows, and a 1Shot API webhook receiver which handles webhooks coming from 1Shot API & requires you input a `webhook public key </basics/contract-methods.html#webhook-signatures>`_ so that callbacks can be authenticated. 
 - **1Shot API Sumbit & Wait**: This is a specialized instance of the 1Shot API node that can execute contract methods and block the workflow until the transaction is either confirmed or fails. This node will fork into *success* and *error* branches, allowing you to handle the outcome of the transaction in your workflow.
 
@@ -44,7 +44,7 @@ Monetize n8n Workflows with x402
 ..  youtube:: SzuSpIWLy5k
    :align: center
 
-Using the *1Shot API* x402 webhook trigger, you can monetize any workflow that you can build in n8n using the x402 payment protocol. It automatically handles returning proper x402 error response to the client as well as calling the `1Shot API facilitator </x402/index.html>`_. See the tutorial video above for a walkthrough setup procedure.
+Using the *1Shot API* x402 webhook trigger, you can monetize any workflow that you can build in n8n using the x402 payment protocol. It automatically handles returning proper x402 error response to the client as well as calling the `1Shot API facilitator </x402/index.html>`_. See the tutorial video above for a complete walkthrough setup procedure.
 
 Payment Configuration
 ~~~~~~~~~~~~~~~~~~~~~
@@ -53,7 +53,7 @@ Payment Configuration
 
     Don't forget to provision a `1Shot API wallet </basics/wallets.html>`_ on the target blockchain network where you want to accept payments. Put sufficient gas funds into the wallet to cover the transaction costs of your payment transactions.
 
-You will need to import the ERC-20 tokens you want to accept as payments into your 1Shot API account. The selected tokens **must** expose a `transferWithAuthorization <https://eips.ethereum.org/EIPS/eip-3009>`_ method (as is the case for the USDC, PYUSD or mUSD tokens) that take `r`, `s`, and `v` signature components to be compatible with x402. You can find x402-compatible tokens by filtering on the `x402` tag in the `1Shot Prompts <https://app.1shotapi.com/1shot-prompts>`_ directory. Once imported, the token will appear as an option when you configure the x402 webhook node in your n8n workflow.
+You will need to import the ERC-20 tokens you want to accept as payments into your 1Shot API account (see the `facilitator page </x402/index.html#configuring-x402-payment-tokens>`_ for more information). The selected tokens **must** expose a `transferWithAuthorization <https://eips.ethereum.org/EIPS/eip-3009>`_ method (as is the case for the USDC, PYUSD or mUSD tokens) that take `r`, `s`, and `v` signature components to be compatible with x402. You can find x402-compatible tokens by filtering on the `x402` tag in the `1Shot Prompts <https://app.1shotapi.com/1shot-prompts>`_ directory. Once imported, the token will appear as an option when you configure the x402 webhook node in your n8n workflow.
 
 Popular Stablecoins that Support x402
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
