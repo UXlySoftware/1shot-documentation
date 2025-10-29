@@ -3,8 +3,8 @@ Calling the 1Shot API
 
 Once you have funded a `wallet </basics/wallets.html>`_ and configured a `contract method </basics/contract-methods.html>`_, you can create an onchain transaction from it by making a POST request to the 1Shot API. To do this you'll first need to generate a bearer token using your API key and secret.
 
-Create an API key and secret by clicking the "API Keys" on the left-hand navigation bar in the 1Shot console. Click "Create New Key" and give it a name.
-This key will be active immediately and can be used to generate a bearer token. If you delete it, it will be permanently deactivated. 
+Create an API key and secret by clicking the "API Keys" tab on the left-hand navigation bar in the 1Shot API console. Click "Create New Key" and give it a name.
+The API key & secret will be active immediately and can be used to generate a bearer token. If you delete it, it will be immediately and permanently deactivated. 
 
 Generating a Bearer Token
 =========================
