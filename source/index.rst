@@ -27,7 +27,7 @@ Welcome to 1Shot API!
 
    <br />
 
-The `1Shot API <https://1shotapi.com>`_ is an automation-focused and enterprise-grade account abstraction and transaction service for the Ethereum mainnet and L2 ecosystem 
+`1Shot API <https://1shotapi.com>`_ is an automation-focused and enterprise-grade account abstraction and transaction service for the Ethereum mainnet and L2 ecosystem 
 (Binance and Avalanche supported as well). It provides a simple REST API to trigger state-changing smart contract transactions (as well as smart contract reads) on a target blockchain network with 
 a single POST call. 1Shot API can also be used in a completely non-custodial fashion by using its `delegation feature </basics/wallets.html#account-delegation>`_, allowing you to connect your self-custodied wallet to the 1Shot API service while retaining control over your private keys.
 
