@@ -1,7 +1,7 @@
 1Shot Prompts
 =============
 
-..  youtube:: WLkwqC4B2r4
+..  youtube:: ViNfYVmGM8w
    :align: center
 
 .. raw:: html
