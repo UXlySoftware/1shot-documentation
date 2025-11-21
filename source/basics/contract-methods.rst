@@ -469,6 +469,6 @@ Here is an example of a `FastAPI <https://fastapi.tiangolo.com/tutorial/>`_ serv
         return {'message': 'webhook sinker is up!'}
 
 A complete example you can run from your local machine using `ngrok <https://ngrok.com/>`_ tunnels can be 
-found `here <https://github.com/UXlySoftware/webhook-sinker>`_. 
+found `here <https://github.com/1Shot-API/webhook-sinker>`_. 
 
 Additionally, our `client SDKs </api/api.html#client-sdks>`_ provide helper functions to verify webhook signatures. 
