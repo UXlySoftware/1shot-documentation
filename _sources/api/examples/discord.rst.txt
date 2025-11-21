@@ -13,4 +13,4 @@ blockchain transactions.
 ..  youtube:: LIz4ANRdPus
    :align: center
 
-Check out the github repo for this tutorial `here <https://github.com/uxlySoftware/1shot-discord-bot>`_.
+Check out the github repo for this tutorial `here <https://github.com/1Shot-API/1Shot-API-Examples/tree/main/python/discord-bot>`_.

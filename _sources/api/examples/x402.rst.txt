@@ -15,4 +15,4 @@ to your existing codebase.
 ..  youtube:: Qp7n2ZnlbSw
    :align: center
 
-Check out the github repo for this tutorial `here <https://github.com/uxlySoftware/1shot-x402>`_.
+Check out the github repo for this tutorial `here <https://github.com/1Shot-API/1Shot-API-Examples/tree/main/python/x402-fastapi>`_.
